@@ -1,11 +1,12 @@
-const path      = require('path'),
- express        = require('express'),
- bodyParser     = require('body-parser'),
- app            = express(),
- ProjectsRouter = require('./routes/projects'),
- Post           = require('./models/project'),
+const path         = require('path'),
+ express           = require('express'),
+ bodyParser        = require('body-parser'),
+ app               = express(),
+ ProjectsRouter    = require('./routes/projects'),
+ CheckpointsRouter = require('./routes/checkpoints'),
+ Post              = require('./models/project'),
 
- mongoose       = require('mongoose');
+ mongoose          = require('mongoose');
 
 mongoose.connect('mongodb://localhost:27017/lms');
 
@@ -39,6 +40,8 @@ app.get('/', function(req, res) {
 });
 
 app.use('/api/v1/projects', ProjectsRouter)
+app.use('/api/v1/projects', CheckpointsRouter);
+
 
 
 const port = process.env.PORT || 3000;

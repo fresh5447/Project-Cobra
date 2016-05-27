@@ -17,9 +17,9 @@ Router.route('/')
   })
   .post(function(req, res){
     let project = new Project({
-      project_title:       req.body.title,
-      project_description: req.body.description,
-      hours:               req.body.hours
+      title: req.body.title,
+      desc:  req.body.description,
+      hours: req.body.hours
     });
     project.save(function(err, project){
       if(err){
@@ -45,9 +45,9 @@ Router.route('/:id')
       if(err) {
         res.json({ message: "there was an error finding this bad boy" })
       } else {
-        project.project_title       = req.body.title ? req.body.title : project.project_title;
-        project.project_description = req.body.description ? req.body.description : project.project_description;
-        project.hours               = req.body.hours ? req.body.hours : project.hours
+        project.title = req.body.title ? req.body.title : project.title;
+        project.desc  = req.body.desc ? req.body.desc : project.desc;
+        project.hours = req.body.hours ? req.body.hours : project.hours
 
         project.save(function(err){
           if(err) {

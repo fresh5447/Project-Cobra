@@ -3,9 +3,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ProjectSchema = new Schema({
-  project_title:       String,
-  project_description: String,
-  hours:               Number
+  title:       String,
+  desc:        String,
+  hours:       Number,
+  checkpoints: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Checkpoint' }]
 });
 
 module.exports = mongoose.model('Project', ProjectSchema);
