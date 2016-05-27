@@ -1,9 +1,14 @@
-var path = require('path');
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/lms')
+const path      = require('path'),
+ express        = require('express'),
+ bodyParser     = require('body-parser'),
+ app            = express(),
+ ProjectsRouter = require('./routes/projects'),
+ Post           = require('./models/project'),
+
+ mongoose       = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/lms');
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,10 +20,10 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   // When not in production, enable hot reloading
 
-  var chokidar = require('chokidar');
-  var webpack = require('webpack');
-  var webpackConfig = require('./webpack.config.dev');
-  var compiler = webpack(webpackConfig);
+  const chokidar = require('chokidar');
+  const webpack = require('webpack');
+  const webpackConfig = require('./webpack.config.dev');
+  const compiler = webpack(webpackConfig);
   app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
     publicPath: webpackConfig.output.publicPath
@@ -33,8 +38,10 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.use('/api/v1/projects', ProjectsRouter)
 
-var port = process.env.PORT || 3000;
+
+const port = process.env.PORT || 3000;
 
 app.listen(port, function(){
   console.log("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥\n🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 fired up 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 \n🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 on " + port + " 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥\n🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥")
