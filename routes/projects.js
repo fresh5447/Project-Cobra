@@ -7,7 +7,9 @@ const Router = express.Router();
 
 Router.route('/')
   .get(function(req, res){
-    Project.find(function(err, projects){
+    Project.find()
+    .populate('checkpoints')
+    .exec(function(err, projects){
       if(err){
         res.json({ message: "there was an error finding all projects" })
       } else {
@@ -32,7 +34,9 @@ Router.route('/')
 
 Router.route('/:id')
   .get(function(req, res){
-    Project.findById(req.params.id, function(err, project) {
+    Project.findById(req.params.id)
+    .populate('checkpoints')
+    .exec(function(err, project) {
       if(err){
         res.json({ message: "no project found with id #{req.params.id" })
       } else {

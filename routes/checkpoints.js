@@ -33,7 +33,9 @@ Router.route('/:id/checkpoints')
     })
   })
   .get(function(req, res) {
-    Project.findById(req.params.id, function(err, project){
+    Project.findById(req.params.id)
+    .populate('checkpoints')
+    .exec(function(err, project){
       if(err) {
         res.json({ message: "error trying to find project while getting checkpoints" })
       } else {
