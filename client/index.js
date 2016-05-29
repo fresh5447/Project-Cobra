@@ -1,19 +1,23 @@
-var React = require('react');
-var ReactDom = require('react-dom');
+import React from 'react';
+import { render } from 'react-dom';
+import { Router, Route, hashHistory } from 'react-router';
 
-require('./stylesheets/main.scss');
+import App from './App';
+import About from './About';
+import Repos from './Repos';
+import Navbar from './Navbar';
+import Login from './Login';
+import Logout from './Logout';
+import Signup from './Signup';
 
+render((
 
-var App = React.createClass({
-  render: function() {
-    return (
-      <div>
-        <h1> Goodbye, world! </h1>
-      </div>
-      );
-  }
-});
-
-ReactDom.render(
-  <App />, document.getElementById('app')
-);
+  <Router history={hashHistory}>
+    <Route path="/" component={App}/>
+    <Route path="/repos" component={Repos}/>
+    <Route path="/about" component={About}/>
+    <Route path="/login" component={Login}/>
+    <Route path="/logout" component={Logout}/>
+    <Route path="/signup" component={Signup}/>
+  </Router>
+), document.getElementById('app'));

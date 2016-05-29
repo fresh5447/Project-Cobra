@@ -5,6 +5,9 @@ const path         = require('path'),
  ProjectsRouter    = require('./routes/projects'),
  CheckpointsRouter = require('./routes/checkpoints'),
  Post              = require('./models/project'),
+ passport          = require('passport'),
+ session           = require('express-session'),
+ flash             = require('connect-flash'),
 
  mongoose          = require('mongoose');
 
@@ -31,6 +34,21 @@ if (process.env.NODE_ENV === 'production') {
   }));
   app.use(require('webpack-hot-middleware')(compiler));
 }
+
+app.use(session({
+ secret: 'ilovescotchscotchyscotchscotch'
+})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(session({
+ cookie: {
+   maxAge: 60000
+ }
+}));
+app.use(flash());
+
+require('./config/passport')(passport);
+require('./routes/user.js')(app, passport);
 
 
 app.use('/img', express.static('img'));
