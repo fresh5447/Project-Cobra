@@ -1,4 +1,5 @@
-$font-stack:    Helvetica, sans-serif;
+$font-headers: 'Varela Round', sans-serif;
+$font-content: 'Lato', sans-serif;
 $primary-color: white;
 $dark-grey: #333333;
 $dark-blue: #34495e;
@@ -7,8 +8,15 @@ $light-blue: #5097C2;
 $logo-green: #216340;
 $light-background: #EFEEE8;
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-headers
+}
+
+p {
+  font-family: $font-content
+}
+
 body {
-  font: 100% $font-stack;
   height: 1000px;
   background-color: $light-background;
 }
