@@ -21,7 +21,6 @@ p {
 // }
 
 body {
-  height: 1000px;
   background-color: $light-background;
 }
 
@@ -35,6 +34,8 @@ body {
 
 .navbar {
   background-color: $logo-blue;
+  margin-bottom: 16px;
+  border-radius: 0;
 }
 
 .nav-item > a {

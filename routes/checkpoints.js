@@ -12,6 +12,7 @@ Router.route('/:id/checkpoints')
       title:      req.body.title,
       desc:       req.body.desc,
       content:    req.body.content,
+      publish:    req.body.publish,
       number:     req.body.number,
       assignment: req.body.assignment,
       project:    req.params.id
