@@ -16,9 +16,21 @@ p {
   font-family: $font-content
 }
 
+// .my-nav-brand {
+//   background-image: url('./public/images/regular-logo.gif')
+// }
+
 body {
   height: 1000px;
   background-color: $light-background;
+}
+
+.my-dropdown-menu {
+  background-color: $light-background;
+}
+
+.my-dropdown-menu > a {
+  color: $dark-grey;
 }
 
 .navbar {

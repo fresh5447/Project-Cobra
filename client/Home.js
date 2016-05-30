@@ -5,7 +5,7 @@ export default React.createClass({
     return (
       <div className="jumbotron">
         <div className="container">
-          <h1>Big Sky Code Academy</h1>
+        <img src="./images/main-logo.gif" className="img-responsive" alt="Image"/>
           <p>Learning Management Platform</p>
           <div className="row">
             <p>
