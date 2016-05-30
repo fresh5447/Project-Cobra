@@ -1,23 +1,38 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import React from 'react'
+import { render } from 'react-dom'
+import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import App from './App'
+import About from './About'
+import Repos from './Repos'
+import Repo from './Repo'
+import Home from './Home'
+import Dashboard from './Dashboard'
+import Login from './user/Login'
+import Signup from './user/Signup'
+import Logout from './user/Logout'
 
-import App from './App';
-import About from './About';
-import Repos from './Repos';
-import Navbar from './Navbar';
-import Login from './Login';
-import Logout from './Logout';
-import Signup from './Signup';
+require('./stylesheets/main.scss')
 
 render((
-
   <Router history={browserHistory}>
-    <Route path="/" component={App}/>
-    <Route path="/repos" component={Repos}/>
-    <Route path="/about" component={About}/>
-    <Route path="/login" component={Login}/>
-    <Route path="/logout" component={Logout}/>
-    <Route path="/signup" component={Signup}/>
+    <Route path="/" component={App}>
+      <IndexRoute component={Home}/>
+      <Route path="/dashboard" component={Dashboard}/>
+      <Route path="/about" component={About}/>
+      <Route path="/signup" component={Signup}/>
+      <Route path="/login" component={Login}/>
+    </Route>
   </Router>
-), document.getElementById('app'));
+), document.getElementById('app'))
+
+
+
+
+
+{ /* 
+      nested route example
+
+      <Route path="/repos" component={Repos}>
+        <Route path="/repos/:userName/:repoName" component={Repo}/>
+      </Route>
+  */ }

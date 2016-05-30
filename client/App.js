@@ -1,13 +1,21 @@
-import React from 'react';
-import Navbar from './Navbar';
+import React from 'react'
+import NavLink from './modules/NavLink'
+import Navbar from './modules/Navbar'
 
 export default React.createClass({
   render() {
     return (
       <div>
+        <h1>React Router Tutorial</h1>
         <Navbar />
-        <h3> hello </h3>
+        {this.props.children}
       </div>
-      )
+    )
   }
-});
+})
+
+
+
+
+          
+{/* <li><NavLink to="/" onlyActiveOnIndex>Home</NavLink></li>  */}

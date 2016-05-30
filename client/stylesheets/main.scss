@@ -3,9 +3,19 @@ $primary-color: white;
 
 body {
   font: 100% $font-stack;
-  background: $primary-color;
 }
 
 .active {
-  color: green;
+  color: red;
+}
+
+.dashboard-progress {
+  position: relative;
+  top: 0;
+  color: orange;
+  height: 10%;
+}
+
+.something {
+  color: orange;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import NavLink from './NavLink'
 
 export default React.createClass({
   render() {
@@ -8,19 +9,19 @@ export default React.createClass({
         <a className="navbar-brand" href="#">Navbar</a>
         <ul className="nav navbar-nav">
           <li className="nav-item">
-            <Link to="/about" activeStyle={{ color: 'red' }}>About</Link>
+            <NavLink to="/about">About</NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/repos" activeStyle={{ color: 'red' }}>Repos</Link>
+            <NavLink to="/dashboard">Dashboard</NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/login" activeStyle={{ color: 'red' }}>Login</Link>
+            <NavLink to="/login">Login</NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/logout" activeStyle={{ color: 'red' }}>Logout</Link>
+            <NavLink to="/logout">Logout</NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/signup" activeStyle={{ color: 'red' }}>Signup</Link>
+            <NavLink to="/signup">Signup</NavLink>
           </li>
         </ul>
       </nav>

@@ -16,6 +16,7 @@ mongoose.connect('mongodb://localhost:27017/lms');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')))
 
 if (process.env.NODE_ENV === 'production') {
   console.log('Running in production mode');
@@ -53,9 +54,9 @@ require('./routes/user.js')(app, passport);
 
 app.use('/img', express.static('img'));
 
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+})
 
 app.use('/api/v1/projects', ProjectsRouter)
 app.use('/api/v1/projects', CheckpointsRouter);
