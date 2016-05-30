@@ -2,7 +2,6 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import App from './App'
-import About from './About'
 import Repos from './Repos'
 import Repo from './Repo'
 import Home from './Home'
@@ -18,7 +17,6 @@ render((
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
       <Route path="/dashboard" component={Dashboard}/>
-      <Route path="/about" component={About}/>
       <Route path="/signup" component={Signup}/>
       <Route path="/login" component={Login}/>
     </Route>

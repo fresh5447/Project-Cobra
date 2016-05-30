@@ -3,7 +3,7 @@ import React from 'react';
 export default React.createClass({
   render() {
     return (
-      <div className="jumbotron">
+      <div className="">
         <div className="container">
           <h1>Signup</h1>
           <p>create a new account</p>

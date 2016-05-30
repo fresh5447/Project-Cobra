@@ -8,7 +8,7 @@ export default React.createClass({
           <h4 className="card-title">Card title</h4>
           <h6 className="card-subtitle text-muted">Support card subtitle</h6>
         </div>
-        <img data-src="..." alt="Card image"/>
+        { /* <img data-src="..." alt="Card image"/> */ }
         <div className="card-block">
           <p className="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>
           <a href="#" className="card-link">Card link</a>

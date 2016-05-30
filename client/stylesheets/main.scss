@@ -1,13 +1,48 @@
 $font-stack:    Helvetica, sans-serif;
 $primary-color: white;
+$dark-grey: #333333;
+$dark-blue: #34495e;
+$logo-blue: #3E7697;
+$light-blue: #5097C2;
+$logo-green: #216340;
+$light-background: #EFEEE8;
 
 body {
   font: 100% $font-stack;
   height: 1000px;
+  background-color: $light-background;
+}
+
+.navbar {
+  background-color: $logo-blue;
+}
+
+.nav-item > a {
+  color: $dark-grey;
+  margin-right: 90px;
+}
+
+.nav-dd-btn {
+  position: absolute;
+  right: 10px;
+  top: 3px;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.nav-btn {
+  background-color: $light-background;
+  color: $dark-blue;
+  border: solid 3px $logo-green;
+}
+
+.card-block {
+  background-color: $logo-green;
+  color: white;
 }
 
 .active {
-  color: red;
+  color: white !important;
 }
 
 .dash-btn {
@@ -15,11 +50,13 @@ body {
 }
 
 .dashboard-progress-container {
-  height: 100px;
-  background-color: #F7F7F9;
+  height: 10%;
+  background-color: $logo-green;
+  color: white;
   width: 100%;
   position: relative;
   margin-bottom: 50px;
+  margin-top: 15px;
 }
 
 .student-card-container {

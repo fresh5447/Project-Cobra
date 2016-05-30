@@ -27,7 +27,7 @@ export default React.createClass({
   },
   render() {
     return (
-      <div className="jumbotron">
+      <div className="">
         <div className="container">
           <h1>Login</h1>
             <form onSubmit={this.submitUserToServer}>
