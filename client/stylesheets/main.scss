@@ -3,19 +3,54 @@ $primary-color: white;
 
 body {
   font: 100% $font-stack;
+  height: 1000px;
 }
 
 .active {
   color: red;
 }
 
-.dashboard-progress {
+.dashboard-progress-container {
+  height: 100px;
+  background-color: #F7F7F9;
+  width: 100%;
   position: relative;
-  top: 0;
-  color: orange;
-  height: 10%;
+  margin-bottom: 50px;
 }
 
-.something {
-  color: orange;
+.student-card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.student-card {
+  width: 40%
+}
+
+#one {
+  height: 100px;
+  background-color: red;
+  width: 100%;
+  position: relative;
+}
+
+#two {
+  height: 50px;
+  background-color: blue;
+  width: 400px;
+  position: absolute;
+  left: 30px;
+  top: 70px;
+  border: 3px solid #73AD21;
+}
+
+#three {
+  height: 50px;
+  background-color: blue;
+  width: 400px;
+  position: absolute;
+  right: 30px;
+  top: 70px;
+  border: 3px solid #73AD21;
 }
