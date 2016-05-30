@@ -7,7 +7,7 @@ export default React.createClass({
     return (
       <div>
       <StudentProgressBar/>
-      <div className="container students-card-container">
+      <div className="container student-card-container">
         <ProjectCard />
         <ProjectCard />
         <ProjectCard />
