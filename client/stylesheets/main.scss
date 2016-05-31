@@ -28,8 +28,8 @@ body {
   background-color: $light-background;
 }
 
-.my-dropdown-menu > a {
-  color: $dark-grey;
+.my-dropdown-menu > a:hover {
+  color: red;
 }
 
 .previewer-content {
@@ -40,6 +40,13 @@ body {
     color: #fff;
     background-color: $dark-blue;
     border-color: $dark-grey;
+    margin-bottom: 16px;
+}
+
+.my-primary-btn:hover, .my-primary-btn:focus, .my-primary-btn:active {
+    color: $dark-grey;
+    background-color: white;
+    border-color: $logo-green;
 }
 
 .previewer-content > p {
