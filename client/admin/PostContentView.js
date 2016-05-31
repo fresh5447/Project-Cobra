@@ -105,7 +105,7 @@ export default React.createClass({
             </div>
             <div className="card-block">
                   <h5 className="card-title">{this.state.title ? this.state.title : "No title yet..."}</h5>
-                  <p className="card-text"> <ReactMarkdown source={this.state.content ? this.state.content : "No content yet..."} /> </p>
+                  <p className="card-text"> <ReactMarkdown source={this.state.content ? this.state.content : "No content yet..."}/> </p>
                   <p className="card-text"> <ReactMarkdown source={this.state.assignment ? this.state.assignment : "No assignment yet..."} /> </p>
             </div>
           </div>

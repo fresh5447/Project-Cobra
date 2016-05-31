@@ -12,8 +12,27 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $font-headers
 }
 
+.image-test {
+  display: block;
+  height: 20%;
+  width: auto;
+}
+
+.card-subtitle {
+
+}
+
+
+.text-muted {
+  color: white;
+}
+
 p {
   font-family: $font-content
+}
+
+.cstm-row {
+  background-color: $light-blue;
 }
 
 // .my-nav-brand {
