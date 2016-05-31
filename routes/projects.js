@@ -20,7 +20,7 @@ Router.route('/')
   .post(function(req, res){
     let project = new Project({
       title: req.body.title,
-      desc:  req.body.description,
+      desc:  req.body.desc,
       hours: req.body.hours
     });
     project.save(function(err, project){

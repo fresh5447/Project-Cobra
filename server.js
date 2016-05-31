@@ -54,12 +54,12 @@ require('./routes/user.js')(app, passport);
 
 app.use('/img', express.static('img'));
 
-app.get('*', function (req, res) {
+app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
-app.use('/api/v1/projects', ProjectsRouter)
-app.use('/api/v1/projects', CheckpointsRouter);
+app.use('/api/v1/projects', ProjectsRouter);
+// app.use('/api/v1/projects', CheckpointsRouter);
 
 
 

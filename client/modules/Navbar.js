@@ -10,7 +10,8 @@ export default React.createClass({
         <ul className="nav navbar-nav pull-right">
           <li className="nav-item">
             <NavLink to="/dashboard">Dashboard</NavLink>
-            <NavLink to="/add-content">Add Content</NavLink>
+            <NavLink to="/add-checkpoint">Add Checkpoint</NavLink>
+            <NavLink to="/add-project">Add Project</NavLink>
           </li>
         </ul>
         <div className="btn-group nav-dd-btn">
