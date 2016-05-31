@@ -4,7 +4,7 @@ export default React.createClass({
   render() {
     return (
       <div className="card student-card">
-        <div className="card-block">
+        <div className="card-block main-card-block">
           <h4 className="card-title">{ this.props.title }</h4>
           <h6 className="card-subtitle text-muted">{ this.props.desc }</h6>
         </div>

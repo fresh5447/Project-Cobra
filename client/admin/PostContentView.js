@@ -4,10 +4,13 @@ import ReactMarkdown from 'react-markdown'
 export default React.createClass({
   getInitialState() {
     return {
-      title: null,
-      content: null,
-      desc: null,
-      number: null,
+      title:      null,
+      content:    null,
+      desc:       null,
+      number:     null,
+      assignment: null,
+      projects:   null,
+      project:    null,
     }
   },
   contextTypes: {
@@ -25,7 +28,42 @@ export default React.createClass({
   updateAssignment(e) {
     this.setState({ assignment: e.target.value })
   },
+  updateupdateProject(e) {
+    this.setState({ project: e.target.value })
+    console.log(this.state.project)
+  },
+  getProjects() {
+    $.ajax({
+      url: '/api/v1/projects',
+      method: 'GET'
+    }).done((data) => this.setState({ projects: data }))
+  },
+  componentWillMount() {
+    this.getProjects()
+  },
+  handleCheckpointSubmit(e) {
+    e.preventDefault();
+    let checkpoint = {
+      title:      this.state.title,
+      desc:       this.state.desc,
+      content:    this.state.content,
+      assignment: this.state.assignment
+    };
+    var self = this;
+    $.ajax({
+      url:    '/api/v1/projects',
+      method: 'POST',
+      data:    project
+    }).done(function(data){
+      self.context.sendNotification("Project Created");
+      console.log('SUCCESS', data);
+    });
+  },
   render() {
+    console.log(this.state.projects)
+    let projects = this.state.projects.map(function(item){
+      return <option value={item._id} > { item.title } </option>
+    });
     return (
       <div>
         <div className="container">
@@ -41,12 +79,8 @@ export default React.createClass({
             </fieldset>
             <fieldset className="form-group">
               <label>project</label>
-              <select className="form-control" id="exampleSelect1">
-                <option>Project One</option>
-                <option>Project Two</option>
-                <option>Project Three</option>
-                <option>Project Four</option>
-                <option>Project Five</option>
+              <select onChange={ this.updateProject } className="form-control" id="exampleSelect1">
+                { projects }
               </select>
             </fieldset>
             <fieldset className="form-group">
@@ -64,12 +98,15 @@ export default React.createClass({
             </div>
             <button type="submit" className="btn btn-primary my-primary-btn">Save</button>
           </form>
-          <div className="card card-block">
-            <h4> Markdown Previewer </h4>
-            <div className="">
-              <h5 className="card-title">{this.state.title ? this.state.title : "No title yet..."}</h5>
-              <p className="card-text"> <ReactMarkdown source={this.state.content ? this.state.content : "No content yet..."} /> </p>
-              <p className="card-text"> <ReactMarkdown source={this.state.assignment ? this.state.assignment : "No assignment yet..."} /> </p>
+          <div className="card markdown-card">
+            <div className="card-block main-card-block">
+              <h4 className="card-title">Markdown Previewer</h4>
+              <h6 className="card-subtitle text-muted">Live preview of how the Markdown text will display</h6>
+            </div>
+            <div className="card-block">
+                  <h5 className="card-title">{this.state.title ? this.state.title : "No title yet..."}</h5>
+                  <p className="card-text"> <ReactMarkdown source={this.state.content ? this.state.content : "No content yet..."} /> </p>
+                  <p className="card-text"> <ReactMarkdown source={this.state.assignment ? this.state.assignment : "No assignment yet..."} /> </p>
             </div>
           </div>
         </div>
@@ -77,3 +114,6 @@ export default React.createClass({
       )
   }
 })
+
+
+
