@@ -1,6 +1,19 @@
 import React from 'react'
+import ReactMarkdown from 'react-markdown'
 
 export default React.createClass({
+  getInitialState() {
+    return {
+      title: null,
+      content: null
+    }
+  },
+  updateTitle(e) {
+    this.setState({ title: e.target.value })
+  },
+  updateContent(e) {
+    this.setState({ content: e.target.value })
+  },
   render() {
     return (
       <div>
@@ -9,7 +22,7 @@ export default React.createClass({
             <h4> Create New Checkpoint </h4>
             <fieldset className="form-group">
               <label>title</label>
-              <input type="text" className="form-control" id="" placeholder="..."/>
+              <input onChange={this.updateTitle} type="text" className="form-control" id="" placeholder="..."/>
             </fieldset>
             <fieldset className="form-group">
               <label>project</label>
@@ -23,15 +36,22 @@ export default React.createClass({
             </fieldset>
             <fieldset className="form-group">
               <label>content</label>
-              <textarea className="form-control" id="exampleTextarea" rows="3"></textarea>
+              <textarea onChange={this.updateContent} className="form-control" id="exampleTextarea" rows="3"></textarea>
             </fieldset>
             <div className="checkbox">
               <label>
                 <input type="checkbox"/> publish
               </label>
             </div>
-            <button type="submit" className="btn btn-primary">Save</button>
+            <button type="submit" className="btn btn-primary my-primary-btn">Save</button>
           </form>
+          <div className="card card-block">
+            <h4> Markdown Previewer </h4>
+            <div className="">
+              <h5 className="card-title">{this.state.title ? this.state.title : "No title yet..."}</h5>
+              <p className="card-text"> <ReactMarkdown source={this.state.content ? this.state.content : "No content yet..."} /> </p>
+            </div>
+          </div>
         </div>
       </div>
       )
