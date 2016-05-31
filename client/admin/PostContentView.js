@@ -10,6 +10,9 @@ export default React.createClass({
       number: null,
     }
   },
+  contextTypes: {
+    sendNotification: React.PropTypes.func.isRequired,
+  },
   updateTitle(e) {
     this.setState({ title: e.target.value })
   },

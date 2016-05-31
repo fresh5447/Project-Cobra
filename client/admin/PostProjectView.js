@@ -8,6 +8,9 @@ export default React.createClass({
       hours: null,
     }
   },
+  contextTypes: {
+    sendNotification: React.PropTypes.func.isRequired,
+  },
   updateTitle(e) {
     this.setState({ title: e.target.value })
   },
@@ -25,12 +28,15 @@ export default React.createClass({
       desc:  this.state.desc,
       hours: this.state.hours
     };
-
+    var self = this;
     $.ajax({
       url:    '/api/v1/projects',
       method: 'POST',
       data:    project
-    }).done((data) => console.log("SUCCESS", data));
+    }).done(function(data){
+      self.context.sendNotification("Project Created");
+      console.log('SUCCESS', data);
+    });
 
   },
   render() {

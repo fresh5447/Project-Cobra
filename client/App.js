@@ -1,13 +1,16 @@
 import React from 'react'
 import NavLink from './modules/NavLink'
 import Navbar from './modules/Navbar'
+import Notifier from './Notifier'
 
 export default React.createClass({
   render() {
     return (
       <div>
-        <Navbar />
-        {this.props.children}
+        <Notifier >
+          <Navbar />
+          {this.props.children}
+        </Notifier >
       </div>
     )
   }
