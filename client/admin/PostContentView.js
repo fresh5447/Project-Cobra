@@ -60,10 +60,10 @@ export default React.createClass({
     });
   },
   render() {
-    console.log(this.state.projects)
-    let projects = this.state.projects.map(function(item){
-      return <option value={item._id} > { item.title } </option>
-    });
+    if(this.state.projects){
+      let projects = this.state.projects.map(function(item){
+        return <option value={item._id} > { item.title } </option>
+      });
     return (
       <div>
         <div className="container">
@@ -112,7 +112,10 @@ export default React.createClass({
         </div>
       </div>
       )
+    }else {
+    return (<div> Loading </div>)
   }
+  } 
 })
 
 

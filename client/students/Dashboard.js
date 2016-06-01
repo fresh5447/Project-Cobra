@@ -19,16 +19,20 @@ export default React.createClass({
     console.log(this.state.projects)
   },
   render() {
-    const projectsArr = this.state.projects.map(function(item){
-      return <ProjectCard title={ item.title } desc={item.desc} checkpoints={item.checkpoints} hours={item.hours} />
-    })
-    return (
-      <div>
-        <StudentProgressBar/>
-        <div className="container student-card-container">
-        { this.state.projects ? projectsArr : null }
+    if(this.state.projects){
+      const projectsArr = this.state.projects.map(function(item){
+        return <ProjectCard title={ item.title } desc={item.desc} checkpoints={item.checkpoints} hours={item.hours} />
+      })
+      return (
+        <div>
+          <StudentProgressBar/>
+          <div className="container student-card-container">
+          { this.state.projects ? projectsArr : null }
+          </div>
         </div>
-      </div>
-      )
+        )
+    } else {
+      return (<div> Loading... </div>)
+    }
   }
 })
