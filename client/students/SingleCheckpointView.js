@@ -1,5 +1,6 @@
 import React from 'react'
 import NavLink from '../modules/NavLink'
+import ReactMarkdown from 'react-markdown'
 
 export default React.createClass({
   render() {
@@ -16,7 +17,7 @@ export default React.createClass({
             <div className="card-block">
               <div className="card card-block">
                 <h3 className="card-title"></h3>
-                <p className="card-text">{ checkpoint.content }</p>
+                <p className="card-text"><ReactMarkdown source={ checkpoint.content } /></p>
               </div>
             </div>
           </div>
