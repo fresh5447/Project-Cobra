@@ -57,7 +57,7 @@ app.use('/img', express.static('img'));
 
 
 app.use('/api/v1/projects', ProjectsRouter);
-// app.use('/api/v1/projects', CheckpointsRouter);
+app.use('/api/v1/projects', CheckpointsRouter);
 
 
 app.get('*', function (req, res) {

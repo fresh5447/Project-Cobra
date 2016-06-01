@@ -6,7 +6,7 @@ const Checkpoint = require('../models/checkpoint');
 
 const Router = express.Router();
 
-Router.route('/:id/checkpoints')
+Router.route('/one/:id/checkpoints')
   .post(function(req, res){
     let cp = new Checkpoint({
       title:      req.body.title,
@@ -45,7 +45,7 @@ Router.route('/:id/checkpoints')
     })
   })
 
-Router.route('/:id/checkpoints/:cp_id')
+Router.route('/one/:id/checkpoints/:cp_id')
   .get(function(req, res) {
     Checkpoint.findById(req.params.cp_id, function(err, checkpoint){
       if(err) {
@@ -82,6 +82,17 @@ Router.route('/:id/checkpoints/:cp_id')
         res.json({ message: "Was unable to delete checkpoint" })
       } else {
         res.json("checkpoint deleted!")
+      }
+    })
+  });
+
+  Router.route('/two/cp/:cp_name')
+  .get(function(req, res) {
+    Checkpoint.find({ title: req.params.cp_name}, function(err, checkpoint){
+      if(err) {
+        res.json({ message: "error trying to find checkpoint while getting checkpoints" })
+      } else {
+        res.json( checkpoint )
       }
     })
   });

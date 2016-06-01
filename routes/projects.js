@@ -32,7 +32,20 @@ Router.route('/')
     })
   });
 
-Router.route('/:id')
+Router.route('/byName/:name')
+  .get(function(req, res){
+    Project.find({ title: req.params.name })
+    .populate('checkpoints')
+    .exec(function(err, project) {
+      if(err){
+        res.json({ message: "no project found with id #{req.params.id" })
+      } else {
+        res.json(project)
+      }
+    })
+  });
+
+Router.route('/byId/:id')
   .get(function(req, res){
     Project.findById(req.params.id)
     .populate('checkpoints')
@@ -73,5 +86,7 @@ Router.route('/:id')
       }
     })
   });
+
+
 
 module.exports = Router;

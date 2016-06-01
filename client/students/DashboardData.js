@@ -1,16 +1,21 @@
 import React from 'react'
 import StudentProgressBar from '../modules/StudentProgressBar'
-import ProjectCard from './ProjectCard'
+import AllProjectsCard from './AllProjectsCard'
 
 export default React.createClass({
   getInitialState() {
     return {
       projects: null,
-      user: null
+      user: null,
+      activeProject: null
     }
   },
   contextTypes: {
     getUser: React.PropTypes.func.isRequired,
+  },
+  setActiveProject(id) {
+    console.log(id)
+    this.setState({ activeProject: id })
   },
   loadProjectsFromServer() {
     $.ajax({
@@ -23,9 +28,10 @@ export default React.createClass({
     this.context.getUser((data) => this.setState({ user: data }))
   },
   render() {
+    let self = this;
     if(this.state.projects){
       const projectsArr = this.state.projects.map(function(item){
-        return <ProjectCard title={ item.title } desc={item.desc} checkpoints={item.checkpoints} hours={item.hours} />
+        return <AllProjectsCard setActiveProject={ self.setActiveProject } id={item._id} title={ item.title } desc={item.desc} checkpoints={item.checkpoints} hours={item.hours} />
       })
       return (
         <div>

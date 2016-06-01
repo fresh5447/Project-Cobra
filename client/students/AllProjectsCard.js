@@ -22,7 +22,7 @@ export default React.createClass({
         </div>
         { /* <img data-src="..." alt="Card image"/> */ }
         <div className="card-block">
-          <p> <NavLink to={"/student/" + this.props.title }>GO</NavLink> </p>
+          <NavLink to={"/dashboard/" + this.props.title }>VIEW PROJECT</NavLink>
           <p className="card-text">{ this.props.desc }</p>          
         </div>
       </div>
