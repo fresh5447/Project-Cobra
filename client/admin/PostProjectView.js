@@ -1,4 +1,5 @@
 import React from 'react'
+import { browserHistory } from 'react-router'
 
 export default React.createClass({
   getInitialState() {
@@ -35,6 +36,8 @@ export default React.createClass({
       data:    project
     }).done(function(data){
       self.context.sendNotification("Project Created");
+      const path = `/add-checkpoint`
+      browserHistory.push(path)
       console.log('SUCCESS', data);
     });
 

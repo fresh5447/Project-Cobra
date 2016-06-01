@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import { browserHistory } from 'react-router'
 
 export default React.createClass({
   getInitialState() {
@@ -18,23 +19,18 @@ export default React.createClass({
   },
   updateTitle(e) {
     this.setState({ title: e.target.value })
-    console.log(this.state.title)
   },
   updateContent(e) {
     this.setState({ content: e.target.value })
-    console.log(this.state.content)
   },
   updateDesc(e) {
     this.setState({ desc: e.target.value })
-    console.log(this.state.desc)
   },
   updateAssignment(e) {
     this.setState({ assignment: e.target.value })
-    console.log(this.state.assignment)
   },
   updateProject(e) {
     this.setState({ project: e.target.value })
-    console.log(this.state.project)
   },
   getProjects() {
     $.ajax({
@@ -59,8 +55,9 @@ export default React.createClass({
       method: 'POST',
       data:    checkpoint
     }).done(function(data){
-      self.context.sendNotification("Project Created");
-      console.log('SUCCESS', data);
+      self.context.sendNotification("Checkpoint Created");
+      const path = `/dashboard`
+      browserHistory.push(path)
     });
   },
   render() {
