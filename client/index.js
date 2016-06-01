@@ -4,6 +4,7 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import App from './App'
 import Repos from './Repos'
 import Repo from './Repo'
+import Project from './students/Project'
 import Home from './Home'
 import Dashboard from './students/Dashboard'
 import PostContent from './admin/PostContentView'
@@ -18,7 +19,8 @@ render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
-      <Route path="/dashboard" component={Dashboard}/>
+      <Route path="/student" component={Dashboard}/>
+      <Route path="/student/:projectName" component={Project}/>
       <Route path="/add-checkpoint" component={PostContent}/>
       <Route path="/add-project" component={PostProject}/>
       <Route path="/signup" component={Signup}/>

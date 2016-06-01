@@ -5,8 +5,12 @@ import ProjectCard from './ProjectCard'
 export default React.createClass({
   getInitialState() {
     return {
-      projects: null
+      projects: null,
+      user: null
     }
+  },
+  contextTypes: {
+    getUser: React.PropTypes.func.isRequired,
   },
   loadProjectsFromServer() {
     $.ajax({
@@ -16,7 +20,7 @@ export default React.createClass({
   },
   componentWillMount() {
     this.loadProjectsFromServer();
-    console.log(this.state.projects)
+    this.context.getUser((data) => this.setState({ user: data }))
   },
   render() {
     if(this.state.projects){
