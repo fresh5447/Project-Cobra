@@ -12,7 +12,7 @@ export default React.createClass({
           <div className="card markdown-card">
             <div className="card-block main-card-block">
               <h2 className="card-title">{checkpoint.project.title}</h2>
-              <NavLink to={"/dashboard/" + checkpoint.project.title }>Back to Project</NavLink>
+              <NavLink to={"/dashboard/" + checkpoint.project.title }><span className="back-link">Back to Project</span></NavLink>
             </div>
             <div className="card-block">
               <div className="card card-block">

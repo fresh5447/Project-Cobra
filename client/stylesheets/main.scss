@@ -18,6 +18,17 @@ h1, h2, h3, h4, h5, h6 {
   width: auto;
 }
 
+.back-link {
+  color: white;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: white;
+  text-decoration: underline;
+  font-size: 20px;
+}
+
 .card-subtitle {
 
 }
