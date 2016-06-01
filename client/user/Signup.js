@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import { browserHistory } from 'react-router'
 
 export default React.createClass({
   getInitialState() {
@@ -7,6 +8,9 @@ export default React.createClass({
       username: null,
       password: null,
     }
+  },
+  contextTypes: {
+    sendNotification: React.PropTypes.func.isRequired,
   },
   handleEmailChange(e) {
     this.setState({ email: e.target.value })
@@ -28,7 +32,12 @@ export default React.createClass({
       url: '/signup',
       data: User,
       method: 'POST'
-    }).done((data) => console.log(data) )
+    }).success((data) => {
+      this.context.sendNotification(data.message);
+      const path = `/dashboard`
+      browserHistory.push(path)
+    })
+      .error((data) => this.context.sendNotification(data.responseText))
   },
   render() {
     return (

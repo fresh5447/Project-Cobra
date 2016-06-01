@@ -11,7 +11,7 @@ module.exports = function(app, passport) {
         if (!user) { return res.status(404).json(info.message);}
         req.logIn(user, function(err) {
           if (err) { return next(err); }
-          return res.json({message: "you did it mofro", user: user});
+          return res.json({message: "Success! You are all signed up.", user: user});
         });
       })(req, res, next);
     });
@@ -24,7 +24,7 @@ module.exports = function(app, passport) {
         if (!user) { return res.status(404).json(info.message);}
         req.logIn(user, function(err) {
           if (err) { return next(err); }
-          return res.json({message: "you did it mofo", user: user});
+          return res.json({message: "Success! You are logged in.", user: user});
         });
       })(req, res, next);
     });
