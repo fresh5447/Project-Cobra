@@ -88,6 +88,16 @@ body {
   margin-right: 90px;
 }
 
+.nav-item > a:focus {
+    color: #014c8c;
+    text-decoration: none;
+}
+
+.nav-item > a:hover {
+    color: white;
+    text-decoration: none;
+}
+
 .nav-dd-btn {
   position: absolute;
   right: 10px;
@@ -109,7 +119,9 @@ body {
 
 .active {
   color: white !important;
-  text-decoration: underline;
+  border-bottom: medium solid white;
+  font-size: 18px;
+  text-decoration: none;
 }
 
 .dash-btn {
