@@ -12,7 +12,6 @@ import PostContent from './admin/PostCheckpointView'
 import PostProject from './admin/PostProjectView'
 import Login from './user/Login'
 import Signup from './user/Signup'
-import Logout from './user/Logout'
 
 require('./stylesheets/main.scss')
 
