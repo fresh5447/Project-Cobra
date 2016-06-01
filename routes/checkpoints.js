@@ -88,7 +88,9 @@ Router.route('/one/:id/checkpoints/:cp_id')
 
   Router.route('/two/cp/:cp_name')
   .get(function(req, res) {
-    Checkpoint.find({ title: req.params.cp_name}, function(err, checkpoint){
+    Checkpoint.find({ title: req.params.cp_name})
+      .populate('project')
+      .exec(function(err, checkpoint){
       if(err) {
         res.json({ message: "error trying to find checkpoint while getting checkpoints" })
       } else {

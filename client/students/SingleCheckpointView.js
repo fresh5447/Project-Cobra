@@ -5,19 +5,31 @@ import ReactMarkdown from 'react-markdown'
 export default React.createClass({
   render() {
     let checkpoint = this.props.checkpoint;
-
+    window.checkpoint = this.props.checkpoint;
     return (
       <div>
         <div className="container">
           <div className="card markdown-card">
             <div className="card-block main-card-block">
-              <h2 className="card-title">{ checkpoint.title }</h2>
-              <h6 className="card-subtitle text-muted">{ checkpoint.desc }</h6>
+              <h2 className="card-title">{checkpoint.project.title}</h2>
+              <NavLink to={"/dashboard/" + checkpoint.project.title }>Back to Project</NavLink>
             </div>
             <div className="card-block">
               <div className="card card-block">
-                <h3 className="card-title"></h3>
+                <h4 className="card-title">{checkpoint.title}</h4>
                 <p className="card-text"><ReactMarkdown source={ checkpoint.content } /></p>
+              </div>
+            </div>
+            <div className="card-block">
+              <div className="card card-block">
+                <h4 className="card-title">Additional Resources</h4>
+                <p className="card-text">Gonna be some more resources here ya know son?</p>
+              </div>
+            </div>
+            <div className="card-block">
+              <div className="card card-block">
+                <h4 className="card-title">Assignment</h4>
+                <p className="card-text"><ReactMarkdown source={ checkpoint.assignment } /></p>
               </div>
             </div>
           </div>
