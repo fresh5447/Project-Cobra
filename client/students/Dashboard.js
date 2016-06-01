@@ -32,7 +32,7 @@ export default React.createClass({
         </div>
         )
     } else {
-      return (<div> Loading... </div>)
+      return (<div> </div>)
     }
   }
 })
