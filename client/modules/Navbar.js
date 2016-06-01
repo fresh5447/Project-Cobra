@@ -2,11 +2,27 @@ import React from 'react';
 import { Link } from 'react-router';
 import NavLink from './NavLink'
 
+
 export default React.createClass({
+  getInitialState() {
+    return {
+      user: null
+    }
+  },
+  componentWillMount() {
+    this.context.getUser((data) => this.setState({ user: data }))
+  },
+  contextTypes: {
+    getUser: React.PropTypes.func.isRequired,
+  },
   render() {
+    const userName = this.state.user && this.state.user.local ? this.state.user.local.username : "no user."
+    const userRole = this.state.user && this.state.user.local ? this.state.user.local.role : "no user yet."
+
     return (
       <nav className="navbar navbar-light bg-faded">
         <a className="navbar-brand my-nav-brand" href="/">Big Sky Code Academy</a>
+        <a className="navbar-brand my-nav-brand" href="/">User: { userName }  Role: { userRole } </a>
         <ul className="nav navbar-nav pull-right">
           <li className="nav-item">
             <NavLink to="/dashboard">Dashboard</NavLink>

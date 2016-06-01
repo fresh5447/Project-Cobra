@@ -7,6 +7,9 @@ export default React.createClass({
       password: null,
     }
   },
+  contextTypes: {
+    sendNotification: React.PropTypes.func.isRequired,
+  },
   handleEmailChange(e) {
     this.setState({ email: e.target.value })
   },
@@ -23,7 +26,8 @@ export default React.createClass({
       url: '/login',
       data: User,
       method: 'POST'
-    }).done((data) => console.log(data) )
+    }).success((data) => this.context.sendNotification(data.message) )
+      .error((data) => this.context.sendNotification(data.responseText))
   },
   render() {
     return (

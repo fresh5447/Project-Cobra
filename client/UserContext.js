@@ -18,7 +18,12 @@ var GetUser = React.createClass({
         }
     },
     getUser: function(cb) {
-      return cb(this.state.user);
+      $.ajax({
+        url: 'getUser',
+        method: 'GET'
+      }).done(function(data){
+        return cb(data)
+      })
     },
     render: function() {
         return (
