@@ -18,12 +18,16 @@ export default React.createClass({
     sendNotification: React.PropTypes.func.isRequired
   },
   fireLogout() {
-    this.context.sendNotification("Logging out");
-    const path = `/logout`
-    const nextPath = `/`
-    browserHistory.push(path)
-    browserHistory.push(nextPath)
-    this.context.sendNotification("Successfully logged out");
+    console.log("firing logout")
+    $.ajax({
+      url: '/logout',
+      method: 'GET'
+    }).done(() => {
+      console.log("inside ajax")
+      this.context.sendNotification("All logged out");
+      const path = '/';
+      browserHistory.push(path)
+    });
   },
   render() {
     const userName = this.state.user && this.state.user.local ? this.state.user.local.username : "no user."
