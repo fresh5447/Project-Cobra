@@ -18,17 +18,21 @@ export default React.createClass({
   },
   updateTitle(e) {
     this.setState({ title: e.target.value })
+    console.log(this.state.title)
   },
   updateContent(e) {
     this.setState({ content: e.target.value })
+    console.log(this.state.content)
   },
   updateDesc(e) {
     this.setState({ desc: e.target.value })
+    console.log(this.state.desc)
   },
   updateAssignment(e) {
     this.setState({ assignment: e.target.value })
+    console.log(this.state.assignment)
   },
-  updateupdateProject(e) {
+  updateProject(e) {
     this.setState({ project: e.target.value })
     console.log(this.state.project)
   },
@@ -47,13 +51,13 @@ export default React.createClass({
       title:      this.state.title,
       desc:       this.state.desc,
       content:    this.state.content,
-      assignment: this.state.assignment
+      assignment: this.state.assignment,
     };
     var self = this;
     $.ajax({
-      url:    '/api/v1/projects',
+      url:    '/api/v1/projects/one/' + this.state.project + '/checkpoints',
       method: 'POST',
-      data:    project
+      data:    checkpoint
     }).done(function(data){
       self.context.sendNotification("Project Created");
       console.log('SUCCESS', data);
@@ -67,7 +71,7 @@ export default React.createClass({
     return (
       <div>
         <div className="container">
-          <form>
+          <form onSubmit={ this.handleCheckpointSubmit }>
             <h4> Create New Checkpoint </h4>
             <fieldset className="form-group">
               <label>title</label>
@@ -79,7 +83,7 @@ export default React.createClass({
             </fieldset>
             <fieldset className="form-group">
               <label>project</label>
-              <select onChange={ this.updateProject } className="form-control" id="exampleSelect1">
+              <select onChange={this.updateProject} value={ this.state.project } className="form-control" id="exampleSelect1">
                 { projects }
               </select>
             </fieldset>
