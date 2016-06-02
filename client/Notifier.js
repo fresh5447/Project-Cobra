@@ -30,6 +30,8 @@ var Notifier = React.createClass({
             <div>
               { this.props.children }
               <Snackbar
+               className={'my-snack-bar'}
+               bodyStyle={{backgroundColor: '#3E7697', fontSize: '30px !important'}}
                open={this.state.open}
                message={this.state.message}
                autoHideDuration={4000}

@@ -53,13 +53,13 @@ export default React.createClass({
               <fieldset className="form-group">
                 <label>Email address</label>
                 <input onChange={this.handleEmailChange} type="email" className="form-control" placeholder="Enter email"/>
-                <small className="text-muted">Well never share your email with anyone else.</small>
+                <small className="">Well never share your email with anyone else.</small>
               </fieldset>
               <fieldset className="form-group">
                 <label>Password</label>
                 <input onChange={this.handlePasswordChange} type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
               </fieldset>
-              <button type="submit" className="btn btn-primary">Submit</button>
+              <button type="submit" className="btn btn-primary  my-primary-btn">Submit</button>
             </form>
         </div>
       </div>
