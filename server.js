@@ -1,15 +1,16 @@
-const path         = require('path'),
- express           = require('express'),
- bodyParser        = require('body-parser'),
- app               = express(),
- ProjectsRouter    = require('./routes/projects'),
- CheckpointsRouter = require('./routes/checkpoints'),
- Post              = require('./models/project'),
- passport          = require('passport'),
- session           = require('express-session'),
- flash             = require('connect-flash'),
+const path           = require('path'),
+ express             = require('express'),
+ bodyParser          = require('body-parser'),
+ app                 = express(),
+ ProjectsRouter      = require('./routes/projects'),
+ SubmissionRouter    = require('./routes/submissions'),
+ CheckpointsRouter   = require('./routes/checkpoints'),
+ Post                = require('./models/project'),
+ passport            = require('passport'),
+ session             = require('express-session'),
+ flash               = require('connect-flash'),
 
- mongoose          = require('mongoose');
+ mongoose            = require('mongoose');
 
 mongoose.connect('mongodb://localhost:27017/lms');
 
@@ -58,6 +59,7 @@ app.use('/img', express.static('img'));
 
 app.use('/api/v1/projects', ProjectsRouter);
 app.use('/api/v1/projects', CheckpointsRouter);
+app.use('/api/v1/submissions', SubmissionRouter);
 
 
 app.get('*', function (req, res) {

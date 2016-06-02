@@ -1,6 +1,7 @@
 import React from 'react'
 import NavLink from '../modules/NavLink'
 import ReactMarkdown from 'react-markdown'
+import SubmissionData from './SubmissionData'
 
 export default React.createClass({
   render() {
@@ -32,6 +33,7 @@ export default React.createClass({
                 <p className="card-text"><ReactMarkdown source={ checkpoint.assignment } /></p>
               </div>
             </div>
+            <SubmissionData cp_id={checkpoint._id}/>
           </div>
         </div>
       </div>
