@@ -40,6 +40,7 @@ export default React.createClass({
         <ul className="nav navbar-nav pull-right">
           <li className="nav-item">
             <NavLink to="/dashboard">Dashboard</NavLink>
+            <NavLink to="/admin-dashboard">Admin Dash</NavLink>
             <NavLink to="/add-checkpoint">Add Checkpoint</NavLink>
             <NavLink to="/add-project">Add Project</NavLink>
           </li>

@@ -8,6 +8,7 @@ import SingleProjectData from './students/SingleProjectData'
 import SingleCheckpointData from './students/SingleCheckpointData'
 import Home from './Home'
 import DashboardData from './students/DashboardData'
+import AdminDashData from './admin/DashboardData'
 import PostContent from './admin/PostCheckpointView'
 import PostProject from './admin/PostProjectView'
 import Login from './user/Login'
@@ -19,6 +20,8 @@ render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
+
+      <Route path="/admin-dashboard" component={AdminDashData}/>
 
       <Route path="/dashboard" component={DashboardData}/>
 

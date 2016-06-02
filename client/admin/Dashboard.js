@@ -1,38 +1,51 @@
 import React from 'react'
-import StudentProgressBar from '../modules/StudentProgressBar'
-import ProjectCard from '../ProjectCard'
-
+import ProjectsData from './ProjectsData'
+import StudentsData from './StudentsData'
+import SubmissionsData from './SubmissionsData'
 
 export default React.createClass({
+  getInitialState() {
+    return {
+      activeComp: 'projects'
+    }
+  },
+  returnComp() {
+    if(this.state.activeComp === 'projects') {
+      return <ProjectsData/>
+    } else if(this.state.activeComp === 'students'){
+      return <StudentsData/>
+    } else if(this.state.activeComp === 'submissions'){
+      return <SubmissionsData/>
+    } else {
+      return null;
+    }
+  },
+  setActiveComp(name) {
+    console.log("trying to change state", name)
+    this.setState({ activeComp: name })
+  },
   render() {
     return (
-      <div>
-        <div className="container dashboard-progress-container">
-          <div className="row">
-            <div className="col-md-4">
-              <h4> Start Date</h4>
-              <h4> End Date </h4>
-            </div>
-            <div className="col-md-4">
-              <h4> 45% Time Left </h4>
-            </div>
-            <div className="col-md-4">
-              <h4> Currently on Project 3 </h4>
-              <h4> 50% coursework completed </h4>
+        <div className="container">
+          <div className="row">        
+            <div>
+              <div className="btn-group my-btn-group" data-toggle="buttons">
+                <label className="btn btn-primary my-primary-btn" onClick={this.setActiveComp.bind(null, 'projects')}>
+                  <input type="radio" autocomplete="off" checked/>Projects
+                </label>
+                <label className="btn btn-primary my-primary-btn" onClick={this.setActiveComp.bind(null, 'students')}>
+                  <input type="radio" autocomplete="off"/> Students
+                </label>
+                <label className="btn btn-primary my-primary-btn" onClick={this.setActiveComp.bind(null, 'submissions')}>
+                  <input type="radio" autocomplete="off"/> Submissions
+                </label>
+              </div>
+              <div>
+                { this.returnComp() }
+              </div>
             </div>
           </div>
         </div>
-        <div className="container student-card-container">
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
-        </div>
-      </div>
       )
   }
 })
