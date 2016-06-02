@@ -146,11 +146,23 @@ body {
 }
 
 .active {
+    color: $dark-blue !important;
+    background-color: white !important;
+    border: solid 1px $dark-grey !important;
+}
+
+.active-nav {
   color: white !important;
   border-bottom: medium solid white;
   font-size: 18px;
   text-decoration: none;
 }
+
+.my-btn-group {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
 
 .dash-btn {
   margin: 5px;
