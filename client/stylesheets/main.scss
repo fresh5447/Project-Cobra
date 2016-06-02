@@ -78,6 +78,23 @@ body {
   background-color: white;
 }
 
+.form-primary-btn {
+    color: #fff;
+    background-color: $dark-blue;
+    border-color: $dark-grey;
+    margin-left: 10px;
+}
+
+.my-thead {
+  background-color: $dark-blue !important;
+}
+
+.form-primary-btn:hover, .form-primary-btn:focus, .form-primary-btn:active {
+    color: $dark-grey;
+    background-color: white;
+    border-color: $logo-green;
+}
+
 .my-primary-btn {
     color: #fff;
     background-color: $dark-blue;
