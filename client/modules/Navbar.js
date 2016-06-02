@@ -49,9 +49,9 @@ export default React.createClass({
             <i className="fa fa-user" aria-hidden="true"></i>
           </button>
           <div className="dropdown-menu my-dropdown-menu ">
-            <a className="dropdown-item"><NavLink to="/login"><span className="dropdown-item">Login</span></NavLink></a>
+            <NavLink to="/login"><span className="dropdown-item">Login</span></NavLink>
             <a className="dropdown-item" onClick={this.fireLogout}>Logout</a>
-            <a className="dropdown-item"><NavLink to="/signup"><span className="dropdown-item">Signup</span></NavLink></a>
+            <NavLink to="/signup"><span className="dropdown-item">Signup</span></NavLink>
           </div>
         </div>
       </nav>

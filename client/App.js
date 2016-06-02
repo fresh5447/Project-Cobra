@@ -4,6 +4,11 @@ import Navbar from './modules/Navbar'
 import Notifier from './Notifier'
 import GetUser from './UserContext'
 
+Navbar.displayName = 'Navbar';
+NavLink.displayName = 'NavLink';
+Notifier.displayName = 'Notifier';
+GetUser.displayName = 'GetUser';
+
 export default React.createClass({
   render() {
     return (
