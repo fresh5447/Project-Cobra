@@ -31,4 +31,18 @@ Router.route('/')
     })
   })
 
+Router.route('/student-submissions/:cp_id')
+  .get(function(req, res){
+    const uID = req.user ? req.user._id : '574f5fa826a0167cd19e90b7'
+    const cp_id = req.params.cp_id
+    Submission.find(({ $and: [{ user: uID }, { checkpoint: cp_id }] }), function(err, subs){
+      if(err){
+        console.log(err, 'err')
+      } else {
+        res.json(subs)
+      }
+    })
+  })
+
+
 module.exports = Router;

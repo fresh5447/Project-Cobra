@@ -12,16 +12,28 @@ export default React.createClass({
   getInitialState() {
     return {
       content: null,
-      activeSub: 'mySubs'
+      activeSub: 'mySubs',
+      mySubs: null
     }
   },
   updateContent(e) {
     this.setState({ content: e.target.value })
     console.log(this.state.content)
   },
+  getUserSubs() {
+    $.ajax({
+      url: '/api/v1/submissions/student-submissions/' + this.props.cp_id,
+      method: 'GET',
+    }).done((data) => {
+      this.setState({ mySubs: data })
+    });
+  },
+  componentWillMount() {
+    this.getUserSubs()
+  },
   returnSub() {
     if(this.state.activeSub === 'mySubs') {
-      return <MySubs />
+      return this.state.mySubs ? <MySubs subs={ this.state.mySubs } /> : null
     } else if(this.state.activeSub === 'newSub'){
       return <SubmissionForm updateContent={this.updateContent} submitContent={this.submitContent}/>
     } else if(this.state.activeSub === 'previewSub'){
