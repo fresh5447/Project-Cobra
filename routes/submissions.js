@@ -22,7 +22,10 @@ Router.route('/')
     })
   })
   .get(function(req, res){
-    Submission.find(function(err, subs){
+    Submission.find()
+    .populate('checkpoint')
+    .populate('user')
+    .exec(function(err, subs){
       if(err){
         console.log(err, 'err')
       } else {

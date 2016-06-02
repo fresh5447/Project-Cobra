@@ -6,16 +6,16 @@ import SubmissionsData from './SubmissionsData'
 export default React.createClass({
   getInitialState() {
     return {
-      activeComp: 'projects'
+      activeComp: 'projects',
     }
   },
   returnComp() {
     if(this.state.activeComp === 'projects') {
-      return <ProjectsData/>
+      return <ProjectsData projects={ this.props.projects }/>
     } else if(this.state.activeComp === 'students'){
-      return <StudentsData/>
+      return <StudentsData students={ this.props.students }/>
     } else if(this.state.activeComp === 'submissions'){
-      return <SubmissionsData/>
+      return <SubmissionsData submissions={ this.props.submissions }/>
     } else {
       return null;
     }

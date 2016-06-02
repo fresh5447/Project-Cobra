@@ -48,6 +48,16 @@ module.exports = function(app, passport) {
         res.json({user: "no user"})
       }
     })
+
+    app.get('/getUsers', function(req, res){
+      User.find(function(err, users){
+        if(err){
+          console.log("error loading users")
+        } else {
+          res.json(users)
+        }
+      })
+    });
     
 
 };
