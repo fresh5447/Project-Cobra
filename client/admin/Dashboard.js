@@ -39,6 +39,7 @@ export default React.createClass({
                 <label className="btn btn-primary my-primary-btn" onClick={this.setActiveComp.bind(null, 'submissions')}>
                   <input type="radio" autocomplete="off"/> Submissions
                 </label>
+                <span className="label label-default">I hate how this looks</span>
               </div>
               <div>
                 { this.returnComp() }

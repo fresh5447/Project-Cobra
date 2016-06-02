@@ -1,8 +1,12 @@
 import React from 'react'
+import StudentTable from './StudentTable'
 
 export default React.createClass({
   render() {
-    console.log("students made it", this.props.students);
-    return (<div> Found Students Data </div>)
+    return (
+      <div>
+        <StudentTable students={this.props.students} />
+      </div>
+      )
   }
 })
