@@ -16,6 +16,9 @@ export default React.createClass({
       mySubs: null
     }
   },
+  contextTypes: {
+    sendNotification: React.PropTypes.func.isRequired,
+  },
   updateContent(e) {
     this.setState({ content: e.target.value })
     console.log(this.state.content)
@@ -56,7 +59,11 @@ export default React.createClass({
       url: '/api/v1/submissions',
       method: 'POST',
       data: data
-    }).done((data) => console.log('SUCCESS', data))
+    }).done((data) => {
+     console.log('SUCCESS', data) 
+     this.getUserSubs()
+     this.context.sendNotification('submission created')
+    })
   },
   render() {
     return (

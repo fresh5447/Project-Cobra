@@ -28,24 +28,20 @@ export default React.createClass({
     return (
         <div className="container">
           <div className="row">        
-            <div>
-              <div className="btn-group my-btn-group" data-toggle="buttons">
-                <label className="btn btn-primary my-primary-btn" onClick={this.setActiveComp.bind(null, 'projects')}>
-                  <input type="radio" autocomplete="off" checked/>Projects
-                </label>
-                <label className="btn btn-primary my-primary-btn" onClick={this.setActiveComp.bind(null, 'students')}>
-                  <input type="radio" autocomplete="off"/> Students
-                </label>
-                <label className="btn btn-primary my-primary-btn" onClick={this.setActiveComp.bind(null, 'submissions')}>
-                  <input type="radio" autocomplete="off"/> Submissions
-                </label>
+                <h3 className="" onClick={this.setActiveComp.bind(null, 'projects')}>
+                  Projects
+                </h3>
+                <h3 className="" onClick={this.setActiveComp.bind(null, 'students')}>
+                  Students
+                </h3>
+                <h3 className="" onClick={this.setActiveComp.bind(null, 'submissions')}>
+                   Submissions
+                </h3>
                 <span className="label label-default">I hate how this looks</span>
               </div>
               <div>
                 { this.returnComp() }
               </div>
-            </div>
-          </div>
         </div>
       )
   }

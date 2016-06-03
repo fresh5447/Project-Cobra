@@ -7,6 +7,7 @@ const SubmissionSchema = new Schema({
   approved:   String,
   checkpoint: { type: mongoose.Schema.Types.ObjectId, ref: 'Checkpoint' },
   user:       { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  approved: { type: Boolean, default: false }
 });
 
 module.exports = mongoose.model('Submission', SubmissionSchema);
