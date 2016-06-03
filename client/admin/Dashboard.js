@@ -6,7 +6,7 @@ import SubmissionsData from './SubmissionsData'
 export default React.createClass({
   getInitialState() {
     return {
-      activeComp: 'projects',
+      activeComp: 'submissions',
     }
   },
   returnComp() {
@@ -28,14 +28,14 @@ export default React.createClass({
     return (
         <div className="container">
           <div className="row">        
-                <h3 className="" onClick={this.setActiveComp.bind(null, 'projects')}>
-                  Projects
+                <h3 className="" onClick={this.setActiveComp.bind(null, 'submissions')}>
+                   Submissions
                 </h3>
                 <h3 className="" onClick={this.setActiveComp.bind(null, 'students')}>
                   Students
                 </h3>
-                <h3 className="" onClick={this.setActiveComp.bind(null, 'submissions')}>
-                   Submissions
+                <h3 className="" onClick={this.setActiveComp.bind(null, 'projects')}>
+                  Projects
                 </h3>
                 <span className="label label-default">I hate how this looks</span>
               </div>
