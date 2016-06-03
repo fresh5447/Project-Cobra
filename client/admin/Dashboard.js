@@ -15,7 +15,7 @@ export default React.createClass({
     } else if(this.state.activeComp === 'students'){
       return <StudentsData students={ this.props.students }/>
     } else if(this.state.activeComp === 'submissions'){
-      return <SubmissionsData submissions={ this.props.submissions }/>
+      return <SubmissionsData loadSubmissions={this.props.loadSubmissions} submissions={ this.props.submissions }/>
     } else {
       return null;
     }

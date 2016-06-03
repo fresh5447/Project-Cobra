@@ -47,5 +47,26 @@ Router.route('/student-submissions/:cp_id')
     })
   })
 
+Router.route('/edit-submission/:sub_id')
+  .put(function(req, res){
+    Submission.findById(req.params.sub_id, function(err, submission){
+      if(err) {
+        res.json({ message: "there was an error finding this bad boy" })
+      } else {
+        submission.content = req.body.content ? req.body.content : submission.content;
+        submission.approved  = req.body.approved ? req.body.approved : submission.approved;
+ 
+        submission.save(function(err){
+          if(err) {
+            res.json({ message: "there was an error saving the updated submission" });
+          } else {
+            res.json(submission)
+          }
+        });
+
+      }
+    });
+  });
+
 
 module.exports = Router;
