@@ -1,5 +1,4 @@
 import React from 'react'
-import StudentTable from './StudentTable'
 
 export default React.createClass({
   render() {

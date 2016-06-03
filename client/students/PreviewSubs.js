@@ -12,7 +12,7 @@ export default React.createClass({
             <div className="card-block">
               <div className="card card-block inner-checkpoint-cardblock">
                 <h4 className="card-title">Your Markdown</h4>
-                <p className="card-text"><ReactMarkdown source={this.props.content} /></p>
+                <ReactMarkdown source={this.props.content ? this.props.content : "Nothing to preview"} />
               </div>
             </div>
 

@@ -1,6 +1,9 @@
 import React from 'react'
 import StudentTable from './StudentTable'
 
+StudentTable.displayName = 'StudentTable'
+
+
 export default React.createClass({
   render() {
     return (

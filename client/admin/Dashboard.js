@@ -3,6 +3,11 @@ import ProjectsData from './ProjectsData'
 import StudentsData from './StudentsData'
 import SubmissionsData from './SubmissionsData'
 
+ProjectsData.displayName = 'ProjectsData'
+StudentsData.displayName = 'StudentsData'
+SubmissionsData.displayName = 'SubmissionsData'
+
+
   const style = {
     active: {
       fontSize: '26px',

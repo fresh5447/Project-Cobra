@@ -14,6 +14,16 @@ import PostProject from './admin/PostProjectView'
 import Login from './user/Login'
 import Signup from './user/Signup'
 
+App.displayName = 'App';
+AdminDashData.displayName = 'AdminDashData';
+SingleProjectData.displayName = 'SingleProjectData';
+DashboardData.displayName = 'DashboardData';
+SingleCheckpointData.displayName = 'SingleCheckpointData';
+PostContent.displayName = 'PostContent';
+PostProject.displayName = 'PostProject';
+Signup.displayName = 'Signup';
+Login.displayName = 'Login';
+
 require('./stylesheets/main.scss')
 
 render((

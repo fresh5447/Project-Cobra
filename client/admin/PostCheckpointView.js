@@ -63,7 +63,7 @@ export default React.createClass({
   render() {
     if(this.state.projects){
       let projects = this.state.projects.map(function(item){
-        return <option value={item._id} > { item.title } </option>
+        return <option key={item._id} value={item._id} > { item.title } </option>
       });
     return (
       <div>
@@ -106,8 +106,8 @@ export default React.createClass({
             </div>
             <div className="card-block">
                   <h5 className="card-title">{this.state.title ? this.state.title : "No title yet..."}</h5>
-                  <p className="card-text"> <ReactMarkdown source={this.state.content ? this.state.content : "No content yet..."}/> </p>
-                  <p className="card-text"> <ReactMarkdown source={this.state.assignment ? this.state.assignment : "No assignment yet..."} /> </p>
+                  <ReactMarkdown source={this.state.content ? this.state.content : "No content yet..."}/>
+                  <ReactMarkdown source={this.state.assignment ? this.state.assignment : "No assignment yet..."} />
             </div>
           </div>
         </div>

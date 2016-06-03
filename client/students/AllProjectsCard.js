@@ -1,6 +1,9 @@
 import React from 'react'
 import NavLink from '../modules/NavLink'
 
+NavLink.displayName = 'NavLink';
+
+
 export default React.createClass({
   render() {
     return (

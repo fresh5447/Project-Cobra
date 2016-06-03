@@ -70,13 +70,13 @@ export default React.createClass({
       <div>
         <div className="btn-group my-btn-group" data-toggle="buttons">
           <label className="btn btn-primary my-primary-btn" onClick={this.setActiveSub.bind(null, 'mySubs')}>
-            <input type="radio" autocomplete="off" checked/>My Submissions
+            My Submissions
           </label>
           <label className="btn btn-primary my-primary-btn" onClick={this.setActiveSub.bind(null, 'newSub')}>
-            <input type="radio" autocomplete="off"/> New Submission
+            New Submission
           </label>
           <label className="btn btn-primary my-primary-btn" onClick={this.setActiveSub.bind(null, 'previewSub')}>
-            <input type="radio" autocomplete="off"/> Preview Submission
+            Preview Submission
           </label>
         </div>
         <div>

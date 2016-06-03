@@ -1,6 +1,8 @@
 import React from 'react'
 import SingleProjectView from './SingleProjectView'
 
+SingleProjectView.displayName = 'SingleProjectView';
+
 export default React.createClass({
   getInitialState() {
     return {

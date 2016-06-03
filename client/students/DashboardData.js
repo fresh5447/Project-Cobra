@@ -2,6 +2,10 @@ import React from 'react'
 import StudentProgressBar from '../modules/StudentProgressBar'
 import AllProjectsCard from './AllProjectsCard'
 
+AllProjectsCard.displayName = 'AllProjectsCard';
+StudentProgressBar.displayName = 'StudentProgressBar';
+
+
 export default React.createClass({
   getInitialState() {
     return {
@@ -31,7 +35,7 @@ export default React.createClass({
     let self = this;
     if(this.state.projects){
       const projectsArr = this.state.projects.map(function(item){
-        return <AllProjectsCard setActiveProject={ self.setActiveProject } id={item._id} title={ item.title } desc={item.desc} checkpoints={item.checkpoints} hours={item.hours} />
+        return <AllProjectsCard key={item._id} setActiveProject={ self.setActiveProject } id={item._id} title={ item.title } desc={item.desc} checkpoints={item.checkpoints} hours={item.hours} />
       })
       return (
         <div>

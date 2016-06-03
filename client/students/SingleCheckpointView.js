@@ -3,6 +3,9 @@ import NavLink from '../modules/NavLink'
 import ReactMarkdown from 'react-markdown'
 import SubmissionData from './SubmissionData'
 
+SubmissionData.displayName = 'SubmissionData';
+NavLink.displayName = 'NavLink';
+
 export default React.createClass({
   render() {
     let checkpoint = this.props.checkpoint;
@@ -18,7 +21,7 @@ export default React.createClass({
             <div className="card-block">
               <div className="card card-block inner-checkpoint-cardblock">
                 <h4 className="card-title">{checkpoint.title}</h4>
-                <p className="card-text"><ReactMarkdown source={ checkpoint.content } /></p>
+                <ReactMarkdown source={ checkpoint.content } />
               </div>
             </div>
             <div className="card-block">
@@ -30,7 +33,7 @@ export default React.createClass({
             <div className="card-block">
               <div className="card card-block inner-checkpoint-cardblock">
                 <h4 className="card-title">Assignment</h4>
-                <p className="card-text"><ReactMarkdown source={ checkpoint.assignment } /></p>
+                <ReactMarkdown source={ checkpoint.assignment } />
               </div>
             </div>
             <SubmissionData cp_id={checkpoint._id}/>

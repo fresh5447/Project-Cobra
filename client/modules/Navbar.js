@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import NavLink from './NavLink'
 import { browserHistory } from 'react-router'
 
+NavLink.displayName = 'NavLink';
+
 
 export default React.createClass({
   getInitialState() {

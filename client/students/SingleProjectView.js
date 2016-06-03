@@ -1,13 +1,15 @@
 import React from 'react'
 import NavLink from '../modules/NavLink'
 
+NavLink.displayName = 'NavLink';
+
 export default React.createClass({
   render() {
     let project = this.props.project[0];
     
     let checkpoints = project.checkpoints.map(function(item){
       return (
-            <div className="card card-block">
+            <div key={item._id} className="card card-block">
               <h3 className="card-title">{ item.title }</h3>
               <p className="card-text">{ item.desc }</p>
               <NavLink to={"/projects/" + item.title }>VIEW PROJECT</NavLink>

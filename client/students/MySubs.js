@@ -21,10 +21,10 @@ export default React.createClass({
       const subs = this.props.subs.map((item) => {
         const ap = item.approved
         return (
-              <div className="card-block">
+              <div key={item._id} className="card-block">
                 <div className="card card-block inner-checkpoint-cardblock">
                   <h6 className="card-title pull-right"><span className="a-status"> status </span>{this.truthify(ap)}</h6>
-                  <p className="card-text"> <ReactMarkdown source={item.content} /> </p>
+                  <ReactMarkdown source={item.content} />
                 </div>
               </div>
           )

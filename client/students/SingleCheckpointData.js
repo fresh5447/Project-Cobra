@@ -1,6 +1,8 @@
 import React from 'react'
 import SingleCheckpointView from './SingleCheckpointView'
 
+SingleCheckpointView.displayName = 'SingleCheckpointView';
+
 { /*  REPO */ }
 export default React.createClass({
   getInitialState() {
