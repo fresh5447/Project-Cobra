@@ -1,5 +1,6 @@
 // modules/NavLink.js
 import React from 'react'
+import ReactMarkdown from 'react-markdown'
 
 export default React.createClass({
   handleSubmit(e) {
@@ -7,15 +8,23 @@ export default React.createClass({
     console.log("found the thing in the form")
     this.props.submitContent()
   },
+  truthify(isIt) {
+    console.log("FINDING VAL", isIt)
+    if(isIt == true){
+      return 'Approved'
+    } else {
+      return 'In Limbo'
+    }
+  },
   render() {
-    console.log("FOUND SUBSS", this.props.subs)
     if(this.props.subs.length > 0){
       const subs = this.props.subs.map((item) => {
+        const ap = item.approved
         return (
               <div className="card-block">
                 <div className="card card-block inner-checkpoint-cardblock">
-                  <h6 className="card-title pull-right">Approved/ Rejected</h6>
-                  <p className="card-text">{ item.content }</p>
+                  <h6 className="card-title pull-right"><span className="a-status"> status </span>{this.truthify(ap)}</h6>
+                  <p className="card-text"> <ReactMarkdown source={item.content} /> </p>
                 </div>
               </div>
           )
