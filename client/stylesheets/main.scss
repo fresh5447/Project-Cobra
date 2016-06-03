@@ -22,6 +22,22 @@ h1, h2, h3, h4, h5, h6 {
   color: $light-blue
 }
 
+.make-cursor {
+  cursor: pointer
+}
+
+.no-highlight-dash {
+  font-size: 16px;
+  color: $dark-grey
+}
+
+.highlight-dash {
+  font-size: 26px;
+  color: $dark-blue;
+  border-color: $dark-grey;
+  margin-bottom: 16px;
+}
+
 
 pre {
   background: #f7f7f9;

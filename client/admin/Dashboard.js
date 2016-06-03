@@ -3,6 +3,19 @@ import ProjectsData from './ProjectsData'
 import StudentsData from './StudentsData'
 import SubmissionsData from './SubmissionsData'
 
+  const style = {
+    active: {
+      fontSize: '26px',
+      color: '#34495e',
+      borderColor: '#333333',
+      marginBottom: '16px',
+    },
+    disabled: {
+      fontSize: '16px',
+      color: '#333333',
+    }
+  };
+
 export default React.createClass({
   getInitialState() {
     return {
@@ -27,18 +40,18 @@ export default React.createClass({
   render() {
     return (
         <div className="container">
-          <div className="row">        
-                <h3 className="" onClick={this.setActiveComp.bind(null, 'submissions')}>
-                   Submissions
-                </h3>
-                <h3 className="" onClick={this.setActiveComp.bind(null, 'students')}>
-                  Students
-                </h3>
-                <h3 className="" onClick={this.setActiveComp.bind(null, 'projects')}>
-                  Projects
-                </h3>
-                <span className="label label-default">I hate how this looks</span>
-              </div>
+          <div className="row"> 
+            <div className="col-sm-3">
+              <h3 className="make-cursor" style={this.state.activeComp === 'submissions' ? style.active : style.disabled } onClick={this.setActiveComp.bind(null, 'submissions')}>
+                Submissions
+              </h3>
+            </div>
+            <div className="col-sm-3">
+              <h3 className="make-cursor" style={this.state.activeComp === 'students' ? style.active : style.disabled } onClick={this.setActiveComp.bind(null, 'students')}>
+                Students
+              </h3>
+            </div>       
+          </div>
               <div>
                 { this.returnComp() }
               </div>
