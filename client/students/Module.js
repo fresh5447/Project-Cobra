@@ -4,7 +4,7 @@ export default React.createClass({
   render() {
     return (
       <div>
-        <h2>{this.props.params.repoName}</h2>
+        <h2>{this.props.params.modName}</h2>
       </div>
     )
   }

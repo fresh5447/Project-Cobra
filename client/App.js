@@ -10,13 +10,18 @@ Notifier.displayName = 'Notifier';
 GetUser.displayName = 'GetUser';
 
 export default React.createClass({
+  someFunction() {
+    return "hello"
+  },
   render() {
     return (
       <div>
         <Notifier >
           <GetUser >
             <Navbar />
-              {this.props.children}
+            {this.props.children && React.cloneElement(this.props.children, {
+              someFunction: this.someFunction
+            })}
           </GetUser>
         </Notifier >
       </div>
