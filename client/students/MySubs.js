@@ -28,7 +28,7 @@ export default React.createClass({
                 </div>
               </div>
           )
-      });
+      }).reverse();
       return (
         <div className="card-block">
           <div className="card card-block inner-checkpoint-cardblock">
