@@ -62,7 +62,9 @@ export default React.createClass({
     }).done((data) => {
      console.log('SUCCESS', data) 
      this.getUserSubs()
-     this.context.sendNotification('submission created')
+     this.context.sendNotification('submission created');
+     this.setActiveSub('mySubs');
+     this.setState({ content: '' })
     })
   },
   render() {
