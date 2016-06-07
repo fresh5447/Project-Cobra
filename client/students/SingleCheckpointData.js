@@ -12,23 +12,16 @@ export default React.createClass({
   },
   loadCPfromServer() {
     $.ajax({
-      url: '/api/v1/modules/two/cp/' + this.props.params.checkpointName,
+      url: '/api/v1/modules/three/cp/' + this.props.params.cp_id,
       method: 'GET'
-    }).done((data) => this.setState({ checkpoint: data[0] }))
+    }).done((data) => this.setState({ checkpoint: data }))
   },
   componentWillMount() {
     this.loadCPfromServer();
     console.log("Set the state", this.state.checkpoint)
   },
   render() {
-    return (
-      <div>
-        Hi single checkpoint view
-      </div>
-      )
+    window.tot = this.state.checkpoint;
+    return this.state.checkpoint ? <SingleCheckpointView checkpoint={this.state.checkpoint} /> : null;
   }
 })
-
-
-{ /*      return this.state.checkpoint ? <SingleCheckpointView checkpoint={this.state.checkpoint} /> : null;
-   */ }

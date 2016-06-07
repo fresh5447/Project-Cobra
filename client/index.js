@@ -41,7 +41,7 @@ render((
       <Route path="/dashboard" component={TestDBData}/>
 
       <Route path="/dashboard/projects/:id" component={SingleModuleData}/>
-      <Route path="/dashboard/projects/checkpoints/:cp_id" component={SingleModuleData}/>
+      <Route path="/dashboard/projects/checkpoints/:cp_id" component={SingleCheckpointData}/>
 
       <Route path="/modules/:checkpointName" component={SingleCheckpointData}/>
 

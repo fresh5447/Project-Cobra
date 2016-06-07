@@ -99,5 +99,17 @@ Router.route('/one/:id/checkpoints/:cp_id')
     })
   });
 
+Router.route('/three/cp/:cp_id')
+  .get(function(req, res) {
+    Checkpoint.findById(req.params.cp_id)
+      .populate('module')
+      .exec(function(err, checkpoint){
+      if(err) {
+        res.json({ message: "error trying to find checkpoint while getting checkpoints" })
+      } else {
+        res.json( checkpoint )
+      }
+    })
+  });
 
 module.exports = Router;
