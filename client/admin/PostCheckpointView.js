@@ -10,8 +10,8 @@ export default React.createClass({
       desc:       null,
       number:     null,
       assignment: null,
-      projects:   null,
-      project:    null,
+      modules:   null,
+      module:    null,
     }
   },
   contextTypes: {
@@ -29,17 +29,18 @@ export default React.createClass({
   updateAssignment(e) {
     this.setState({ assignment: e.target.value })
   },
-  updateProject(e) {
-    this.setState({ project: e.target.value })
+  updateModule(e) {
+    this.setState({ module: e.target.value })
+    console.log(this.state.module)
   },
-  getProjects() {
+  getModules() {
     $.ajax({
-      url: '/api/v1/projects',
+      url: '/api/v1/modules',
       method: 'GET'
-    }).done((data) => this.setState({ projects: data }))
+    }).done((data) => this.setState({ modules: data }))
   },
   componentWillMount() {
-    this.getProjects()
+    this.getModules()
   },
   handleCheckpointSubmit(e) {
     e.preventDefault();
@@ -51,7 +52,7 @@ export default React.createClass({
     };
     var self = this;
     $.ajax({
-      url:    '/api/v1/projects/one/' + this.state.project + '/checkpoints',
+      url:    '/api/v1/modules/one/' + this.state.module + '/checkpoints',
       method: 'POST',
       data:    checkpoint
     }).done(function(data){
@@ -61,8 +62,8 @@ export default React.createClass({
     });
   },
   render() {
-    if(this.state.projects){
-      let projects = this.state.projects.map(function(item){
+    if(this.state.modules){
+      let modules = this.state.modules.map(function(item){
         return <option key={item._id} value={item._id} > { item.title } </option>
       });
     return (
@@ -79,9 +80,9 @@ export default React.createClass({
               <input onChange={this.updateDesc} type="text" className="form-control" id="" placeholder="..."/>
             </fieldset>
             <fieldset className="form-group">
-              <label>project</label>
-              <select onChange={this.updateProject} value={ this.state.project } className="form-control" id="exampleSelect1">
-                { projects }
+              <label>module</label>
+              <select onChange={this.updateModule} value={ this.state.module } className="form-control" id="exampleSelect1">
+                { modules }
               </select>
             </fieldset>
             <fieldset className="form-group">

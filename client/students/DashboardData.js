@@ -1,15 +1,15 @@
 import React from 'react'
 import StudentProgressBar from '../modules/StudentProgressBar'
-import AllProjectsCard from './AllProjectsCard'
+import AllModulesCard from './AllModulesCard'
 
-AllProjectsCard.displayName = 'AllProjectsCard';
+AllModulesCard.displayName = 'AllModulesCard';
 StudentProgressBar.displayName = 'StudentProgressBar';
 
 
 export default React.createClass({
   getInitialState() {
     return {
-      projects: null,
+      modules: null,
       user: null,
       activeProject: null
     }
@@ -17,31 +17,31 @@ export default React.createClass({
   contextTypes: {
     getUser: React.PropTypes.func.isRequired,
   },
-  setActiveProject(id) {
+  setActiveModule(id) {
     console.log(id)
     this.setState({ activeProject: id })
   },
-  loadProjectsFromServer() {
+  loadModulesFromServer() {
     $.ajax({
-      url: '/api/v1/projects',
+      url: '/api/v1/modules',
       method: 'GET'
-    }).done((data) => this.setState({ projects: data }))
+    }).done((data) => this.setState({ modules: data }))
   },
   componentWillMount() {
-    this.loadProjectsFromServer();
+    this.loadModulesFromServer();
     this.context.getUser((data) => this.setState({ user: data }))
   },
   render() {
-    let self = this;
-    if(this.state.projects){
-      const projectsArr = this.state.projects.map(function(item){
-        return <AllProjectsCard key={item._id} setActiveProject={ self.setActiveProject } id={item._id} title={ item.title } desc={item.desc} checkpoints={item.checkpoints} hours={item.hours} />
+
+    if(this.state.modules){
+      const modulesArr = this.state.modules.map((item) => {
+        return <AllModulesCard key={item._id} setActiveModule={ self.setActiveModule } id={item._id} title={ item.title } desc={item.desc} checkpoints={item.checkpoints} hours={item.hours} />
       })
       return (
         <div>
           <StudentProgressBar/>
           <div className="container student-card-container">
-          { this.state.projects ? projectsArr : null }
+          { this.state.modules ? modulesArr : null }
           </div>
         </div>
         )

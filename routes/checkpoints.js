@@ -1,7 +1,7 @@
 'use strict';
 
 const express    = require('express');
-const Project    = require('../models/project');
+const Module    = require('../models/module');
 const Checkpoint = require('../models/checkpoint');
 
 const Router = express.Router();
@@ -15,32 +15,32 @@ Router.route('/one/:id/checkpoints')
       publish:    req.body.publish,
       number:     req.body.number,
       assignment: req.body.assignment,
-      project:    req.params.id
+      module:    req.params.id
     });
     cp.save(function(err, checkpoint){
       if(err) {
         res.json({ message: "error trying to find project while creating checkpoint" })
       } else {
-        Project.findById(req.params.id, function(err, project){
+        Module.findById(req.params.id, function(err, module){
           if(err) {
-            res.json({ message: "error trying to find project while creating checkpoint" })
+            res.json({ message: "error trying to find module while creating checkpoint" })
           } else {
-            project.checkpoints.push(checkpoint._id);
-            project.save();
-            res.json(project);
+            module.checkpoints.push(checkpoint._id);
+            module.save();
+            res.json(module);
           }
         })
       }
     })
   })
   .get(function(req, res) {
-    Project.findById(req.params.id)
+    Module.findById(req.params.id)
     .populate('checkpoints')
-    .exec(function(err, project){
+    .exec(function(err, module){
       if(err) {
-        res.json({ message: "error trying to find project while getting checkpoints" })
+        res.json({ message: "error trying to find module while getting checkpoints" })
       } else {
-        res.json( project.checkpoints )
+        res.json( module.checkpoints )
       }
     })
   })
@@ -64,7 +64,7 @@ Router.route('/one/:id/checkpoints/:cp_id')
         checkpoint.desc       = req.body.desc ? req.body.desc : checkpoint.desc;
         checkpoint.content    = req.body.content ? req.body.content : checkpoint.content;
         checkpoint.assignment = req.body.assignment ? req.body.assignment : checkpoint.assignment;
-        checkpoint.project    = req.body.project ? req.body.project : checkpoint.project;
+        checkpoint.module    = req.body.module ? req.body.module : checkpoint.module;
 
         checkpoint.save(function(err){
           if(err) {
@@ -89,7 +89,7 @@ Router.route('/one/:id/checkpoints/:cp_id')
   Router.route('/two/cp/:cp_name')
   .get(function(req, res) {
     Checkpoint.find({ title: req.params.cp_name})
-      .populate('project')
+      .populate('module')
       .exec(function(err, checkpoint){
       if(err) {
         res.json({ message: "error trying to find checkpoint while getting checkpoints" })

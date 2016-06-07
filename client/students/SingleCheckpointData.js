@@ -12,7 +12,7 @@ export default React.createClass({
   },
   loadCPfromServer() {
     $.ajax({
-      url: '/api/v1/projects/two/cp/' + this.props.params.checkpointName,
+      url: '/api/v1/modules/two/cp/' + this.props.params.checkpointName,
       method: 'GET'
     }).done((data) => this.setState({ checkpoint: data[0] }))
   },

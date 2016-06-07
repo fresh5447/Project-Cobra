@@ -9,7 +9,7 @@ const CheckpointSchema = new Schema({
   publish:    Boolean,
   content:    String,
   assignment: String,
-  project: { type: mongoose.Schema.Types.ObjectId, ref: 'Project' }
+  module: { type: mongoose.Schema.Types.ObjectId, ref: 'Module' }
 });
 
 module.exports = mongoose.model('Checkpoint', CheckpointSchema);

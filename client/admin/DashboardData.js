@@ -7,18 +7,18 @@ Dashboard.displayName = 'Dashboard'
 export default React.createClass({
   getInitialState() {
     return {
-      projects: null,
+      modules: null,
       submissions: null,
       students: null,
     }
   },
-  loadProjects() {
+  loadModules() {
     $.ajax({
-      url: '/api/v1/projects',
+      url: '/api/v1/modules',
       method: 'GET',
     }).done((data)=>{
-      this.setState({ projects: data });
-      console.log("Successfully loaded projects")
+      this.setState({ modules: data });
+      console.log("Successfully loaded modules")
     })
   },
   loadStudents() {
@@ -42,10 +42,10 @@ export default React.createClass({
   componentWillMount() {
     this.loadSubmissions();
     this.loadStudents();
-    this.loadProjects();
+    this.loadModules();
   },
   render() {
-    return this.state.projects && this.state.submissions && this.state.students 
-    ? <Dashboard loadSubmissions={this.loadSubmissions} students={this.state.students} projects={this.state.projects} submissions={this.state.submissions}/> : null;
+    return this.state.modules && this.state.submissions && this.state.students 
+    ? <Dashboard loadSubmissions={this.loadSubmissions} students={this.state.students} modules={this.state.modules} submissions={this.state.submissions}/> : null;
   }
 })

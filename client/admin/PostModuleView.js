@@ -21,33 +21,32 @@ export default React.createClass({
   updateHours(e) {
     this.setState({ hours: e.target.value })
   },
-  handleProjectSubmit(e) {
+  handleModuleSubmit(e) {
     e.preventDefault();
 
-    let project = {
+    let module = {
       title: this.state.title,
       desc:  this.state.desc,
       hours: this.state.hours
     };
-    var self = this;
+
     $.ajax({
-      url:    '/api/v1/projects',
+      url:    '/api/v1/modules',
       method: 'POST',
-      data:    project
-    }).done(function(data){
-      self.context.sendNotification("Project Created");
+      data:    module
+    }).done((data) => {
+      this.context.sendNotification("Project Created");
       const path = `/add-checkpoint`
       browserHistory.push(path)
       console.log('SUCCESS', data);
     });
-
   },
   render() {
     return (
       <div>
         <div className="container">
-          <form onSubmit={ this.handleProjectSubmit }>
-            <h4> Create New Project </h4>
+          <form onSubmit={ this.handleModuleSubmit }>
+            <h4> Create New Module </h4>
             <fieldset className="form-group">
               <label>title</label>
               <input onChange={this.updateTitle} type="text" className="form-control" id="" placeholder="..."/>

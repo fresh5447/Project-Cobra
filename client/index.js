@@ -4,23 +4,23 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import App from './App'
 import Repos from './Repos'
 import Repo from './Repo'
-import SingleProjectData from './students/SingleProjectData'
+import SingleModuleData from './students/SingleModuleData'
 import SingleCheckpointData from './students/SingleCheckpointData'
 import Home from './Home'
 import DashboardData from './students/DashboardData'
 import AdminDashData from './admin/DashboardData'
 import PostContent from './admin/PostCheckpointView'
-import PostProject from './admin/PostProjectView'
+import PostModule from './admin/PostModuleView'
 import Login from './user/Login'
 import Signup from './user/Signup'
 
 App.displayName = 'App';
 AdminDashData.displayName = 'AdminDashData';
-SingleProjectData.displayName = 'SingleProjectData';
+SingleModuleData.displayName = 'SingleModuleData';
 DashboardData.displayName = 'DashboardData';
 SingleCheckpointData.displayName = 'SingleCheckpointData';
 PostContent.displayName = 'PostContent';
-PostProject.displayName = 'PostProject';
+PostModule.displayName = 'PostModule';
 Signup.displayName = 'Signup';
 Login.displayName = 'Login';
 
@@ -35,12 +35,12 @@ render((
 
       <Route path="/dashboard" component={DashboardData}/>
 
-      <Route path="/dashboard/:projectName" component={SingleProjectData}/>
+      <Route path="/dashboard/:moduleName" component={SingleModuleData}/>
 
-      <Route path="/projects/:checkpointName" component={SingleCheckpointData}/>
+      <Route path="/modules/:checkpointName" component={SingleCheckpointData}/>
 
       <Route path="/add-checkpoint" component={PostContent}/>
-      <Route path="/add-project" component={PostProject}/>
+      <Route path="/add-project" component={PostModule}/>
       <Route path="/signup" component={Signup}/>
       <Route path="/login" component={Login}/>
     </Route>

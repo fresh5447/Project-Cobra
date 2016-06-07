@@ -1,9 +1,9 @@
 import React from 'react'
-import ProjectsData from './ProjectsData'
+import ModulesData from './ModulesData'
 import StudentsData from './StudentsData'
 import SubmissionsData from './SubmissionsData'
 
-ProjectsData.displayName = 'ProjectsData'
+ModulesData.displayName = 'ModulesData'
 StudentsData.displayName = 'StudentsData'
 SubmissionsData.displayName = 'SubmissionsData'
 
@@ -28,8 +28,8 @@ export default React.createClass({
     }
   },
   returnComp() {
-    if(this.state.activeComp === 'projects') {
-      return <ProjectsData projects={ this.props.projects }/>
+    if(this.state.activeComp === 'modules') {
+      return <ModulesData modules={ this.props.modules }/>
     } else if(this.state.activeComp === 'students'){
       return <StudentsData students={ this.props.students }/>
     } else if(this.state.activeComp === 'submissions'){

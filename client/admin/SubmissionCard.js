@@ -10,7 +10,7 @@ export default React.createClass({
     this.props.updateApproval(one, two)
   },
   render() {
-    console.log("projects made it", this.props.projects);
+    console.log("modules made it", this.props.modules);
     return (
           <div className="card markdown-card">
             <div className="card-block main-card-block">

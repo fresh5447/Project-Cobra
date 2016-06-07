@@ -15,8 +15,8 @@ export default React.createClass({
         <div className="container">
           <div className="card markdown-card">
             <div className="card-block main-card-block ">
-              <h2 className="card-title">{checkpoint.project.title}</h2>
-              <NavLink to={"/dashboard/" + checkpoint.project.title }><span className="back-link">Back to Project</span></NavLink>
+              <h2 className="card-title">{checkpoint.module.title}</h2>
+              <NavLink to={"/dashboard/" + checkpoint.module.title }><span className="back-link">Back to Module</span></NavLink>
             </div>
             <div className="card-block">
               <div className="card card-block inner-checkpoint-cardblock">

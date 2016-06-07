@@ -2,10 +2,9 @@ const path           = require('path'),
  express             = require('express'),
  bodyParser          = require('body-parser'),
  app                 = express(),
- ProjectsRouter      = require('./routes/projects'),
+ ModulesRouter       = require('./routes/modules'),
  SubmissionRouter    = require('./routes/submissions'),
  CheckpointsRouter   = require('./routes/checkpoints'),
- Post                = require('./models/project'),
  passport            = require('passport'),
  session             = require('express-session'),
  flash               = require('connect-flash'),
@@ -57,8 +56,8 @@ app.use('/img', express.static('img'));
 
 
 
-app.use('/api/v1/projects', ProjectsRouter);
-app.use('/api/v1/projects', CheckpointsRouter);
+app.use('/api/v1/modules', ModulesRouter);
+app.use('/api/v1/modules', CheckpointsRouter);
 app.use('/api/v1/submissions', SubmissionRouter);
 
 // app.get('/*', (req, res) => {
