@@ -61,6 +61,10 @@ app.use('/api/v1/projects', ProjectsRouter);
 app.use('/api/v1/projects', CheckpointsRouter);
 app.use('/api/v1/submissions', SubmissionRouter);
 
+// app.get('/*', (req, res) => {
+//   res.sendFile('index.html', { root: PUBLIC_DIR });
+// }); 
+
 
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'public', 'index.html'))
