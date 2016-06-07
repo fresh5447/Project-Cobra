@@ -7,13 +7,12 @@ export default React.createClass({
   getInitialState() {
     return {
       module:     null,
-      checkpoints: null
     }
   },
   loadModuleFromServer() {
-    console.log('/api/v1/modules/byName/' + this.props.params.moduleName)
+    console.log('/api/v1/modules/byId/' + this.props.params.id)
     $.ajax({
-      url: '/api/v1/modules/byName/' + this.props.params.moduleName,
+      url: '/api/v1/modules/byId/' + this.props.params.id,
       method: 'GET'
     }).done((data) => this.setState({ module: data }))
   },
@@ -21,6 +20,7 @@ export default React.createClass({
     this.loadModuleFromServer();
   },
   render() {
+    window.t = this.state.module;
     if(this.state.module) {
       return (
         <div>
@@ -28,7 +28,9 @@ export default React.createClass({
         </div>
         )
     } else {
-      return (<div> </div>)
+      return (<div>no mod </div>)
     }
   }
 })
+
+{ /*  <SingleModuleView module={this.state.module}/>  */ }

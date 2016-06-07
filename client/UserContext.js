@@ -22,6 +22,7 @@ var GetUser = React.createClass({
         url: 'getUser',
         method: 'GET'
       }).done(function(data){
+        console.log("Trying to call get user", data)
         return cb(data)
       })
     },

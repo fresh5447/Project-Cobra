@@ -21,6 +21,14 @@ export default React.createClass({
     console.log("Set the state", this.state.checkpoint)
   },
   render() {
-    return this.state.checkpoint ? <SingleCheckpointView checkpoint={this.state.checkpoint} /> : null;
+    return (
+      <div>
+        Hi single checkpoint view
+      </div>
+      )
   }
 })
+
+
+{ /*      return this.state.checkpoint ? <SingleCheckpointView checkpoint={this.state.checkpoint} /> : null;
+   */ }

@@ -14,6 +14,8 @@ import PostModule from './admin/PostModuleView'
 import Login from './user/Login'
 import Signup from './user/Signup'
 
+import TestDBData from './students/DBData'
+
 App.displayName = 'App';
 AdminDashData.displayName = 'AdminDashData';
 SingleModuleData.displayName = 'SingleModuleData';
@@ -31,11 +33,15 @@ render((
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
 
+      <Route path="/test" component={TestDBData}/>
+
+
       <Route path="/admin-dashboard" component={AdminDashData}/>
 
-      <Route path="/dashboard" component={DashboardData}/>
+      <Route path="/dashboard" component={TestDBData}/>
 
-      <Route path="/dashboard/:moduleName" component={SingleModuleData}/>
+      <Route path="/dashboard/projects/:id" component={SingleModuleData}/>
+      <Route path="/dashboard/projects/checkpoints/:cp_id" component={SingleModuleData}/>
 
       <Route path="/modules/:checkpointName" component={SingleCheckpointData}/>
 

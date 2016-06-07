@@ -3,16 +3,13 @@ import NavLink from '../modules/NavLink'
 
 NavLink.displayName = 'NavLink';
 
-export default React.createClass({
-  render() {
-    let module = this.props.module[0];
-    
-    let checkpoints = module.checkpoints.map(function(item){
+const SingleModuleView = (props) => {
+    const checkpoints = props.module.checkpoints.map(function(item){
       return (
             <div key={item._id} className="card card-block">
               <h3 className="card-title">{ item.title }</h3>
               <p className="card-text">{ item.desc }</p>
-              <NavLink to={"/modules/" + item.title }>VIEW module</NavLink>
+              <NavLink to={"/dashboard/projects/checkpoints/" + item._id}>GO</NavLink>
             </div>
         )
     })
@@ -32,5 +29,7 @@ export default React.createClass({
         </div>
       </div>
       )
-  }
-})
+  
+}
+
+export default SingleModuleView
