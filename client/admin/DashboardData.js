@@ -45,7 +45,7 @@ export default React.createClass({
     this.loadModules();
   },
   render() {
-    return this.state.modules && this.state.submissions && this.state.students 
+    return this.state.modules && this.state.submissions && this.state.students
     ? <Dashboard loadSubmissions={this.loadSubmissions} students={this.state.students} modules={this.state.modules} submissions={this.state.submissions}/> : null;
   }
 })

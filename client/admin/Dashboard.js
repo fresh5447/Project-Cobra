@@ -1,25 +1,25 @@
-import React from 'react'
-import ModulesData from './ModulesData'
-import StudentsData from './StudentsData'
-import SubmissionsData from './SubmissionsData'
+import React from 'react';
+import ModulesData from './ModulesData';
+import StudentsData from './StudentsData';
+import SubmissionsData from './SubmissionsData';
 
-ModulesData.displayName = 'ModulesData'
-StudentsData.displayName = 'StudentsData'
-SubmissionsData.displayName = 'SubmissionsData'
+ModulesData.displayName = 'ModulesData';
+StudentsData.displayName = 'StudentsData';
+SubmissionsData.displayName = 'SubmissionsData';
 
 
-  const style = {
-    active: {
-      fontSize: '26px',
-      color: '#34495e',
-      borderColor: '#333333',
-      marginBottom: '16px',
-    },
-    disabled: {
-      fontSize: '16px',
-      color: '#333333',
-    }
-  };
+const style = {
+  active: {
+    fontSize: '26px',
+    color: '#34495e',
+    borderColor: '#333333',
+    marginBottom: '16px',
+  },
+  disabled: {
+    fontSize: '16px',
+    color: '#333333',
+  }
+};
 
 export default React.createClass({
   getInitialState() {
@@ -45,7 +45,7 @@ export default React.createClass({
   render() {
     return (
         <div className="container">
-          <div className="row"> 
+          <div className="row">
             <div className="col-sm-3">
               <h3 className="make-cursor" style={this.state.activeComp === 'submissions' ? style.active : style.disabled } onClick={this.setActiveComp.bind(null, 'submissions')}>
                 Submissions
@@ -55,7 +55,7 @@ export default React.createClass({
               <h3 className="make-cursor" style={this.state.activeComp === 'students' ? style.active : style.disabled } onClick={this.setActiveComp.bind(null, 'students')}>
                 Students
               </h3>
-            </div>       
+            </div>
           </div>
               <div>
                 { this.returnComp() }

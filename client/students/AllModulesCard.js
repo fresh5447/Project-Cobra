@@ -21,16 +21,14 @@ export default React.createClass({
               <h6 className="card-subtitle text-muted pull-right"><i className="fa fa-check-circle-o" aria-hidden="true"></i> complete</h6>
             </div>
           </div>
-          
+
         </div>
         { /* <img data-src="..." alt="Card image"/> */ }
         <div className="card-block">
           <NavLink to={"/dashboard/" + this.props.title }>View Module</NavLink>
-          <p className="card-text">{ this.props.desc }</p>          
+          <p className="card-text">{ this.props.desc }</p>
         </div>
       </div>
       )
   }
 })
-
-

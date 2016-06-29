@@ -4,7 +4,7 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'source-map',
   entry: [
-    './client/index'
+    './client/newIndex'
   ],
   output: {
     path: path.join(__dirname, 'static'),
