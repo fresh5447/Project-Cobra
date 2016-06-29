@@ -4,10 +4,8 @@ export default React.createClass({
   render() {
     return (
       <div>
-        <div id="one"> </div>
-        <div id="two"> </div>
-        <div id="three"> </div>
+        <h2>{this.props.params.moduleName}</h2>
       </div>
-      )
+    )
   }
 })
