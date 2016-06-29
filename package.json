@@ -34,8 +34,6 @@
     "webpack-hot-middleware": "^2.0.0"
   },
   "dependencies": {
-    "react-tap-event-plugin": "^0.2.2",
-    "material-ui": "^0.14.4",
     "babel-core": "^6.7.4",
     "babel-loader": "^6.2.4",
     "babel-polyfill": "^6.7.4",
@@ -46,12 +44,14 @@
     "express": "^4.13.3",
     "express-session": "^1.13.0",
     "json-loader": "^0.5.4",
+    "material-ui": "^0.14.4",
     "mongodb": "^2.0.46",
     "mongoose": "^4.2.2",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8",
-    "react-markdown": "^2.2.0"
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-markdown": "^2.2.0",
+    "react-tap-event-plugin": "^0.2.2"
   }
 }

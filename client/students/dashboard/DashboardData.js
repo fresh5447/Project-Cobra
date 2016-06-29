@@ -8,15 +8,27 @@ class DBData extends React.Component {
     super(props, context);
 
     this.state = {
-      modules: null,
-      user:    null
+      courses: null,
+      user: null
     };
   }
 
   componentWillMount() {
-    ModuleStore.getModules((data) => this.setState({ modules: data }))
-    this.context.getUser((data) => this.setState({ user: data }))
+    this.getCourses();
+    ModuleStore.getModules((data) => this.setState({ modules: data }));
+    this.context.getUser((data) => this.setState({ user: data }));
   }
+
+  getCourses() {
+    $.ajax({
+      url: API,
+      method: 'GET'
+    }).done((data) => {
+      this.setState({ courses: data });
+    });
+  }
+
+
 
   render() {
     return this.state.modules && this.state.user ?

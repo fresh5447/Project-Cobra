@@ -14,6 +14,8 @@ import PostModule from './admin/PostModuleView'
 import Login from './user/Login'
 import Signup from './user/Signup'
 
+import ProfileData from './students/profile/ProfileData';
+
 import TestDBData from './students/DBData'
 
 App.displayName = 'App';
@@ -35,6 +37,7 @@ render((
 
       <Route path="/test" component={TestDBData}/>
 
+      <Route path="/profile" component={ProfileData}/>
 
       <Route path="/admin-dashboard" component={AdminDashData}/>
 
@@ -57,7 +60,7 @@ render((
 
 
 
-{ /* 
+{ /*
       nested route example
 
       <Route path="/repos" component={Repos}>
