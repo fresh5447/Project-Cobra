@@ -13,7 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Varela+Round|Lato:400,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <div id="app">     
+    <div id="app">
     </div>
 
 
@@ -22,5 +22,12 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.3.1/js/tether.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
     <script src="/static/bundle.js"></script>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        console.log("toggling class")
+    });
+</script>
   </body>
 </html>

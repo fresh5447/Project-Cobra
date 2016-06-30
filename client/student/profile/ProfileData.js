@@ -4,7 +4,7 @@ class ProfileData extends React.Component {
 
   render() {
     return (
-      <div> DashBoard </div>
+      <div> Profile </div>
     );
   }
 }
