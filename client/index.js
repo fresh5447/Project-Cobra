@@ -15,6 +15,7 @@ import AdminDashboard from './admin/dashboard/DashboardData';
 import Students from './admin/students/StudentData';
 import Submissions from './admin/submissions/SubmissionData';
 import AdminModule from './admin/module/ModuleData';
+import AdminCheckpointData from './admin/checkpoints/CheckpointData';
 
 require('./stylesheets/main.scss');
 
@@ -34,6 +35,7 @@ render((
       <Route path="/admin/students" component={Students} />
       <Route path="/admin/submissions" component={Submissions} />
       <Route path="/admin/modules/:id" component={AdminModule} />
+      <Route path="/admin/checkpoints/:id" component={AdminCheckpointData} />
     </Route>
   </Router>
 ), document.getElementById('app'));

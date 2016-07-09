@@ -1,5 +1,5 @@
 import React from 'react';
-
+import NavLink from '../../widgets/NavLink';
 
 const Module = (props) => {
   const cps = props.module.checkpoints && props.module.checkpoints.length > 0 ?
@@ -8,10 +8,10 @@ const Module = (props) => {
       <div className="card markdown-card">
         <div className="card-block main-card-block">
           <h4 className="card-title">Title: { item.title} </h4>
+          <NavLink className="nav-link" to={"/admin/checkpoints/" + item._id}>View</NavLink>
         </div>
         <div className="card-block">
           <p> Content: { item.content}</p>
-
         </div>
       </div>);
   }) : <div>No CPS</div>;
