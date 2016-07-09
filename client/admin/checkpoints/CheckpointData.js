@@ -6,6 +6,8 @@ class CheckpointData extends React.Component {
   constructor(props) {
     super(props);
 
+    this.toggleComp = this.toggleComp.bind(this);
+
     this.state = {
       checkpoint: null,
       activeComp: 'view'
@@ -25,9 +27,16 @@ class CheckpointData extends React.Component {
     });
   }
 
+  toggleComp = (name) => {
+    console.log('toogle comp', name)
+    this.setState({ activeComp: name });
+  }
+
   showComp() {
     if (this.state.checkpoint && this.state.activeComp === 'view') {
       return <CheckpointView checkpoint={this.state.checkpoint} />;
+    } else if (this.state.checkpoint && this.state.activeComp === 'edit') {
+      return <EditCheckpointData checkpoint={this.state.checkpoint} />;
     } else {
       return null;
     }
@@ -36,6 +45,7 @@ class CheckpointData extends React.Component {
   render() {
     return (
       <div>
+        <button onClick={this.toggleComp.bind(this,'edit')}>Edit CheckPoint</button>
         <h5> { this.state.checkpoint ? this.state.checkpoint.module.title : "loading" } </h5>
         { this.showComp() }
       </div>

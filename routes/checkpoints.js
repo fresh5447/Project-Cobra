@@ -99,6 +99,8 @@ Router.route('/one/:id/checkpoints/:cp_id')
     })
   });
 
+
+// HACK: Couldnt chain these together for some reason
 Router.route('/three/cp/:cp_id')
   .get(function(req, res) {
     Checkpoint.findById(req.params.cp_id)
@@ -109,6 +111,28 @@ Router.route('/three/cp/:cp_id')
       } else {
         res.json( checkpoint )
       }
+    });
+    Router.route('/three/cp/:cp_id').put(function(req, res){
+      Checkpoint.findById(req.params.cp_id, function(err, checkpoint){
+        if(err) {
+          res.json({ message: "there was an error finding this bad boy" })
+        } else {
+          checkpoint.title      = req.body.title ? req.body.title : checkpoint.title;
+          checkpoint.desc       = req.body.desc ? req.body.desc : checkpoint.desc;
+          checkpoint.content    = req.body.content ? req.body.content : checkpoint.content;
+          checkpoint.assignment = req.body.assignment ? req.body.assignment : checkpoint.assignment;
+          checkpoint.module    = req.body.module ? req.body.module : checkpoint.module;
+
+          checkpoint.save(function(err){
+            if(err) {
+              res.json({ message: "there was an error saving the updated checkpoint" });
+            } else {
+              res.json(checkpoint)
+            }
+          });
+
+        }
+      });
     })
   });
 
