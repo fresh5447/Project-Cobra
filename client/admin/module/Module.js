@@ -25,13 +25,6 @@ const Module = (props) => {
         <div className="card-block">
           <p> Description: { props.module.desc}</p>
 
-          <button
-            type="button"
-            className="btn btn-primary my-primary-btn"
-          >
-            Edit
-          </button>
-
         </div>
       </div>
       <h4> Checkpoints </h4>

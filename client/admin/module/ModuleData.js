@@ -1,6 +1,7 @@
 import React from 'react';
 import Module from './Module';
 import EditModuleData from './EditModuleData';
+import NewCheckpointData from './NewCheckpointData';
 
 class ModulesData extends React.Component {
   constructor(props, context) {
@@ -30,6 +31,8 @@ class ModulesData extends React.Component {
       return <Module module={this.state.module} />;
     } else if (this.state.activeComp === 'editModule' && this.state.module) {
       return <EditModuleData module={this.state.module} />;
+    } else if (this.state.activeComp === 'newCheckpoint' && this.state.module) {
+      return <NewCheckpointData module={this.state.module} />;
     } else {
       return <div> <h1> Loading </h1> </div>;
     }
@@ -47,7 +50,8 @@ class ModulesData extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.toggleModule.bind(this, 'editModule')}>Edit</button>
+        <button onClick={this.toggleModule.bind(this, 'editModule')}>Edit Module</button>
+        <button onClick={this.toggleModule.bind(this, 'newCheckpoint')}>New Checkpoint</button>
         {this.showComp()}
       </div>
     )
