@@ -10,9 +10,6 @@ const Module = (props) => {
           <h4 className="card-title">Title: { item.title} </h4>
           <NavLink className="nav-link" to={"/admin/checkpoints/" + item._id}>View</NavLink>
         </div>
-        <div className="card-block">
-          <p> Content: { item.content}</p>
-        </div>
       </div>);
   }) : <div>No CPS</div>;
   return (
