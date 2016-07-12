@@ -29,7 +29,7 @@ render((
       </Route>
       <Route path="/profile" component={Profile} />
     </Route>
-    <Route path="/admin" component={AdminApp}>
+    <Route path="/admin/modules" component={AdminApp}>
       { /* Admin Stuff*/ }
       <IndexRoute component={AdminDashboard} />
       <Route path="/admin/students" component={Students} />

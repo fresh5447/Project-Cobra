@@ -11,7 +11,7 @@ export default React.createClass({
             <a className="navbar-brand" href="#">Navbar</a>
             <ul className="nav navbar-nav">
               <li className="nav-item">
-                <NavLink className="nav-link" to="/admin" onlyActiveOnIndex>Dashboard</NavLink>
+                <NavLink className="nav-link" to="/admin/modules" onlyActiveOnIndex>Modules</NavLink>
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/admin/students">Students</NavLink>

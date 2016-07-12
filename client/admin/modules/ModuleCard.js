@@ -4,7 +4,7 @@ import NavLink from '../../widgets/NavLink';
 
 const ModuleCard = (props) => {
   return (
-    <div className="card markdown-card">
+    <div className="card markdown-card admin-card">
       <div className="card-block main-card-block">
         <h4 className="card-title">Title:{ props.title }</h4>
       </div>

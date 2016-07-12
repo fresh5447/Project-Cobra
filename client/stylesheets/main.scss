@@ -12,6 +12,17 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $font-headers
 }
 
+.admin-card {
+  width: 30%;
+  margin: 5px;
+}
+
+.modules-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .image-test {
   display: block;
   height: 20%;
