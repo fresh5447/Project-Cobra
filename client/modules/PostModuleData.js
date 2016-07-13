@@ -3,8 +3,8 @@ import { browserHistory } from 'react-router';
 import PostModuleForm from './PostModuleForm';
 
 class PostModuleData extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
     this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -34,7 +34,9 @@ class PostModuleData extends React.Component {
       method: 'POST',
       data
     }).done((d) => {
-      console.log('posted it', d)
+      this.context.sendNotification('Module created.');
+      const path = '/modules';
+      browserHistory.push(path);
     });
   }
 
@@ -51,4 +53,7 @@ class PostModuleData extends React.Component {
 }
 
 PostModuleData.displayName = PostModuleData;
+PostModuleData.contextTypes = {
+  sendNotification: React.PropTypes.func.isRequired
+};
 export default PostModuleData;

@@ -14,6 +14,10 @@ import AllSubmissionsData from './submissions/AllSubmissionsData.js';
 import PostCheckpointData from './checkpoints/PostCheckpointData';
 import EditCheckpointData from './checkpoints/EditCheckpointData';
 
+import ProfileData from './profile/ProfileData';
+import ProfileResourcesData from './profile/ProfileResourcesData';
+import ProfileSubmissionsData from './profile/ProfileSubmissionsData';
+import ProfileAccountData from './profile/ProfileAccountData';
 
 require('./stylesheets/main.scss');
 
@@ -30,6 +34,12 @@ render((
       <Route path="/post/checkpoint/:mod_id" component={PostCheckpointData} />
 
       <Route path="/students" component={StudentData} />
+
+      <Route path="/profile" component={ProfileData}>
+        <Route path="resources" component={ProfileResourcesData} />
+        <Route path="submissions" component={ProfileSubmissionsData} />
+        <Route path="account" component={ProfileAccountData} />
+      </Route>
 
       <Route path="/submissions" component={AllSubmissionsData} />
 
