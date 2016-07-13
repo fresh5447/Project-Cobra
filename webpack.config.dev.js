@@ -5,7 +5,7 @@ module.exports = {
   devtool: 'eval',
   entry: [
     'webpack-hot-middleware/client',
-    './client/refactor/index'
+    './client/index'
   ],
   output: {
     path: path.join(__dirname, 'static'),

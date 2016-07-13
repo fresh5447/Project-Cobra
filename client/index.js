@@ -2,40 +2,47 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
-{ /* Student Stuff*/}
-import StudentApp from './student/App';
-import Profile from './student/profile/ProfileData';
-import Module from './student/modules/Module';
-import Modules from './student/modules/Modules';
-import Dashboard from './student/dashboard/DashboardData';
+import App from './App';
+import ModulesData from './modules/ModulesData';
+import OneModuleData from './modules/OneModuleData';
+import PostModuleData from './modules/PostModuleData';
+import OneCheckpointData from './checkpoints/OneCheckpointData';
+import UserSignup from './user/Signup';
+import UserSignin from './user/UserSignin';
+import StudentData from './students/StudentsData.js';
+import AllSubmissionsData from './submissions/AllSubmissionsData.js';
+import PostCheckpointData from './checkpoints/PostCheckpointData';
+import EditCheckpointData from './checkpoints/EditCheckpointData';
 
-{ /* Admin Stuff*/}
-import AdminApp from './admin/App';
-import AdminDashboard from './admin/dashboard/DashboardData';
-import Students from './admin/students/StudentData';
-import Submissions from './admin/submissions/SubmissionData';
-import AdminModule from './admin/module/ModuleData';
-import AdminCheckpointData from './admin/checkpoints/CheckpointData';
 
 require('./stylesheets/main.scss');
 
 render((
   <Router history={browserHistory}>
     { /* Student Stuff*/ }
-    <Route path="/" component={StudentApp}>
-      <IndexRoute component={Dashboard} />
-      <Route path="/modules" component={Modules}>
-        <Route path="/modules/:moduleName" component={Module} />
-      </Route>
-      <Route path="/profile" component={Profile} />
-    </Route>
-    <Route path="/admin/modules" component={AdminApp}>
-      { /* Admin Stuff*/ }
-      <IndexRoute component={AdminDashboard} />
-      <Route path="/admin/students" component={Students} />
-      <Route path="/admin/submissions" component={Submissions} />
-      <Route path="/admin/modules/:id" component={AdminModule} />
-      <Route path="/admin/checkpoints/:id" component={AdminCheckpointData} />
+    <Route path="/" component={App}>
+      <IndexRoute component={App} />
+      <Route path="/modules" component={ModulesData} />
+      <Route path="/modules/:id" component={OneModuleData} />
+      <Route path="/modules/:id/checkpoints/:cp_id" component={OneCheckpointData} />
+      <Route path="/edit/checkpoints/:cp_id" component={EditCheckpointData} />
+      <Route path="/post/module" component={PostModuleData} />
+      <Route path="/post/checkpoint/:mod_id" component={PostCheckpointData} />
+
+      <Route path="/students" component={StudentData} />
+
+      <Route path="/submissions" component={AllSubmissionsData} />
+
+      {/*USER STUFF*/}
+      <Route path="/signup" component={UserSignup} />
+      <Route path="/login" component={UserSignin} />
     </Route>
   </Router>
 ), document.getElementById('app'));
+
+// 1) View All Modules
+// 2) View One Module
+//   - Edit Module
+//   - New Module
+// 3) View All Submissions
+// 4) View My Submissions
