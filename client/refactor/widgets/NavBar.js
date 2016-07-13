@@ -27,7 +27,7 @@ class NavBar extends React.Component {
             <NavLink className="nav-link" to="/modules" onlyActiveOnIndex>Modules</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/admin/students">Students</NavLink>
+            <NavLink className="nav-link" to="/students">Students</NavLink>
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="/signup">Signup</NavLink>
@@ -36,7 +36,7 @@ class NavBar extends React.Component {
             <NavLink className="nav-link" to="/login">Log In</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/admin/submissions">Submissions</NavLink>
+            <NavLink className="nav-link" to="/submissions">Submissions</NavLink>
           </li>
         </ul>
       </nav>

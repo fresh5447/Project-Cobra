@@ -9,6 +9,7 @@ import PostModuleData from './modules/PostModuleData';
 import OneCheckpointData from './checkpoints/OneCheckpointData';
 import UserSignup from './user/Signup';
 import UserSignin from './user/UserSignin';
+import StudentData from './students/StudentsData.js'
 
 require('./stylesheets/main.scss');
 
@@ -21,6 +22,8 @@ render((
       <Route path="/modules/:id" component={OneModuleData} />
       <Route path="/modules/:id/checkpoints/:cp_id" component={OneCheckpointData} />
       <Route path="/post/module" component={PostModuleData} />
+
+      <Route path="/students" component={StudentData} />
 
       {/*USER STUFF*/}
       <Route path="/signup" component={UserSignup} />
