@@ -11,7 +11,8 @@ import UserSignup from './user/Signup';
 import UserSignin from './user/UserSignin';
 import StudentData from './students/StudentsData.js';
 import AllSubmissionsData from './submissions/AllSubmissionsData.js';
-import PostCheckpointData from './checkpoints/PostCheckpointData'
+import PostCheckpointData from './checkpoints/PostCheckpointData';
+import EditCheckpointData from './checkpoints/EditCheckpointData';
 
 
 require('./stylesheets/main.scss');
@@ -24,6 +25,7 @@ render((
       <Route path="/modules" component={ModulesData} />
       <Route path="/modules/:id" component={OneModuleData} />
       <Route path="/modules/:id/checkpoints/:cp_id" component={OneCheckpointData} />
+      <Route path="/edit/checkpoints/:cp_id" component={EditCheckpointData} />
       <Route path="/post/module" component={PostModuleData} />
       <Route path="/post/checkpoint/:mod_id" component={PostCheckpointData} />
 

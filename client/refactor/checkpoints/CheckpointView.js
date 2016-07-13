@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import NavLink from '../widgets/NavLink';
 import SubmissionData from '../submissions/SubmissionData';
 
 const CheckpointView = (props) =>
@@ -8,7 +9,7 @@ const CheckpointView = (props) =>
     <div className="card markdown-card">
       <div className="card-block main-card-block ">
         <h2 className="card-title">{props.checkpoint.title}</h2>
-        {/*<NavLink to={"/dashboard/" + props.checkpoint.title }><span className="back-link">Back to Module</span></NavLink>*/}
+        <NavLink to={"/edit/checkpoints/" + props.checkpoint._id }><span className="back-link">Edit</span></NavLink>
       </div>
       <div className="card-block">
         <div className="card card-block inner-checkpoint-cardblock">
