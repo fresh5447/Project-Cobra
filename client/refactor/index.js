@@ -9,7 +9,9 @@ import PostModuleData from './modules/PostModuleData';
 import OneCheckpointData from './checkpoints/OneCheckpointData';
 import UserSignup from './user/Signup';
 import UserSignin from './user/UserSignin';
-import StudentData from './students/StudentsData.js'
+import StudentData from './students/StudentsData.js';
+import AllSubmissionsData from './submissions/AllSubmissionsData.js';
+
 
 require('./stylesheets/main.scss');
 
@@ -24,6 +26,8 @@ render((
       <Route path="/post/module" component={PostModuleData} />
 
       <Route path="/students" component={StudentData} />
+
+      <Route path="/submissions" component={AllSubmissionsData} />
 
       {/*USER STUFF*/}
       <Route path="/signup" component={UserSignup} />
