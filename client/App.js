@@ -10,10 +10,11 @@ export default React.createClass({
       <div>
       <GetUser>
           <Notifier>
-            <NavBar />
+            <NavBar>
               <div className="container">
                 {this.props.children}
               </div>
+            </NavBar>
           </Notifier>
         </GetUser>
       </div>

@@ -37,6 +37,7 @@ class NavBar extends React.Component {
   render() {
     return (<div>
       { this.showCorrectNav() }
+      { this.props.children }
     </div>)
   }
 }
