@@ -14,6 +14,9 @@ const StudentNav = (props) =>
       <a href="/logout" className="nav-link"> Logout </a>
     </li>
     <li className="nav-item">
+      <NavLink className="nav-link" to="/resources">Resources</NavLink>
+    </li>
+    <li className="nav-item">
       <NavLink className="nav-link" to="/submissions">Submissions</NavLink>
     </li>
     <li className="nav-item">

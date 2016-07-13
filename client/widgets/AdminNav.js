@@ -14,6 +14,9 @@ const AdminNav = (props) =>
       <NavLink className="nav-link" to="/students">Students</NavLink>
     </li>
     <li className="nav-item">
+      <NavLink className="nav-link" to="/resources">Resources</NavLink>
+    </li>
+    <li className="nav-item">
       <a href="/logout" className="nav-link"> Logout </a>
     </li>
     <li className="nav-item">

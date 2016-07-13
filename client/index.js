@@ -19,6 +19,12 @@ import ProfileResourcesData from './profile/ProfileResourcesData';
 import ProfileSubmissionsData from './profile/ProfileSubmissionsData';
 import ProfileAccountData from './profile/ProfileAccountData';
 
+import ResourcesData from './resources/ResourcesData';
+import AllResources from './resources/AllResources';
+import FavoriteResources from './resources/FavoriteResources';
+import CategoryResources from './resources/CategoryResources';
+import PostResourceData from './resources/PostResourceData';
+
 require('./stylesheets/main.scss');
 
 render((
@@ -39,6 +45,13 @@ render((
         <Route path="resources" component={ProfileResourcesData} />
         <Route path="submissions" component={ProfileSubmissionsData} />
         <Route path="account" component={ProfileAccountData} />
+      </Route>
+
+      <Route path="/resources" component={ResourcesData}>
+        <Route path="post" component={PostResourceData} />
+        <Route path="all" component={AllResources} />
+        <Route path="favorites" component={FavoriteResources} />
+        <Route path="category/:category_name" component={CategoryResources} />
       </Route>
 
       <Route path="/submissions" component={AllSubmissionsData} />

@@ -17,6 +17,9 @@ const GuestNav = (props) =>
       <NavLink className="nav-link" to="/signup">Signup</NavLink>
     </li>
     <li className="nav-item">
+      <NavLink className="nav-link" to="/resources">Resources</NavLink>
+    </li>
+    <li className="nav-item">
       <NavLink className="nav-link" to="/login">Log In</NavLink>
     </li>
     <li className="nav-item">
