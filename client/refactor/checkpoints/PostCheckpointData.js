@@ -1,5 +1,6 @@
 import React from 'react';
 import PostCheckpointForm from './PostCheckpointForm';
+import { browserHistory } from 'react-router';
 
 class PostCheckpointData extends React.Component {
   constructor(props) {
@@ -35,7 +36,9 @@ class PostCheckpointData extends React.Component {
       method: 'POST',
       data
     }).done((d) => {
-      console.log('posted it', d)
+      this.context.sendNotification("Checkpoint Created");
+      const path = `/modules/${this.props.params.mod_id}`
+      browserHistory.push(path);
     });
   }
 
@@ -52,4 +55,8 @@ class PostCheckpointData extends React.Component {
 }
 
 PostCheckpointData.displayName = PostCheckpointData;
+PostCheckpointData.contextTypes = {
+  sendNotification: React.PropTypes.func.isRequired
+};
+
 export default PostCheckpointData;
