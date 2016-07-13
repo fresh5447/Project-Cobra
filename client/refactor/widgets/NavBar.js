@@ -1,5 +1,8 @@
 import React from 'react';
 import NavLink from '../widgets/NavLink';
+import AdminNav from './AdminNav';
+import GuestNav from './GuestNav';
+import StudentNav from './StudentNav';
 
 class NavBar extends React.Component {
 
@@ -17,30 +20,24 @@ class NavBar extends React.Component {
     this.context.getUser((data) => this.setState({ user: data }));
   }
 
+  showCorrectNav() {
+    if (this.state.user && this.state.user.local && this.state.user.local.role){
+      if (this.state.user.local.role === 'admin') {
+        return <AdminNav />
+      } else if (this.state.user.local.role === 'student') {
+        return <StudentNav />
+      } else {
+         return <GuestNav />
+      }
+    } else {
+      return <GuestNav />;
+    }
+  }
+
   render() {
-    return (
-      <nav className="navbar navbar-light bg-faded">
-        <a className="navbar-brand" href="#">Navbar</a>
-        <h4> { this.state.user && this.state.user.local ? this.state.user.local.email : "no user"} </h4>
-        <ul className="nav navbar-nav">
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/modules" onlyActiveOnIndex>Modules</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/students">Students</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/signup">Signup</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/login">Log In</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/submissions">Submissions</NavLink>
-          </li>
-        </ul>
-      </nav>
-    );
+    return (<div>
+      { this.showCorrectNav() }
+    </div>)
   }
 }
 
