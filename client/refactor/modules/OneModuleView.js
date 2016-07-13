@@ -30,6 +30,12 @@ const Module = (props) => {
         {cps}
       </div>
 
+      <button>
+        <NavLink className="nav-link" to={'/post/checkpoint/' + props.module._id}>
+          New Checkpoint
+        </NavLink>
+      </button>
+
     </div>
   );
 };
