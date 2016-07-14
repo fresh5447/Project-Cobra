@@ -4,8 +4,8 @@ import NavLink from '../widgets/NavLink';
 const StudentNav = (props) =>
 
 <nav className="navbar navbar-light bg-faded">
-  <a className="navbar-brand" href="#">Navbar</a>
-  <h4> StudentNav NAV </h4>
+  <a className="navbar-brand" href="#">Big Sky Code Academy</a>
+  <p> student </p>
   <ul className="nav navbar-nav">
     <li className="nav-item">
       <NavLink className="nav-link" to="/modules" onlyActiveOnIndex>Modules</NavLink>

@@ -4,15 +4,9 @@ import NavLink from '../widgets/NavLink';
 const GuestNav = (props) =>
 
 <nav className="navbar navbar-light bg-faded">
-  <a className="navbar-brand" href="#">Navbar</a>
-  <h4> Guest NAV </h4>
+  <a className="navbar-brand" href="#">Big Sky Code Academy</a>
+  <p> Guest </p>
   <ul className="nav navbar-nav">
-    <li className="nav-item">
-      <NavLink className="nav-link" to="/modules" onlyActiveOnIndex>Modules</NavLink>
-    </li>
-    <li className="nav-item">
-      <NavLink className="nav-link" to="/students">Students</NavLink>
-    </li>
     <li className="nav-item">
       <NavLink className="nav-link" to="/signup">Signup</NavLink>
     </li>
@@ -22,10 +16,7 @@ const GuestNav = (props) =>
     <li className="nav-item">
       <NavLink className="nav-link" to="/login">Log In</NavLink>
     </li>
-    <li className="nav-item">
-      <NavLink className="nav-link" to="/submissions">Submissions</NavLink>
-    </li>
   </ul>
-</nav>
+</nav>;
 
 export default GuestNav;

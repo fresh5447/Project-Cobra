@@ -31,7 +31,6 @@ render((
   <Router history={browserHistory}>
     { /* Student Stuff*/ }
     <Route path="/" component={App}>
-      <IndexRoute component={App} />
       <Route path="/modules" component={ModulesData} />
       <Route path="/modules/:id" component={OneModuleData} />
       <Route path="/modules/:id/checkpoints/:cp_id" component={OneCheckpointData} />
@@ -47,11 +46,12 @@ render((
         <Route path="account" component={ProfileAccountData} />
       </Route>
 
+      <Route path="/resources/post" component={PostResourceData} />
+
       <Route path="/resources" component={ResourcesData}>
-        <Route path="post" component={PostResourceData} />
         <Route path="all" component={AllResources} />
         <Route path="favorites" component={FavoriteResources} />
-        <Route path="category/:category_name" component={CategoryResources} />
+        <Route path="categories/:category_name" component={CategoryResources} />
       </Route>
 
       <Route path="/submissions" component={AllSubmissionsData} />
