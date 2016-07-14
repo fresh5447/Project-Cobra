@@ -5,6 +5,7 @@ const path           = require('path'),
  ModulesRouter       = require('./routes/modules'),
  SubmissionRouter    = require('./routes/submissions'),
  CheckpointsRouter   = require('./routes/checkpoints'),
+ ResourcesRouter    = require('./routes/resources'),
  passport            = require('passport'),
  session             = require('express-session'),
  flash               = require('connect-flash'),
@@ -57,6 +58,7 @@ app.use('/img', express.static('img'));
 
 
 app.use('/api/v1/modules', ModulesRouter);
+app.use('/api/v1/resources', ResourcesRouter);
 app.use('/api/v1/modules', CheckpointsRouter);
 app.use('/api/v1/submissions', SubmissionRouter);
 

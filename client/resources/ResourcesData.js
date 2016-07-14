@@ -2,6 +2,25 @@ import React from 'react';
 import NavLink from '../widgets/NavLink';
 
 class ProfileData extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      resources: null
+    };
+  }
+
+  componentWillMount() {
+    this.loadResources();
+  }
+
+  loadResources() {
+    $.ajax({
+      url: '/api/v1/resources',
+      method: 'GET'
+    }).done((data) => this.setState({ resources: data }));
+  }
+
   render() {
     return (
       <div className="container">
@@ -11,7 +30,9 @@ class ProfileData extends React.Component {
             <NavLink className="nav-link" to="/resources/all">Resources</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/resources/favorites" className="nav-link"> Submissions </NavLink>
+            <NavLink className="nav-link" to="/resources/favorites" className="nav-link">
+              Favorites
+            </NavLink>
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="/resources/categories">categories</NavLink>
@@ -20,7 +41,7 @@ class ProfileData extends React.Component {
         </div>
         <div className="row">
           {this.props.children && React.cloneElement(this.props.children, {
-            user: 'IT FUCKING WORKS'
+            resources: this.state.resources
           })}
         </div>
 
