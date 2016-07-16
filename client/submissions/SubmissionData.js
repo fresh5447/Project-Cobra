@@ -25,7 +25,6 @@ class SubmissionData extends React.Component {
   }
 
   render() {
-    console.log(this.props.cpId);
     return (
       <div>
         <ul className="nav nav-pills" role="tablist">

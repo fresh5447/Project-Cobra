@@ -2,6 +2,7 @@
 
 const express    = require('express');
 const Submission = require('../models/submission');
+const User = require('../models/user');
 const Router = express.Router();
 
 
@@ -47,6 +48,18 @@ Router.route('/student-submissions/:cp_id')
     })
   })
 
+  Router.route('/all-student-submissions')
+    .get(function(req, res){
+      const uID = req.user ? req.user._id : '574f5fa826a0167cd19e90b7'
+      User.findById(uID).populate('submissions').exec(function(err, subs){
+        if(err){
+          console.log(err, 'err')
+        } else {
+          res.json(subs)
+        }
+      })
+    })
+
 Router.route('/edit-submission/:sub_id')
   .put(function(req, res){
     Submission.findById(req.params.sub_id, function(err, submission){
@@ -55,7 +68,7 @@ Router.route('/edit-submission/:sub_id')
       } else {
         submission.content = req.body.content ? req.body.content : submission.content;
         submission.approved  = req.body.approved ? req.body.approved : submission.approved;
- 
+
         submission.save(function(err){
           if(err) {
             res.json({ message: "there was an error saving the updated submission" });
