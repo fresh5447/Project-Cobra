@@ -3,8 +3,9 @@ import NavLink from '../widgets/NavLink';
 
 const AdminNav = (props) =>
 
-<nav className="navbar navbar-light bg-faded my-navbar">
-  <a className="navbar-brand" href="#"><img src="./images/white-logo.png" /></a>
+<nav className="navbar navbar-fixed-top navbar-light bg-faded my-navbar">
+<div class="my-nav-box">
+  <a className="navbar-brand" href="/">CodeRange</a>
   <p> ADMIN </p>
   <ul className="nav navbar-nav">
     <li className="nav-item">
@@ -23,6 +24,8 @@ const AdminNav = (props) =>
       <NavLink className="nav-link" to="/submissions">Submissions</NavLink>
     </li>
   </ul>
+</div>
+
 </nav>
 
 export default AdminNav;

@@ -8,6 +8,11 @@
 @import './modules.scss';
 
 
+body {
+  background-color: $primary-color;
+  margin-top: 5%;
+  height: 1000px;
+}
 
 .modules-flex {
   display: flex;
