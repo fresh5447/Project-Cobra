@@ -3,8 +3,8 @@
 
 @mixin default-card {
   color: #fff;
+  border: none;
   background-color: $dark-blue;
-  border-color: $dark-grey;
   margin-bottom: 16px;
   &:hover {
     color: $dark-blue;
@@ -27,7 +27,8 @@
 
 @mixin default-card-body {
   background-color: white;
-  color: $dark-blue
+  color: $dark-blue;
+  padding: 0.5rem;
 }
 
 @mixin small-card {
@@ -35,10 +36,23 @@
   width: 30%;
   margin: 5px;
 }
+@mixin large-card {
+  @include default-card;
+  width: 100%;
+  margin: 5px;
+}
 
 // ---- MODULES  ------
 .modules-card {
   @include small-card;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  &:hover {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+}
+
+.all-modules-card {
+  @include large-card;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   &:hover {
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
