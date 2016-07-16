@@ -1,0 +1,81 @@
+@mixin core-btn {
+  color: #fff;
+  background-color: $dark-blue;
+  border-color: $dark-grey;
+  margin-bottom: 16px;
+  &:hover {
+    color: $dark-blue;
+    background-color: #fff;
+  }
+  &:active {
+    color: $dark-blue;
+    background-color: #fff;
+  }
+  &:focus {
+    color: $dark-blue;
+    background-color: #fff;
+  }
+}
+
+.submit-btn {
+  @include core-btn
+}
+
+.card-btn {
+  @include core-btn
+}
+
+.dash-btn-group {
+  border: none;
+  background-color: $light-background;
+}
+
+
+
+.dash-btn-group {
+  border: none;
+  background-color: $light-background;
+}
+
+.form-primary-btn {
+    color: #fff;
+    background-color: $dark-blue;
+    border-color: $dark-grey;
+    margin-left: 10px;
+}
+
+.form-primary-btn:hover, .form-primary-btn:focus, .form-primary-btn:active {
+    color: $dark-grey;
+    background-color: white;
+    border-color: $logo-green;
+}
+
+.my-primary-btn {
+    color: #fff;
+    background-color: $dark-blue;
+    border-color: $dark-grey;
+    margin-bottom: 16px;
+}
+
+.my-primary-btn:hover, .my-primary-btn:focus, .my-primary-btn:active {
+    color: $dark-grey;
+    background-color: white;
+    border-color: $logo-green;
+}
+
+.nav-btn {
+  background-color: $light-background;
+  color: $dark-blue;
+  border: solid 3px $logo-green;
+}
+
+
+.my-btn-group {
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+
+.dash-btn {
+  margin: 5px;
+}

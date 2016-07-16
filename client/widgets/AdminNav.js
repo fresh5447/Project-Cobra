@@ -3,8 +3,8 @@ import NavLink from '../widgets/NavLink';
 
 const AdminNav = (props) =>
 
-<nav className="navbar navbar-light bg-faded">
-  <a className="navbar-brand" href="#">Big Sky Code Academy</a>
+<nav className="navbar navbar-light bg-faded my-navbar">
+  <a className="navbar-brand" href="#"><img src="./images/white-logo.png" /></a>
   <p> ADMIN </p>
   <ul className="nav navbar-nav">
     <li className="nav-item">

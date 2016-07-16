@@ -1,0 +1,7 @@
+.modules-card {
+  @include small-card;
+}
+
+.modules-card-header {
+  @include default-card-header;
+}

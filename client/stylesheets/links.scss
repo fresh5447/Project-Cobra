@@ -1,0 +1,9 @@
+.card-link{
+  color: white;
+  &:focus {
+    color: $dark-blue;  
+  }
+  &:hover {
+    color: $dark-blue;
+  }
+}

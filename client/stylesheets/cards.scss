@@ -1,0 +1,55 @@
+@mixin default-card {
+  color: #fff;
+  background-color: $dark-blue;
+  border-color: $dark-grey;
+  margin-bottom: 16px;
+  &:hover {
+    color: $dark-blue;
+    background-color: #fff;
+  }
+  &:active {
+    color: $dark-blue;
+    background-color: #fff;
+  }
+  &:focus {
+    color: $dark-blue;
+    background-color: #fff;
+  }
+}
+
+@mixin default-card-header {
+  background-color: $dark-blue;
+  color: white;
+}
+
+@mixin default-card-body {
+  background-color: white;
+  color: $dark-blue
+}
+
+@mixin small-card {
+  @include default-card;
+  width: 30%;
+  margin: 5px;
+}
+
+// ---- MODULES  ------
+.modules-card {
+  @include small-card;
+}
+
+.modules-card-header {
+  @include default-card-header;
+}
+
+.modules-card-body {
+  @include default-card-body;
+}
+
+.student-card {
+  width: 40%
+}
+
+.last-student-card {
+  width: 80%
+}
