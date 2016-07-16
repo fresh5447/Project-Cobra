@@ -8,8 +8,8 @@ const Module = (props) => {
       <div className="card markdown-card modules-card">
         <div className="card-block main-card-block modules-card-header">
           <h4 className="card-title">{ item.title} </h4>
-          <p>Complete???</p>
-          <NavLink className="nav-link" to={"/modules/" + props.mId + "/checkpoints/" + item._id}>View</NavLink>
+          <span className="fa fa-check-circle-o complete-icon pull-right"></span>
+          <NavLink className="" to={"/modules/" + props.mId + "/checkpoints/" + item._id}><i className="fa fa-eye view pull-left" aria-hidden="true"></i></NavLink>
         </div>
       </div>);
   }) : <div>No CPS</div>;
@@ -20,8 +20,9 @@ const Module = (props) => {
           <h4 className="card-title">{ props.module.title} </h4>
         </div>
         <div className="card-block modules-card-body">
-          <p>30/40 checkpoints complete </p>
           <p>{ props.module.desc}</p>
+          <p>30/40 checkpoints complete </p>
+          <p className="">1.5 hours</p>
 
         </div>
       </div>
@@ -29,11 +30,11 @@ const Module = (props) => {
         {cps}
       </div>
 
-      <button>
-        <NavLink className="nav-link" to={'/post/checkpoint/' + props.module._id}>
-          New Checkpoint
+
+        <NavLink className="" to={'/post/checkpoint/' + props.module._id}>
+          <button className="btn btn-primary submit-btn new-cp-btn">New Checkpoint</button>
         </NavLink>
-      </button>
+
 
     </div>
   );

@@ -1,0 +1,14 @@
+.view {
+  color: $primary-color;
+  padding-bottom: 18px;
+  font-size: 30px;
+  &:hover {
+    cursor: pointer; cursor: hand;
+  }
+}
+
+.complete-icon {
+  color: $primary-color;
+  padding-bottom: 18px;
+  font-size: 30px;
+}

@@ -1,9 +1,40 @@
-.card-link{
+@mixin default-link {
   color: white;
   &:focus {
-    color: $dark-blue;  
+    color: $dark-blue;
   }
   &:hover {
     color: $dark-blue;
   }
+}
+
+.card-link{
+  @include default-link;
+}
+
+.modules-card-link {
+  color: $dark-blue;;
+  background-color: $primary-color;
+  border-color: $dark-grey;
+  margin-bottom: 16px;
+  &:hover {
+    color: $dark-blue;
+    background-color: #fff;
+  }
+  &:active {
+    color: $dark-blue;
+    background-color: #fff;
+  }
+  &:focus {
+    color: $dark-blue;
+    background-color: #fff;
+  }
+}
+
+
+.new-cp-link {
+  color: $primary-color;
+  background-color: $dark-blue;
+  border-color: $dark-grey;
+  margin-bottom: 16px;
 }
