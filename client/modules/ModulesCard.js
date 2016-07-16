@@ -6,7 +6,7 @@ const ModuleCard = (props) => {
   return (
     <div className="card markdown-card modules-card">
       <div className="card-block modules-card-header">
-        <h4 className="card-title">Title:{ props.title }</h4>
+        <h4 className="card-title">{ props.title }</h4>
       </div>
       <div className="card-block modules-card-body">
         <p> {props.desc} </p>

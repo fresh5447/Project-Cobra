@@ -19,9 +19,9 @@ const PostModuleForm = (props) =>
       </fieldset>
       <fieldset className="form-group">
         <label>hours</label>
-        <textarea onChange={ (event) => props.onFieldChange('hours', event.target.value)}
-          className="form-control" value={props.hours} rows="3"
-        ></textarea>
+        <input onChange={ (event) => props.onFieldChange('hours', event.target.value)}
+          value={props.hours} type="number" className="form-control" id="" placeholder="..."
+        />
       </fieldset>
       <div className="checkbox">
         <label>

@@ -27,6 +27,7 @@ Router.route('/')
       if(err){
         res.json({ message: 'there was an error saving your module' });
       } else {
+        console.log('POSTING: ', module)
         res.json(module);
       }
     })

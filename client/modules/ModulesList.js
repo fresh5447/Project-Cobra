@@ -8,9 +8,6 @@ const ModulesList = (props) => {
 
   return (
     <div>
-      <div>
-        <h3> Modules </h3>
-      </div>
       <div className="modules-flex">
         { mods }
       </div>

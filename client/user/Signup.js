@@ -53,7 +53,6 @@ class Signup extends React.Component {
               <fieldset className="form-group">
                 <label>Email address</label>
                 <input onChange={this.handleEmailChange} type="email" className="form-control" placeholder="Enter email"/>
-                <small className="">Well never share your email with anyone else.</small>
               </fieldset>
               <fieldset className="form-group">
                 <label>Password</label>

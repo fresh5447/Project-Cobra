@@ -42,9 +42,7 @@ class UserSignin extends React.Component {
             <form onSubmit={this.submitUserToServer}>
               <fieldset className="form-group">
                 <label>Email address</label>
-                <input onChange={this.handleEmailChange} type="email" className="form-control" placeholder="Enter email"/>
-                <small className="text-muted">Well never share your email with anyone else.</small>
-              </fieldset>
+                <input onChange={this.handleEmailChange} type="email" className="form-control" placeholder="Enter email"/>              </fieldset>
               <fieldset className="form-group">
                 <label>Password</label>
                 <input onChange={this.handlePasswordChange} type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
