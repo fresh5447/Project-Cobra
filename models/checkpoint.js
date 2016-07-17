@@ -2,7 +2,7 @@ const mongoose = require('mongoose'),
   autoIncrement = require('mongoose-auto-increment'),
   Schema = mongoose.Schema;
 
-var connection = mongoose.createConnection('mongodb://localhost:27017/lms');
+var connection = mongoose.createConnection(process.env.MONGODB_URI || "mongodb://localhost/lms");
 autoIncrement.initialize(connection);
 
 const CheckpointSchema = new Schema({
