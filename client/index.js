@@ -9,6 +9,8 @@ import PostModuleData from './modules/PostModuleData';
 import OneCheckpointData from './checkpoints/OneCheckpointData';
 import UserSignup from './user/Signup';
 import UserSignin from './user/UserSignin';
+import UserForgot from './user/Forgot';
+import UserReset from './user/Reset';
 import StudentData from './students/StudentsData.js';
 import AllSubmissionsData from './submissions/AllSubmissionsData.js';
 import PostCheckpointData from './checkpoints/PostCheckpointData';
@@ -61,6 +63,9 @@ render((
       {/*USER STUFF*/}
       <Route path="/signup" component={UserSignup} />
       <Route path="/login" component={UserSignin} />
+      <Route path="/forgot" component={UserForgot} />
+      <Route path="/user/reset/:reset_token" component={UserReset} />
+
     </Route>
   </Router>
 ), document.getElementById('app'));

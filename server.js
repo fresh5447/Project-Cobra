@@ -9,6 +9,8 @@ const path           = require('path'),
   ResourcesRouter     = require('./routes/resources'),
   passport            = require('passport'),
   session             = require('express-session'),
+  nodemailer          = require('nodemailer'),
+  async               = require('async'),
   flash               = require('connect-flash'),
   uriUtil             = require('mongodb-uri'),
 
