@@ -13,9 +13,6 @@ const AllResources = (props) => {
 
   return (
     <div>
-      <div>
-        <h3> Resources </h3>
-      </div>
       <div className="modules-flex">
         { resources }
       </div>

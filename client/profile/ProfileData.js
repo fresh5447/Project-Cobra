@@ -6,16 +6,9 @@ class ProfileData extends React.Component {
     return (
       <div className="container">
         <div className="row">
-        <ul className="nav navbar-nav">
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/profile/resources">Resources</NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/profile/submissions" className="nav-link"> Submissions </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/profile/account">Account</NavLink>
-          </li>
+        <ul className="profile-links">
+          {/*<li><NavLink to="/profile/submissions"><h3>Activity</h3></NavLink></li>*/}
+          <li><NavLink to="/profile/account"><h3>Account</h3></NavLink></li>
         </ul>
         </div>
         <div className="row">

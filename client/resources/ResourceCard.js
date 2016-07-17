@@ -10,12 +10,13 @@ const ResourceCard = (props) => {
       <div className="card-block">
         <p> {props.desc} </p>
         <p> {props.link} </p>
-        <button type="button" className="btn btn-primary my-primary-btn">
-          <NavLink to={'/modules/' + props.id }> Take Me: not working yet</NavLink>
-        </button>
-
         {/*<CheckPoints checkpoints={ props.checkpoints }/>*/}
-
+        <ul>
+          <li><span className="label label-default">Cat One</span></li>
+          <li><span className="label label-default">Cat Two</span></li>
+          <li><span className="label label-default">Cat Three</span></li>
+          <li><span className="label label-default">Cat Four</span></li>
+        </ul>
       </div>
     </div>
   );
