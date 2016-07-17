@@ -12,8 +12,14 @@ class PostResourceData extends React.Component {
       title: null,
       link: null,
       desc: null,
+      categories: null,
+      addCats: null
     };
 
+  }
+
+  componentWillMount() {
+    this.getCats();
   }
 
   onFieldChange(fieldName, fieldValue) {
@@ -22,12 +28,20 @@ class PostResourceData extends React.Component {
     this.setState(newState);
   }
 
+  getCats() {
+    $.ajax({
+      url: '/api/v1/cats',
+      method: 'GET'
+    }).done((d) => this.setState({ categories: d }));
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const data = {
       title: this.state.title,
       desc: this.state.desc,
-      link: this.state.link
+      link: this.state.link,
+      newCats: this.state.newCats
     };
     $.ajax({
       url: '/api/v1/resources',
@@ -45,8 +59,10 @@ class PostResourceData extends React.Component {
     onFieldChange={(...args) => this.onFieldChange(...args)}
     handleSubmit={this.handleSubmit}
     title={this.state.title}
-    title={this.state.link}
     link={this.state.link}
+    desc={this.state.desc}
+    categories={this.state.categories}
+    newCats={this.state.newCats}
     assignment={this.state.assignment}
     />;
   }

@@ -1,14 +1,15 @@
 const path           = require('path'),
- express             = require('express'),
- bodyParser          = require('body-parser'),
- app                 = express(),
- ModulesRouter       = require('./routes/modules'),
- SubmissionRouter    = require('./routes/submissions'),
- CheckpointsRouter   = require('./routes/checkpoints'),
- ResourcesRouter    = require('./routes/resources'),
- passport            = require('passport'),
- session             = require('express-session'),
- flash               = require('connect-flash'),
+  express             = require('express'),
+  bodyParser          = require('body-parser'),
+  app                 = express(),
+  ModulesRouter       = require('./routes/modules'),
+  SubmissionRouter    = require('./routes/submissions'),
+  CatRouter           = require('./routes/categories'),
+  CheckpointsRouter   = require('./routes/checkpoints'),
+  ResourcesRouter     = require('./routes/resources'),
+  passport            = require('passport'),
+  session             = require('express-session'),
+  flash               = require('connect-flash'),
 
  mongoose            = require('mongoose');
 
@@ -61,6 +62,7 @@ app.use('/api/v1/modules', ModulesRouter);
 app.use('/api/v1/resources', ResourcesRouter);
 app.use('/api/v1/modules', CheckpointsRouter);
 app.use('/api/v1/submissions', SubmissionRouter);
+app.use('/api/v1/cats', CatRouter);
 
 // app.get('/*', (req, res) => {
 //   res.sendFile('index.html', { root: PUBLIC_DIR });
