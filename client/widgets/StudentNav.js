@@ -12,16 +12,16 @@ const StudentNav = (props) =>
         <NavLink className="nav-link" to="/modules" onlyActiveOnIndex>Modules</NavLink>
       </li>
       <li className="nav-item">
-        <NavLink className="nav-link" to="/resources/all">Resources</NavLink>
-      </li>
-      <li className="nav-item">
-        <a href="/logout" className="nav-link"> Logout </a>
+        <NavLink className="nav-link" to="/resources">Resources</NavLink>
       </li>
       <li className="nav-item">
         <NavLink className="nav-link" to="/profile/submissions">Submissions</NavLink>
       </li>
       <li className="nav-item">
         <NavLink className="nav-link" to="/profile/account">Profile</NavLink>
+      </li>
+      <li className="nav-item">
+        <a href="/logout" className="nav-link"> Logout </a>
       </li>
     </ul>
   </div>

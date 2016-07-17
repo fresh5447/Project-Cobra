@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import { Router, Route, browserHistory, IndexRoute, Redirect } from 'react-router';
 
 import App from './App';
 import ModulesData from './modules/ModulesData';
@@ -47,12 +47,14 @@ render((
       </Route>
 
       <Route path="/resources/post" component={PostResourceData} />
-
       <Route path="/resources" component={ResourcesData}>
         <Route path="all" component={AllResources} />
         <Route path="favorites" component={FavoriteResources} />
         <Route path="categories/:category_name" component={CategoryResources} />
       </Route>
+
+      <Redirect from="/resources" to="/resources/all" />
+
 
       <Route path="/submissions" component={AllSubmissionsData} />
 

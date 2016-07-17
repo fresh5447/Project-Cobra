@@ -13,7 +13,6 @@
 body {
   background-color: $primary-color;
   margin-top: 7%;
-  height: 1000px;
 }
 
 .modules-flex {
@@ -76,6 +75,10 @@ pre {
   color: white;
   text-decoration: underline;
   font-size: 20px;
+}
+
+.center-text {
+  text-align: center;
 }
 
 
@@ -182,4 +185,11 @@ body {
   right: 30px;
   top: 70px;
   border: 3px solid #73AD21;
+}
+
+.landing-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -53px;
 }
