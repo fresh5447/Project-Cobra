@@ -10,10 +10,19 @@ const path           = require('path'),
   passport            = require('passport'),
   session             = require('express-session'),
   flash               = require('connect-flash'),
+  uriUtil             = require('mongodb-uri'),
 
  mongoose            = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/lms');
+
+ var options = {
+ server:  { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+ replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
+ };
+ var mongodbUri = process.env.MONGOLAB_URI || "mongodb://localhost/lms";
+ var mongooseUri = uriUtil.formatMongoose(mongodbUri);
+
+ mongoose.connect(mongooseUri, options);
 
 
 app.use(bodyParser.json());
