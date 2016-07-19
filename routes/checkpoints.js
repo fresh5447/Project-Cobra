@@ -4,7 +4,73 @@ const express    = require('express');
 const Module    = require('../models/module');
 const Checkpoint = require('../models/checkpoint');
 
+
+// Array Includes PolyFil
+// TODO: Extract to utilities file
+if (!Array.prototype.includes) {
+  Array.prototype.includes = function(searchElement /*, fromIndex*/ ) {
+    'use strict';
+    var O = Object(this);
+    var len = parseInt(O.length, 10) || 0;
+    if (len === 0) {
+      return false;
+    }
+    var n = parseInt(arguments[1], 10) || 0;
+    var k;
+    if (n >= 0) {
+      k = n;
+    } else {
+      k = len + n;
+      if (k < 0) {k = 0;}
+    }
+    var currentElement;
+    while (k < len) {
+      currentElement = O[k];
+      if (searchElement === currentElement ||
+         (searchElement !== searchElement && currentElement !== currentElement)) { // NaN !== NaN
+        return true;
+      }
+      k++;
+    }
+    return false;
+  };
+}
+
 const Router = express.Router();
+
+Router.route('/student/:id/checkpoints')
+  .get(function(req, res) {
+    const studentId = '5786b46a3a132d320dd450c0';
+    Module.findById(req.params.id)
+    .populate('checkpoints')
+    .exec(function(err, module){
+      if(err) {
+        res.json({ message: "error trying to find module while getting checkpoints" })
+      } else {
+
+        const newArray = [];
+
+        module.checkpoints.map((item) => {
+
+          console.log('test one', item.userCompletions.includes('5786b46a3a132d320dd450c0'));
+          console.log('what are we testing?', item.userCompletions);
+          console.log('direct test', ["5786b46a3a132d320dd450c0"].includes('5786b46a3a132d320dd450c0'));
+
+          if (item.userCompletions.includes(studentId)) {
+            console.log("it contains it")
+            newArray.push({ completed: true, cp: item });
+          } else {
+            newArray.push({ completed: false, cp: item });
+          }
+          return newArray;
+        });
+        res.json(newArray)
+
+      }
+    })
+  })
+
+
 
 Router.route('/one/:id/checkpoints')
   .post(function(req, res){

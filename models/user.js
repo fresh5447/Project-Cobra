@@ -11,7 +11,8 @@ var userSchema = mongoose.Schema({
     loggedIn: Boolean,
     resetPasswordToken: String,
     resetPasswordExpires: Date
-  }
+  },
+  completedCheckpoints: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Checkpoint' }]
 });
 
 // methods ======================

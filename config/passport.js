@@ -98,7 +98,7 @@ module.exports = function(passport) {
                 newUser.local.email    = email;
                 newUser.local.password = newUser.generateHash(password);
                 newUser.local.username = req.body.username;
-                newUser.local.role = 'student';
+                newUser.local.role = 'guest';
 
                 // save the user
                 newUser.save(function(err) {
@@ -108,7 +108,7 @@ module.exports = function(passport) {
                 });
             }
 
-        });    
+        });
 
         });
 

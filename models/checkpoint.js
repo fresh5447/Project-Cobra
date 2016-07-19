@@ -13,6 +13,7 @@ const CheckpointSchema = new Schema({
   content: String,
   assignment: String,
   module: { type: mongoose.Schema.Types.ObjectId, ref: 'Module' },
+  userCompletions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   order: Number
 });
 
