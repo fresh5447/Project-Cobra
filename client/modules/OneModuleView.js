@@ -2,13 +2,14 @@ import React from 'react';
 import NavLink from '../widgets/NavLink';
 
 const Module = (props) => {
-  const cps = props.module.checkpoints && props.module.checkpoints.length > 0 ?
-    props.module.checkpoints.map((item) => {
+  const cps = props.checkpoints && props.checkpoints.length > 0 ?
+    props.checkpoints.map((item) => {
     return (
       <div className="card markdown-card modules-card">
         <div className="card-block main-card-block modules-card-header">
-          <h4 className="card-title">{ item.title} </h4>
-          <span className="fa fa-check-circle-o complete-icon pull-right"></span>
+          <h4 className="card-title">{ item.cp.title} </h4>
+          <span className="fa fa-check-circle-o pull-right"></span>
+          <span>Complete? {item.completed.toString()}</span>
           <NavLink className="" to={"/modules/" + props.mId + "/checkpoints/" + item._id}><i className="fa fa-eye view pull-left" aria-hidden="true"></i></NavLink>
         </div>
       </div>);

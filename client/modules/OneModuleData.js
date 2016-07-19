@@ -6,13 +6,24 @@ class ModulesData extends React.Component {
 
     super(props, context);
     this.state = {
-      module: null
+      module: null,
+      checkpoints: null
     };
 
   }
 
   componentWillMount() {
     this.loadModule();
+    this.loadCheckpoints();
+  }
+
+  loadCheckpoints() {
+    $.ajax({
+      url: `/api/v1/modules/student/${this.props.params.id}/checkpoints`,
+      method: 'GET',
+    }).done((data) => {
+      this.setState({ checkpoints: data });
+    });
   }
 
   loadModule() {
@@ -25,7 +36,7 @@ class ModulesData extends React.Component {
   }
 
   render() {
-    return this.state.module ? <Module module={this.state.module} mId={this.props.params.id} /> : null;
+    return this.state.module ? <Module checkpoints={this.state.checkpoints} module={this.state.module} mId={this.props.params.id} /> : null;
   }
 }
 

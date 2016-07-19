@@ -26,8 +26,8 @@ if (!Array.prototype.includes) {
     var currentElement;
     while (k < len) {
       currentElement = O[k];
-      if (searchElement === currentElement ||
-         (searchElement !== searchElement && currentElement !== currentElement)) { // NaN !== NaN
+      if (searchElement == currentElement ||
+         (searchElement != searchElement && currentElement !== currentElement)) { // NaN !== NaN
         return true;
       }
       k++;
@@ -40,7 +40,8 @@ const Router = express.Router();
 
 Router.route('/student/:id/checkpoints')
   .get(function(req, res) {
-    const studentId = '5786b46a3a132d320dd450c0';
+    // const studentId = req.user ? req.user._id : '5786b46a3a132d320dd450c0';
+    const studentId = req.user._id;
     Module.findById(req.params.id)
     .populate('checkpoints')
     .exec(function(err, module){
@@ -51,12 +52,9 @@ Router.route('/student/:id/checkpoints')
         const newArray = [];
 
         module.checkpoints.map((item) => {
-
-          console.log('test one', item.userCompletions.includes('5786b46a3a132d320dd450c0'));
-          console.log('what are we testing?', item.userCompletions);
-          console.log('direct test', ["5786b46a3a132d320dd450c0"].includes('5786b46a3a132d320dd450c0'));
-
-          if (item.userCompletions.includes(studentId)) {
+          console.log(item.userCompletions)
+          if (item.userCompletions.includes(studentId.toString())) {
+            console.log(item.userCompletions, studentId);
             console.log("it contains it")
             newArray.push({ completed: true, cp: item });
           } else {
