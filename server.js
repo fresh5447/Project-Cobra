@@ -4,6 +4,7 @@ const path           = require('path'),
   app                 = express(),
   ModulesRouter       = require('./routes/modules'),
   SubmissionRouter    = require('./routes/submissions'),
+  RequestRouter    = require('./routes/requests'),
   CatRouter           = require('./routes/categories'),
   CheckpointsRouter   = require('./routes/checkpoints'),
   ResourcesRouter     = require('./routes/resources'),
@@ -74,6 +75,7 @@ app.use('/api/v1/resources', ResourcesRouter);
 app.use('/api/v1/modules', CheckpointsRouter);
 app.use('/api/v1/submissions', SubmissionRouter);
 app.use('/api/v1/cats', CatRouter);
+app.use('/api/v1/requests', RequestRouter);
 
 // app.get('/*', (req, res) => {
 //   res.sendFile('index.html', { root: PUBLIC_DIR });

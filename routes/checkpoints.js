@@ -7,6 +7,7 @@ const Checkpoint = require('../models/checkpoint');
 
 // Array Includes PolyFil
 // TODO: Extract to utilities file
+// HACK: Had to use `==` to get it to compare ID's
 if (!Array.prototype.includes) {
   Array.prototype.includes = function(searchElement /*, fromIndex*/ ) {
     'use strict';
@@ -54,11 +55,9 @@ Router.route('/student/:id/checkpoints')
         module.checkpoints.map((item) => {
           console.log(item.userCompletions)
           if (item.userCompletions.includes(studentId.toString())) {
-            console.log(item.userCompletions, studentId);
-            console.log("it contains it")
-            newArray.push({ completed: true, cp: item });
+            newArray.push({ status: "complete", cp: item });
           } else {
-            newArray.push({ completed: false, cp: item });
+            newArray.push({ status: "incomplete", cp: item });
           }
           return newArray;
         });
@@ -67,6 +66,8 @@ Router.route('/student/:id/checkpoints')
       }
     })
   })
+
+// Router.route('/approve/student/:checkpoint')
 
 
 

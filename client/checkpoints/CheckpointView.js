@@ -30,6 +30,8 @@ const CheckpointView = (props) =>
       </div>
     </div>
   </div>
+  <div>
+  </div>
   <SubmissionData user={props.user} cpId={props.checkpoint._id}/>
 </div>;
 

@@ -10,11 +10,26 @@ class ModulesData extends React.Component {
       checkpoints: null
     };
 
+  this.makeNewRequest = this.makeNewRequest.bind(this);
+
   }
 
   componentWillMount() {
     this.loadModule();
     this.loadCheckpoints();
+  }
+  makeNewRequest(id) {
+    const p = {
+      type: "request checkpoint completion",
+      info: {
+        cpId: id
+      },
+    };
+    $.ajax({
+      url: '/api/v1/requests',
+      method: 'POST',
+      data: p
+    }).done((d) => console.log(d, 'POST SUCCESS'));
   }
 
   loadCheckpoints() {
@@ -36,7 +51,7 @@ class ModulesData extends React.Component {
   }
 
   render() {
-    return this.state.module ? <Module checkpoints={this.state.checkpoints} module={this.state.module} mId={this.props.params.id} /> : null;
+    return this.state.module ? <Module makeNewRequest={this.makeNewRequest} checkpoints={this.state.checkpoints} module={this.state.module} mId={this.props.params.id} /> : null;
   }
 }
 

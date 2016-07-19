@@ -1,4 +1,5 @@
 import React from 'react';
+import StatusButton from './StatusButton';
 import NavLink from '../widgets/NavLink';
 
 const Module = (props) => {
@@ -9,8 +10,10 @@ const Module = (props) => {
         <div className="card-block main-card-block modules-card-header">
           <h4 className="card-title">{ item.cp.title} </h4>
           <span className="fa fa-check-circle-o pull-right"></span>
-          <span>Complete? {item.completed.toString()}</span>
-          <NavLink className="" to={"/modules/" + props.mId + "/checkpoints/" + item._id}><i className="fa fa-eye view pull-left" aria-hidden="true"></i></NavLink>
+          <NavLink className="" to={"/modules/" + props.mId + "/checkpoints/" + item.cp._id}><i className="fa fa-eye view pull-left" aria-hidden="true"></i></NavLink>
+          <div className="requestCompletion">
+            <StatusButton makeNewRequest={props.makeNewRequest} status={item.status} cpId={item.cp._id} />
+          </div>
         </div>
       </div>);
   }) : <div>No CPS</div>;
