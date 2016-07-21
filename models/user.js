@@ -6,8 +6,14 @@ var userSchema = mongoose.Schema({
   local: {
     email: String,
     password: String,
-    username: { type: String, unique: true },
+    firstName: String,
+    lastName: String,
     role: String,
+    linkedIn: String,
+    twitterHandle: String,
+    githubHandle: String,
+    skype: String,
+    bio: String,
     loggedIn: Boolean,
     resetPasswordToken: String,
     resetPasswordExpires: Date

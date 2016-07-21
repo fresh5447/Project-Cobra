@@ -16,7 +16,7 @@ import AllSubmissionsData from './submissions/AllSubmissionsData.js';
 import PostCheckpointData from './checkpoints/PostCheckpointData';
 import EditCheckpointData from './checkpoints/EditCheckpointData';
 
-import ProfileData from './profile/ProfileData';
+import ProfileData from './profile/ProfileAccountData';
 import ProfileResourcesData from './profile/ProfileResourcesData';
 import ProfileSubmissionsData from './profile/ProfileSubmissionsData';
 import ProfileAccountData from './profile/ProfileAccountData';

@@ -9,7 +9,8 @@ class Signup extends React.Component {
 
     this.state = {
       email: null,
-      username: null,
+      firstName: null,
+      lastName: null,
       password: null
     };
 
@@ -17,14 +18,17 @@ class Signup extends React.Component {
 
   handleEmailChange = (e) => this.setState({ email: e.target.value });
 
-  handleUsernameChange = (e) => this.setState({ username: e.target.value });
+  handleFirstNameChange = (e) => this.setState({ firstName: e.target.value });
+
+  handleLastNameChange = (e) => this.setState({ lastName: e.target.value });
 
   handlePasswordChange = (e) => this.setState({ password: e.target.value });
 
   submitUserToServer(e) {
     e.preventDefault();
     const User = {
-      username: this.state.username,
+      firstName: this.state.firstName,
+      lastName: this.state.firstName,
       email: this.state.email,
       password: this.state.password
     };
@@ -47,16 +51,20 @@ class Signup extends React.Component {
           <p>create a new account</p>
             <form onSubmit={this.submitUserToServer}>
               <fieldset className="form-group">
-                <label>Username</label>
-                <input onChange={this.handleUsernameChange} type="text" className="form-control" placeholder="Enter username"/>
+                <label>First Name</label>
+                <input onChange={this.handleFirstNameChange} type="text" className="form-control" placeholder="john"/>
+              </fieldset>
+              <fieldset className="form-group">
+                <label>Last Name</label>
+                <input onChange={this.handleLastNameChange} type="text" className="form-control" placeholder="doe"/>
               </fieldset>
               <fieldset className="form-group">
                 <label>Email address</label>
-                <input onChange={this.handleEmailChange} type="email" className="form-control" placeholder="Enter email"/>
+                <input onChange={this.handleEmailChange} type="email" className="form-control" placeholder="john@doe.com"/>
               </fieldset>
               <fieldset className="form-group">
                 <label>Password</label>
-                <input onChange={this.handlePasswordChange} type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                <input onChange={this.handlePasswordChange} type="password" className="form-control" id="" placeholder="password"/>
               </fieldset>
               <button type="submit" className="btn btn-primary  submit-btn">Submit</button>
             </form>

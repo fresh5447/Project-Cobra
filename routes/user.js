@@ -39,6 +39,35 @@ module.exports = function(app, passport) {
      res.redirect('/');
   });
 
+  app.put('/editUser', function(req, res){
+    if(req.user){
+      User.findById(req.user._id, function(err, user){
+        if(err){
+          console.log(err)
+        } else {
+          user.local.email = req.body.email ? req.body.email : user.local.email;
+          user.local.firstName = req.body.firstName ? req.body.firstName : user.local.firstName;
+          user.local.lastName = req.body.lastName ? req.body.lastName : user.local.lastName;
+          user.local.linkedIn = req.body.linkedIn ? req.body.linkedIn : user.local.linkedIn;
+          user.local.twitterHandle = req.body.twitterHandle ? req.body.twitterHandle : user.local.twitterHandle;
+          user.local.githubHandle = req.body.githubHandle ? req.body.githubHandle : user.local.githubHandle;
+          user.local.skype = req.body.skype ? req.body.skype : user.local.skype;
+          user.local.bio = req.body.bio ? req.body.bio : user.local.bio;
+
+          user.save(function(err){
+            if(err){
+              res.json({message: "error updating user info"})
+            } else {
+              res.json(user)
+            }
+          })
+        }
+      })
+    } else {
+      res.json({user: "no user"})
+    }
+  });
+
   app.get('/getUser', function(req, res){
     if(req.user){
       User.findById(req.user._id, function(err, user){
