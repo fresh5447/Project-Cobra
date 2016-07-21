@@ -1,5 +1,6 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
+import NavLink from '../widgets/NavLink';
 
 class UserSignin extends React.Component {
   constructor(props, context) {
@@ -35,6 +36,7 @@ class UserSignin extends React.Component {
   }
 
   render() {
+    // hack: used br for line break. bu bueno. You have such bad habits douglas.
     return (
       <div className="">
         <div className="container">
@@ -47,6 +49,7 @@ class UserSignin extends React.Component {
                 <label>Password</label>
                 <input onChange={this.handlePasswordChange} type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
               </fieldset>
+              <NavLink className="nav-link" to="/forgot"><p>forgot password?</p></NavLink><br/>
               <button type="submit" className="btn btn-primary  submit-btn">Submit</button>
             </form>
         </div>

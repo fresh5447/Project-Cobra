@@ -35,11 +35,10 @@ class Forgot extends React.Component {
     return (
       <div className="">
         <div className="container">
-          <h1>Forgot Your Password?</h1>
+          <h3>Forgot your password?</h3>
             <form onSubmit={this.submitUserToServer}>
               <fieldset className="form-group">
-                <label>enter email address</label>
-                <input onChange={this.handleEmailChange} type="email" className="form-control" placeholder="Enter email"/>
+                <input onChange={this.handleEmailChange} type="email" className="form-control" placeholder="enter email address"/>
               </fieldset>
               <button type="submit" className="btn btn-primary  submit-btn">Reset Password</button>
             </form>
