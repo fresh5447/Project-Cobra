@@ -5,7 +5,6 @@ const WelcomePage = () =>
   <div className="container">
     <div>
       <img src="/images/main-logo.gif" className="landing-img" />
-      <h1 className="center-text">CodeRange</h1>
     </div>
     <div className="row">
       <div className="col-sm-4">
@@ -21,7 +20,7 @@ const WelcomePage = () =>
         <p>Knowledge checkpoints throught the modules, keep you on track.</p>
       </div>
     </div>
-  </div>
-</div>;
+    </div>
+  </div>;
 
 export default WelcomePage;
