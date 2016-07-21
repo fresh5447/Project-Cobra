@@ -1,13 +1,17 @@
 import React from 'react';
 import NavLink from '../widgets/NavLink';
+import AllResources from './AllResources';
+import FavoriteResources from './FavoriteResources';
 
 class ProfileData extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      resources: null
+      resources: null,
+      activeComp: 'all'
     };
+    this.toggleResources = this.toggleResources.bind(this);
   }
 
   componentWillMount() {
@@ -19,6 +23,20 @@ class ProfileData extends React.Component {
       url: '/api/v1/resources',
       method: 'GET'
     }).done((data) => this.setState({ resources: data }));
+  }
+
+  showComp() {
+    if (this.state.resources && this.state.activeComp === 'all') {
+      return <AllResources resources={this.state.resources} />;
+    } else if (this.state.resources && this.state.activeComp === 'favs') {
+      return <FavoriteResources resources={this.state.resources} />;
+    } else {
+      return null;
+    }
+  }
+
+  toggleResources(name) {
+    this.setState({ activeComp: name });
   }
 
   render() {
@@ -37,18 +55,22 @@ class ProfileData extends React.Component {
       <div className="container col-md-12 col-md-offset-1">
 
         <div className="row">
-        <NavLink className="nav-link" to="/resources/all" className="nav-link">
-        <h3>All</h3>
-        </NavLink>
-        /
-        <NavLink className="nav-link" to="/resources/favorites" className="nav-link">
-        <h3>Favorites</h3>
-        </NavLink>
+        <button
+          onClick={this.toggleResources.bind(this,'all')}
+          className="btn btn-primary  submit-btn"
+        >
+          <h3>All</h3>
+        </button>
+        <button
+          onClick={this.toggleResources.bind(this,'favs')}
+          className="btn btn-primary  submit-btn"
+        >
+          <h3>Favorites</h3>
+        </button>
+
         </div>
         <div className="row">
-          {this.props.children && React.cloneElement(this.props.children, {
-            resources: this.state.resources
-          })}
+          { this.showComp() }
         </div>
 
       </div>

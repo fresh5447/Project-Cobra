@@ -16,11 +16,24 @@ Router.route('/')
     });
   })
   .post((req, res) => {
+    // console.log(req.body.categories)
+    // const cats = req.body.categories.map((item) =>
+    //   item
+    // );
+    // console.log(cats);
     const resource = new Resource({
       title: req.body.title,
       desc: req.body.desc,
-      link: req.body.link
+      link: req.body.link,
+      categories: req.body.categories
     });
+    // for (var i = 0; i < art.length; i++) {
+    //   console.log(art[i]);
+    // }
+
+    // console.log(req.body.categories.forEach((item) => console.log(item)));
+    // resource.categories.push(req.body.categories);
+    console.log(resource);
     resource.save((err, source) => {
       if (err) {
         res.json({ message: 'there was an error saving your resource' });
@@ -29,6 +42,41 @@ Router.route('/')
       }
     });
   });
+
+Router.route('/:id')
+    .get((req, res) => {
+      Resource.findById(req.params.id)
+      .populate('categories')
+      .exec((err, resources) => {
+        if (err) {
+          res.json({ message: 'there was an error finding all resources' });
+        } else {
+          res.json(resources);
+        }
+      });
+    })
+    .put((req, res) => {
+      Resource.findById(req.params.id)
+      .populate('categories')
+      .exec((err, resource) => {
+        if (err) {
+          res.json({ message: 'there was an error finding all resource' });
+        } else {
+
+          resource.title      = req.body.title ? req.body.title : resource.title;
+          resource.desc       = req.body.desc ? req.body.desc : resource.desc;
+          resource.link    = req.body.link ? req.body.link : resource.link;
+          resource.categories = req.body.categories ? req.body.categories : resource.categories;
+          resource.save((e, r) => {
+            if(e){
+              res.json({ message: "error updating" })
+            } else {
+              res.json(r);
+            }
+          });
+        }
+      });
+    })
 
 module.exports = Router;
 
