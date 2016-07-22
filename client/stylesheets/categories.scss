@@ -5,9 +5,9 @@
 
 .tags-container {
   position: fixed;
-  left: 4%;
+  left: 0;
   height: auto;
-  top: 20%;
+  top: 15%;
 }
 
 .tags-container > h4 {
@@ -16,4 +16,9 @@
 
 .tags-container > ul > li {
   list-style: none;
+}
+
+.hot-cat {
+  background-color: $dark-grey;
+  color: $primary-color
 }

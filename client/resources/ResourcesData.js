@@ -3,6 +3,7 @@ import NavLink from '../widgets/NavLink';
 import AllResources from './AllResources';
 import FavoriteResources from './FavoriteResources';
 import PostResourceData from './PostResourceData';
+import FilteredResources from './FilteredResources';
 
 class ProfileData extends React.Component {
   constructor(props, context) {
@@ -11,18 +12,22 @@ class ProfileData extends React.Component {
     this.state = {
       resources: null,
       activeComp: 'all',
-      favorites: null
+      favorites: null,
+      activeFilter: null,
+      categories: null
     };
     this.toggleResources = this.toggleResources.bind(this);
     this.deleteResource = this.deleteResource.bind(this);
     this.loadResources = this.loadResources.bind(this);
     this.loadFavorites = this.loadFavorites.bind(this);
     this.makeFave = this.makeFave.bind(this);
+    this.triggerFilter = this.triggerFilter.bind(this);
   }
 
   componentWillMount() {
     this.loadResources();
     this.loadFavorites();
+    this.loadCategories();
   }
 
   deleteResource(id) {
@@ -69,26 +74,48 @@ class ProfileData extends React.Component {
       return <FavoriteResources resources={this.state.favorites} />;
     } else if (this.state.resources && this.state.activeComp === 'post') {
       return <PostResourceData toggleResources={this.toggleResources} loadResources={this.loadResources}/>;
+    } else if (this.state.resources && this.state.activeComp === 'cats') {
+      return <FilteredResources activeFilter={this.state.activeFilter} makeFave={this.makeFave} deleteResource={this.deleteResource} resources={this.state.resources} />;
     } else {
       return null;
     }
   }
 
   toggleResources(name) {
+    if(name === 'all'){
+      this.setState({ activeFilter: null })
+    }
     this.setState({ activeComp: name });
   }
 
+  loadCategories() {
+    $.ajax({
+      url: '/api/v1/cats',
+      method: 'GET'
+    }).done((data) => this.setState({ categories: data }));
+  }
+
+  triggerFilter(name) {
+    console.log('triggered', name)
+    this.setState({ activeComp: 'cats' });
+    this.setState({ activeFilter: name })
+  }
+
   render() {
+    console.log(this.state.categories)
+    const cats = this.state.categories ? this.state.categories.map((item) => {
+      if(this.state.activeFilter === item.name) {
+        return <li className="list-group-item hot-cat" onClick={this.triggerFilter.bind(this, item.name)}>{item.name}</li>
+      } else {
+        return <li className="list-group-item" onClick={this.triggerFilter.bind(this, item.name)}>{item.name}</li>
+      }
+    }) : null;
     return (
       <div>
-      <div className="tags-container">
+      <div className="container tags-container">
          <h6>Categories</h6>
          <ul className="list-group">
-           <li className="list-group-item">html</li>
-           <li className="list-group-item">css</li>
-           <li className="list-group-item">js</li>
-           <li className="list-group-item">node</li>
-           <li className="list-group-item">dev env</li>
+          { cats }
          </ul>
       </div>
       <div className="container col-md-12 col-md-offset-1">
@@ -96,21 +123,21 @@ class ProfileData extends React.Component {
         <div className="row">
         <button
           onClick={this.toggleResources.bind(this,'all')}
-          className="btn btn-primary  submit-btn"
+          className="btn btn-primary  submit-btn res-btn"
         >
-          <h3>All</h3>
+          <h6>All</h6>
         </button>
         <button
           onClick={this.toggleResources.bind(this,'favs')}
-          className="btn btn-primary  submit-btn"
+          className="btn btn-primary  submit-btn res-btn"
         >
-          <h3>Favorites</h3>
+          <h6>Favorites</h6>
         </button>
         <button
           onClick={this.toggleResources.bind(this,'post')}
-          className="btn btn-primary  submit-btn"
+          className="btn btn-primary  submit-btn res-btn"
         >
-          <h3>Post</h3>
+          <h6>Post</h6>
         </button>
 
         </div>

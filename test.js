@@ -77,14 +77,19 @@ const resources = [
 
 ];
 
+function filterViaCategory(arr, category) {
+  return arr.filter((obj) => {
+    for (var i = 0, length = obj.categories.length; i < length; i++) {
+      if (obj.categories[i].name === category) {
+        return true;
+      }
+    }
 
-var fn = function (arr) {
-  for (var i = 0; i <= arr.length - 1; i++) {
-    return arr[i].categories.filter((item) => item.name === 'javascipt')
-    .map((t) => t);
-  }
-};
-console.log(fn(resources));
+    return false;
+  });
+}
+
+console.log(filterViaCategory(resources, 'react'));
 
 //
 // //GOAL: Return only the resources that have a category with name 'javascript'
