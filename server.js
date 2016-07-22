@@ -32,33 +32,32 @@ const path           = require('path'),
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')))
-//
-// var csp = require('helmet-csp')
-//
-// app.use(csp({
-//   // Specify directives as normal.
-//   directives: {
-//     frameAncestors: ['*.github.com'],  //I thought these two did the same, so I tried them both.
-//     childSrc: ['*.github.com']
-//   },
-//
-//   // Set to true if you only want browsers to report errors, not block them.
-//   // You may also set this to a function(req, res) in order to decide dynamically
-//   // whether to use reportOnly mode, e.g., to allow for a dynamic kill switch.
-//   reportOnly: false,
-//
-//   // Set to true if you want to blindly set all headers: Content-Security-Policy,
-//   // X-WebKit-CSP, and X-Content-Security-Policy.
-//   setAllHeaders: false,
-//
-//   // Set to true if you want to disable CSP on Android where it can be buggy.
-//   disableAndroid: false,
-//
-//   // Set to false if you want to completely disable any user-agent sniffing.
-//   // This may make the headers less compatible but it will be much faster.
-//   // This defaults to `true`.
-//   browserSniff: true
-// }))
+
+var csp = require('helmet-csp')
+
+app.use(csp({
+  // Specify directives as normal.
+  directives: {
+    frameAncestors: ['*.github.com'],  //I thought these two did the same, so I tried them both.
+  },
+
+  // Set to true if you only want browsers to report errors, not block them.
+  // You may also set this to a function(req, res) in order to decide dynamically
+  // whether to use reportOnly mode, e.g., to allow for a dynamic kill switch.
+  reportOnly: false,
+
+  // Set to true if you want to blindly set all headers: Content-Security-Policy,
+  // X-WebKit-CSP, and X-Content-Security-Policy.
+  setAllHeaders: false,
+
+  // Set to true if you want to disable CSP on Android where it can be buggy.
+  disableAndroid: false,
+
+  // Set to false if you want to completely disable any user-agent sniffing.
+  // This may make the headers less compatible but it will be much faster.
+  // This defaults to `true`.
+  browserSniff: true
+}))
 
 if (process.env.NODE_ENV === 'production') {
   console.log('Running in production mode');
