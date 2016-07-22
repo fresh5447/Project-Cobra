@@ -33,9 +33,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use(function(req, res, next) {
-    res.setHeader("Content-Security-Policy", "script-src 'self' *.github.com");
-    return next();
+app.use((req, res, next) => {
+  res.setHeader("Content-Security-Policy", "child-src 'self' *.github.com");
+  return next();
 });
 
 if (process.env.NODE_ENV === 'production') {
