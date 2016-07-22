@@ -2,6 +2,7 @@ import React from 'react';
 import NavLink from '../widgets/NavLink';
 import AllResources from './AllResources';
 import FavoriteResources from './FavoriteResources';
+import PostResourceData from './PostResourceData';
 
 class ProfileData extends React.Component {
   constructor(props, context) {
@@ -12,10 +13,23 @@ class ProfileData extends React.Component {
       activeComp: 'all'
     };
     this.toggleResources = this.toggleResources.bind(this);
+    this.deleteResource = this.deleteResource.bind(this);
+    this.loadResources = this.loadResources.bind(this);
   }
 
   componentWillMount() {
     this.loadResources();
+  }
+
+  deleteResource(id) {
+    $.ajax({
+      url: `/api/v1/resources/${id}`,
+      method: 'DELETE'
+    }).done((d) => {
+      console.log(d, 'deleted');
+      this.context.sendNotification('Resource Deleted');
+      this.loadResources();
+    })
   }
 
   loadResources() {
@@ -27,9 +41,11 @@ class ProfileData extends React.Component {
 
   showComp() {
     if (this.state.resources && this.state.activeComp === 'all') {
-      return <AllResources resources={this.state.resources} />;
+      return <AllResources deleteResource={this.deleteResource} resources={this.state.resources} />;
     } else if (this.state.resources && this.state.activeComp === 'favs') {
       return <FavoriteResources resources={this.state.resources} />;
+    } else if (this.state.resources && this.state.activeComp === 'post') {
+      return <PostResourceData toggleResources={this.toggleResources} loadResources={this.loadResources}/>;
     } else {
       return null;
     }
@@ -67,6 +83,12 @@ class ProfileData extends React.Component {
         >
           <h3>Favorites</h3>
         </button>
+        <button
+          onClick={this.toggleResources.bind(this,'post')}
+          className="btn btn-primary  submit-btn"
+        >
+          <h3>Post</h3>
+        </button>
 
         </div>
         <div className="row">
@@ -80,6 +102,11 @@ class ProfileData extends React.Component {
 }
 
 ProfileData.displayName = ProfileData;
+
+ProfileData.contextTypes = {
+  sendNotification: React.PropTypes.func.isRequired
+};
+
 export default ProfileData;
 
 

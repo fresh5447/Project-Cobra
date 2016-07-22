@@ -77,6 +77,15 @@ Router.route('/:id')
         }
       });
     })
+    .delete(function(req, res){
+      Resource.remove({ _id: req.params.id }, function(err) {
+        if(err){
+          res.json({ message: "Was unable to delete resource" })
+        } else {
+          res.json("Resource deleted!")
+        }
+      })
+    });
 
 module.exports = Router;
 

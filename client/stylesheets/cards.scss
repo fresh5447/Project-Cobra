@@ -42,6 +42,44 @@
   margin: 5px;
 }
 
+
+// ---- Resources  ------
+.resources-card {
+  @include small-card;
+  background-color: $primary-color;
+  color: $dark-blue;
+  margin-bottom: 3.75rem;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  &:hover {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+}
+
+.resource-footer {
+  height: 15%;
+  background-color: $primary-color;
+}
+
+.resource-cats {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  background-color: $primary-color;
+}
+
+.cat-label {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.res-card-block {
+  padding: 0px;
+}
+
+.res-title {
+  text-align: center;
+}
+
 // ---- MODULES  ------
 .modules-card {
   @include small-card;

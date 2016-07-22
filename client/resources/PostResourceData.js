@@ -7,13 +7,14 @@ class PostResourceData extends React.Component {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.addToCats = this.addToCats.bind(this);
 
     this.state = {
       title: null,
       link: null,
       desc: null,
       categories: null,
-      addCats: null
+      resCats: []
     };
 
   }
@@ -35,13 +36,18 @@ class PostResourceData extends React.Component {
     }).done((d) => this.setState({ categories: d }));
   }
 
+  addToCats(item) {
+    this.state.resCats.push(item._id);
+    this.context.sendNotification(`${item.name} Added`);
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const data = {
       title: this.state.title,
       desc: this.state.desc,
       link: this.state.link,
-      newCats: this.state.newCats
+      categories: this.state.resCats
     };
     $.ajax({
       url: '/api/v1/resources',
@@ -49,8 +55,8 @@ class PostResourceData extends React.Component {
       data
     }).done((d) => {
       this.context.sendNotification("Resource Created");
-      const path = '/resources/all'
-      browserHistory.push(path);
+      this.props.loadResources();
+      this.props.toggleResources('all');
     });
   }
 
@@ -58,12 +64,9 @@ class PostResourceData extends React.Component {
     return <PostResourceForm
     onFieldChange={(...args) => this.onFieldChange(...args)}
     handleSubmit={this.handleSubmit}
-    title={this.state.title}
-    link={this.state.link}
-    desc={this.state.desc}
     categories={this.state.categories}
-    newCats={this.state.newCats}
-    assignment={this.state.assignment}
+    addToCats={this.addToCats}
+    resCats={this.state.resCats}
     />;
   }
 
