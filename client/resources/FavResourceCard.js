@@ -15,14 +15,11 @@ const ResourceCard = (props) => {
         <p> {props.desc} </p>
       </div>
       <div className="resource-footer">
-        <div className="col-md-3">
-          <button onClick={props.deleteResource.bind(this, props.id)}> Delete </button>
-        </div>
-        <div className="col-md-3">
+        <div className="col-md-6">
           <a href={props.link} target="_blank">view</a>
         </div>
-        <div className="col-md-3">
-          <button onClick={props.makeFave.bind(this, props.id)}> Favorite </button>
+        <div className="col-md-6">
+          <button> un-favorite [todo]</button>
         </div>
       </div>
       <div className="resource-cats">

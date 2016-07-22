@@ -10,20 +10,24 @@ class ProfileData extends React.Component {
 
     this.state = {
       resources: null,
-      activeComp: 'all'
+      activeComp: 'all',
+      favorites: null
     };
     this.toggleResources = this.toggleResources.bind(this);
     this.deleteResource = this.deleteResource.bind(this);
     this.loadResources = this.loadResources.bind(this);
+    this.loadFavorites = this.loadFavorites.bind(this);
+    this.makeFave = this.makeFave.bind(this);
   }
 
   componentWillMount() {
     this.loadResources();
+    this.loadFavorites();
   }
 
   deleteResource(id) {
     $.ajax({
-      url: `/api/v1/resources/${id}`,
+      url: `/api/v1/resources/id/${id}`,
       method: 'DELETE'
     }).done((d) => {
       console.log(d, 'deleted');
@@ -39,11 +43,30 @@ class ProfileData extends React.Component {
     }).done((data) => this.setState({ resources: data }));
   }
 
+  loadFavorites() {
+    $.ajax({
+      url: '/api/v1/resources/favorites',
+      method: 'GET'
+    }).done((data) => this.setState({ favorites: data }));
+  }
+
+  makeFave(id) {
+    var d = { resource_id: id };
+    $.ajax({
+      url: '/api/v1/resources/favorites',
+      method: 'POST',
+      data: d
+    }).done((s) => {
+      this.context.sendNotification("resource favorited");
+      this.loadFavorites();
+    });
+  }
+
   showComp() {
     if (this.state.resources && this.state.activeComp === 'all') {
-      return <AllResources deleteResource={this.deleteResource} resources={this.state.resources} />;
+      return <AllResources makeFave={this.makeFave} deleteResource={this.deleteResource} resources={this.state.resources} />;
     } else if (this.state.resources && this.state.activeComp === 'favs') {
-      return <FavoriteResources resources={this.state.resources} />;
+      return <FavoriteResources resources={this.state.favorites} />;
     } else if (this.state.resources && this.state.activeComp === 'post') {
       return <PostResourceData toggleResources={this.toggleResources} loadResources={this.loadResources}/>;
     } else {

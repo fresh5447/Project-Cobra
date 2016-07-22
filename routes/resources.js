@@ -1,6 +1,6 @@
 const express = require('express');
 const Resource = require('../models/resource');
-
+const User = require('../models/user');
 const Router = new express.Router();
 
 Router.route('/')
@@ -43,7 +43,38 @@ Router.route('/')
     });
   });
 
-Router.route('/:id')
+Router.route('/favorites')
+  .get((req, res) => {
+    User.findById(req.user._id)
+    .populate('favorites')
+    .exec((err, user) => {
+      if (err) {
+        res.json({ message: 'there was an error getting favs' })
+      } else {
+        res.json(user.favorites)
+      }
+    })
+  })
+  .post((req, res) => {
+    User.findById(req.user._id)
+    .populate('favorites')
+    .exec((err, user) => {
+      if (err) {
+        res.json({ message: 'there was an error getting favs' })
+      } else {
+        user.favorites.push(req.body.resource_id);
+        user.save((e, s) => {
+          if(e) {
+            res.json({ message: 'there was an err updating it' })
+          } else {
+            res.json(s);
+          }
+        })
+      }
+    })
+  })
+
+Router.route('/id/:id')
     .get((req, res) => {
       Resource.findById(req.params.id)
       .populate('categories')

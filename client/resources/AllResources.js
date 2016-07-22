@@ -5,8 +5,6 @@ const AllResources = (props) => {
   const resources = props.resources
   .map((item) => {
     window.t = item.categories;
-    console.log(item.categories)
-    console.log(item);
     return (<ResourceCard
       deleteResource={props.deleteResource}
       key={item._id}
@@ -15,6 +13,7 @@ const AllResources = (props) => {
       link={item.link}
       categories={item.categories}
       id={item._id}
+      makeFave={props.makeFave}
     />);
   });
 

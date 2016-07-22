@@ -18,7 +18,8 @@ var userSchema = mongoose.Schema({
     resetPasswordToken: String,
     resetPasswordExpires: Date
   },
-  completedCheckpoints: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Checkpoint' }]
+  completedCheckpoints: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Checkpoint' }],
+  favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Resource' }]
 });
 
 // methods ======================
