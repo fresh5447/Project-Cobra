@@ -7,6 +7,7 @@ const path           = require('path'),
   RequestRouter    = require('./routes/requests'),
   CatRouter           = require('./routes/categories'),
   CheckpointsRouter   = require('./routes/checkpoints'),
+  FeedbackRouter   = require('./routes/feedback'),
   ResourcesRouter     = require('./routes/resources'),
   passport            = require('passport'),
   session             = require('express-session'),
@@ -76,6 +77,7 @@ app.use('/api/v1/modules', CheckpointsRouter);
 app.use('/api/v1/submissions', SubmissionRouter);
 app.use('/api/v1/cats', CatRouter);
 app.use('/api/v1/requests', RequestRouter);
+app.use('/api/v1/feedback', FeedbackRouter);
 
 // app.get('/*', (req, res) => {
 //   res.sendFile('index.html', { root: PUBLIC_DIR });
