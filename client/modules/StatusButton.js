@@ -16,10 +16,10 @@ class StatusButton extends React.Component {
 
   showCorrectBtn() {
     if (this.props.status === "complete") {
-      return <button>complete</button>;
+      return <button className="btn btn-primary status-btn">complete</button>;
     } else if (this.props.status === "incomplete") {
       // return <button onClick={this.props.makeNewRequest.bind(this, this.props.cpId)}>request to complete</button>;
-      return <button>request to complete</button>;
+      return <button className="btn btn-primary status-btn">incomplete</button>;
 
     } else {
       return <button>pending</button>;

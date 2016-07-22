@@ -11,7 +11,7 @@ const Module = (props) => {
           <h4 className="card-title">{ item.cp.title} </h4>
           <span className="fa fa-check-circle-o pull-right"></span>
           <NavLink className="" to={"/modules/" + props.mId + "/checkpoints/" + item.cp._id}><i className="fa fa-eye view pull-left" aria-hidden="true"></i></NavLink>
-          <div className="requestCompletion">
+          <div className="requestCompletion center">
             <StatusButton makeNewRequest={props.makeNewRequest} status={item.status} cpId={item.cp._id} />
           </div>
         </div>
