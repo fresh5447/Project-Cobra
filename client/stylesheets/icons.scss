@@ -12,3 +12,38 @@
   padding-bottom: 18px;
   font-size: 30px;
 }
+
+
+.my-heart {
+  color: red;
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+  &:hover {
+    font-size: 28px;
+  }
+}
+
+.my-circle {
+  color: red;
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+  &:hover {
+    font-size: 28px;
+  }
+}
+
+.center-icon {
+  text-align: center;
+}
+
+.my-external-link {
+  color: $dark-grey;
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+  &:hover {
+    font-size: 28px;
+  }
+}
