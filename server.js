@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use((req, res, next) => {
-  res.setHeader("Content-Security-Policy", "child-src 'self' *.github.com");
+  res.setHeader("Content-Security-Policy", "frame-ancestors 'self' *.github.com");
   return next();
 });
 
