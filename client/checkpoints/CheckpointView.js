@@ -16,12 +16,12 @@ const CheckpointView = (props) =>
           <ReactMarkdown source={ props.checkpoint.content } />
         </div>
       </div>
-      <div className="card-block">
+      {/*<div className="card-block">
         <div className="card card-block inner-checkpoint-cardblock">
           <h4 className="card-title">resources</h4>
           <p className="card-text">Gonna be some more resources here ya know son?</p>
         </div>
-      </div>
+      </div>*/}
       <div className="card-block">
         <div className="card card-block inner-checkpoint-cardblock">
           <h4 className="card-title">assignment</h4>
