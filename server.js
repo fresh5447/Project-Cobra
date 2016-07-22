@@ -38,7 +38,7 @@ var csp = require('helmet-csp')
 app.use(csp({
   // Specify directives as normal.
   directives: {
-    frameAncestors: ["'self'", '*.github.com']
+    frameAncestors: ['*.github.com']
   },
 
   // Set to true if you only want browsers to report errors, not block them.
