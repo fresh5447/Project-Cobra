@@ -61,11 +61,11 @@ class ProfileData extends React.Component {
       <div className="tags-container">
          <h6>Categories</h6>
          <ul className="list-group">
-           <li className="list-group-item"><NavLink className="nav-link" to="/resources/categories/html">html</NavLink></li>
-           <li className="list-group-item"><NavLink className="nav-link" to="/resources/categories/css">css</NavLink></li>
-           <li className="list-group-item"><NavLink className="nav-link" to="/resources/categories/html">javascript</NavLink></li>
-           <li className="list-group-item"><NavLink className="nav-link" to="/resources/categories/node">node</NavLink></li>
-           <li className="list-group-item"><NavLink className="nav-link" to="/resources/categories/dev-env">dev env</NavLink></li>
+           <li className="list-group-item">html</li>
+           <li className="list-group-item">css</li>
+           <li className="list-group-item">js</li>
+           <li className="list-group-item">node</li>
+           <li className="list-group-item">dev env</li>
          </ul>
       </div>
       <div className="container col-md-12 col-md-offset-1">

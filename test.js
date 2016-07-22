@@ -27,68 +27,81 @@ if (!Array.prototype.includes) {
   };
 }
 
-var checkpoints = [
+const resources = [
   {
-  _id: "578a941a41ae35f151b561b5",
-    order: 3,
-    title: "Download Atom",
-    desc: "Text editor download and configuration",
-    content: "hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello ",
-    assignment: "1) Do Your Homework\n2) Don't talk back.\n3) I will kill you.",
-    module: "578a93ea41ae35f151b561b4",
-    __v: 0,
-    userCompletions: [
-      "5786b46a3a132d320dd450c0"
+    title: 'Learn JS',
+    categories: [
+      {
+        name: 'javascript'
+      },
+      {
+        name: 'css'
+      }
     ]
   },
   {
-    _id: "578a944441ae35f151b561b6",
-    "order": 4,
-    title: "Learn JavaScript",
-    desc: "This is not even a joke. ",
-    content: "This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. This is not even a joke. ",
-    assignment: "1) Do not mess around.",
-    module: "578a93ea41ae35f151b561b4",
-    __v: 0,
-    userCompletions: [
-      "5786b46a3a132d320dd450c0"
+    title: 'Learn CSS',
+    categories: [
+      {
+        name: 'css'
+      }
     ]
   },
   {
-    _id: "578a945841ae35f151b561b7",
-    "order": 5,
-    title: "It is not funny.",
-    "desc": "This is not a funny description.",
-    content: "This is not a funny description. This is not a funny description. This is not a funny description. This is not a funny description. This is not a funny description. This is not a funny description. This is not a funny description. This is not a funny description. This is not a funny description. This is not a funny description. This is not a funny description. This is not a funny description. This is not a funny description. This is not a funny description. This is not a funny description. This is not a funny description. This is not a funny description.",
-    assignment: "",
-    module: "578a93ea41ae35f151b561b4",
-    __v: 0,
-    userCompletions: []
+    title: 'Learn other stuff',
+    categories: [
+      {
+        name: 'jQuery'
+      },
+      {
+        name: 'javascript'
+      }
+    ]
   },
   {
-    _id: "578a947241ae35f151b561b8",
-    "order": 6,
-    title: "Learn HTML",
-    "desc": "This is totally a description. ",
-    content: "This is totally a description. This is totally a description. This is totally a description. This is totally a description. This is totally a description. This is totally a description. This is totally a description. This is totally a description. This is totally a description. This is totally a description. This is totally a description. This is totally a description. This is totally a description. This is totally a description. This is totally a description. This is totally a description. ",
-    assignment: "1) Come up with a new description.",
-    module: "578a93ea41ae35f151b561b4",
-    __v: 0,
-    userCompletions: []
+    title: 'Learn node',
+    categories: [
+      {
+        name: 'node'
+      }
+    ]
+  },
+  {
+    title: 'Learn React',
+    categories: [
+      {
+        name: 'react'
+      }
+    ]
+  },
+
+];
+
+
+var fn = function (arr) {
+  for (var i = 0; i <= arr.length - 1; i++) {
+    return arr[i].categories.filter((item) => item.name === 'javascipt')
+    .map((t) => t);
   }
-]
+};
+console.log(fn(resources));
 
-var newArray = [];
-var studentId = "5786b46a3a132d320dd450c0";
-
-var newCps = checkpoints.forEach((item) => {
-  if (item.userCompletions.includes(studentId)) {
-    item.completed = true;
-    newArray.push(item);
-  } else {
-    item.completed = false;
-    newArray.push(item);
-  }
-});
-
-console.log(newArray);
+//
+// //GOAL: Return only the resources that have a category with name 'javascript'
+// const attemptOne = resources.filter((item) => {
+//   return item.categories.forEach((thing, index) => {
+//     return thing[index] === 'javascript'
+//   });
+// }).map((item) => {
+//   return item;
+// })
+//
+// const attemptTwo = resources.filter((item) => {
+//   item.categories.filter((ci) => {
+//     return ci.name === 'javascript'
+//   }).map((nextItem) => {
+//     return nextItem;
+//   });
+// })
+//
+// console.log(attemptOne);

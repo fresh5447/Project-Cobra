@@ -2,7 +2,10 @@ import React from 'react';
 import ResourceCard from './ResourceCard';
 
 const AllResources = (props) => {
-  const resources = props.resources.map((item) => {
+  const resources = props.resources
+  .map((item) => {
+    window.t = item.categories;
+    console.log(item.categories)
     console.log(item);
     return (<ResourceCard
       deleteResource={props.deleteResource}
