@@ -68,7 +68,7 @@
 }
 
 .cat-label {
-  margin-left: auto;
+  margin-left: 5%;
   margin-right: auto;
 }
 
@@ -78,6 +78,16 @@
 
 .res-title {
   text-align: center;
+  background-color: $dark-grey;
+  color: $primary-color;
+}
+
+.res-card-block {
+  padding: 0;
+}
+
+.res-card-block > p {
+  padding-left: 10px;
 }
 
 // ---- MODULES  ------

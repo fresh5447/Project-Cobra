@@ -11,7 +11,7 @@ const ResourceCard = (props) => {
       <div className="card-block res-card-block">
         <p className="card-title res-title">{ props.title }</p>
       </div>
-      <div className="card-block">
+      <div className="card-block res-card-block">
         <p> {props.desc} </p>
       </div>
       <div className="resource-footer center-icon">
