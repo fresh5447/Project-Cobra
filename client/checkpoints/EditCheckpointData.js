@@ -6,6 +6,10 @@ class EditCheckpointData extends React.Component {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.onTitleChange = this.onTitleChange.bind(this);
+    this.onContentChange = this.onContentChange.bind(this);
+    this.onDescChange = this.onDescChange.bind(this);
+    this.onAssignmentChange = this.onAssignmentChange.bind(this);
 
     this.state = {
       checkpoint: null,
@@ -25,7 +29,20 @@ class EditCheckpointData extends React.Component {
     const newState = {};
     newState[fieldName] = fieldValue;
     this.setState(newState);
-    console.log(newState)
+  }
+
+  onTitleChange = (e) => this.setState({ title: e.target.value });
+
+  onContentChange(e) {
+    this.setState({ content: e.target.value });
+  }
+
+  onDescChange(e) {
+    this.setState({ desc: e.target.value });
+  }
+
+  onAssignmentChange(e) {
+    this.setState({ assignment: e.target.value });
   }
 
   loadCheckpoint() {
@@ -60,6 +77,10 @@ class EditCheckpointData extends React.Component {
       assignment={this.state.checkpoint.assignment}
       handleSubmit={this.handleSubmit}
       onFieldChange={(...args) => this.onFieldChange(...args)}
+      onTitleChange={this.onTitleChange}
+      onContentChange = {this.onContentChange}
+      onDescChange = {this.onDescChange}
+      onAssignmentChange = {this.onAssignmentChange}
     /> : null;
   }
 

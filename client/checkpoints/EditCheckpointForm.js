@@ -7,28 +7,30 @@ const EditCheckpointForm = (props) =>
       <h4> Edit Checkpoint: {props.title} </h4>
       <fieldset className="form-group">
         <label>title</label>
-        <input onChange={ (event) => props.onFieldChange('title', event.target.value)}
-          value={props.title} type="text" className="form-control" id="" placeholder={props.title}
+        <input onChange={props.onTitleChange}
+         type="text" className="form-control" id="" placeholder={props.title}
+         value={props.title}
         />
       </fieldset>
       <fieldset className="form-group">
         <label>description</label>
-        <input onChange={ (event) => props.onFieldChange('desc', event.target.value)}
-          value={props.desc} type="text" className="form-control" id="" placeholder={props.desc}
+        <input onChange={props.onDescChange.bind(this, 'desc')}
+          type="text" className="form-control" id="" placeholder={props.desc}
+          value={props.desc}
         />
       </fieldset>
       <fieldset className="form-group">
         <label>content</label>
-        <textarea onChange={ (event) => props.onFieldChange('content', event.target.value)}
-          className="form-control" value={props.content} rows="3"
-          placeholder={props.content}
+        <textarea onChange={props.onDescChange.bind(this, 'content')}
+          className="form-control" rows="3"
+          placeholder={props.content} value={props.content}
         ></textarea>
       </fieldset>
       <fieldset className="form-group">
         <label>assignment</label>
-        <textarea onChange={ (event) => props.onFieldChange('assignment', event.target.value)}
-          value={props.assignment} className="form-control" id="exampleTextarea" rows="3"
-          placeholder={props.assignment}
+        <textarea onChange={props.onDescChange.bind(this, 'assignment')}
+          className="form-control" id="exampleTextarea" rows="3"
+          placeholder={props.assignment} value={props.assignment}
         ></textarea>
       </fieldset>
       <div className="checkbox">
