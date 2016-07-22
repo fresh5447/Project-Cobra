@@ -8,8 +8,8 @@ const CheckpointView = (props) =>
   <div className="container">
     <div className="card markdown-card">
       <div className="card-block main-card-block checkpoint-cardblock">
-        <h2 className="card-title">{props.checkpoint.title}</h2>
-        <NavLink to={"/edit/checkpoints/" + props.checkpoint._id }><span className="back-link">edit</span></NavLink>
+        <h2 className="card-title">{props.checkpoint.title} <NavLink to={"/edit/checkpoints/" + props.checkpoint._id }>EDIT</NavLink></h2>
+
       </div>
       <div className="card-block">
         <div className="card card-block inner-checkpoint-cardblock">
