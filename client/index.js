@@ -13,6 +13,7 @@ import UserForgot from './user/Forgot';
 import UserReset from './user/Reset';
 import StudentData from './students/StudentsData.js';
 import AllSubmissionsData from './submissions/AllSubmissionsData.js';
+import UserSubmissionsData from './submissions/UserSubmissionsData.js';
 import PostCheckpointData from './checkpoints/PostCheckpointData';
 import EditCheckpointData from './checkpoints/EditCheckpointData';
 
@@ -42,10 +43,14 @@ render((
 
       <Route path="/students" component={StudentData} />
 
+
+      <Route path="/admin/submissions" component={AllSubmissionsData} />
+      <Route path="/submissions" component={UserSubmissionsData} />
+
       <Route path="/profile" component={ProfileData}>
-        <Route path="resources" component={ProfileResourcesData} />
+        {/*<Route path="resources" component={ProfileResourcesData} />
         <Route path="submissions" component={ProfileSubmissionsData} />
-        <Route path="account" component={ProfileAccountData} />
+        <Route path="account" component={ProfileAccountData} />*/}
       </Route>
 
       <Route path="/resources/post" component={PostResourceData} />

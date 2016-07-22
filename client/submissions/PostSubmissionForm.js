@@ -6,13 +6,21 @@ const PostSubmissionForm = (props) =>
     <form onSubmit={props.submitSubmissionToServer}>
       <h4> Post Submission </h4>
       <fieldset className="form-group">
-        <label>content</label>
-        <input onChange={ (event) => props.onFieldChange('content', event.target.value)}
-          type="text" className="form-control" id="" placeholder="..."
-        />
+        <textarea onChange={ (event) => props.onFieldChange('content', event.target.value)}
+          className="form-control" value={props.content} rows="5"
+        ></textarea>
       </fieldset>
+      <div className="card markdown-card">
+        <div className="card-block main-card-block">
+          <h4 className="card-title">Markdown Preview</h4>
+        </div>
+        <div className="card-block">
+          <ReactMarkdown source={ props.content } />
+        </div>
+      </div>
       <button type="submit" className="btn btn-primary my-primary-btn">Save</button>
     </form>
+
   </div>;
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import AllSubmissionsList from './AllSubmissionsList';
+import UserSubmissionsList from './UserSubmissionsList';
 
-class AllSubmissionsData extends React.Component {
+class UserSubmissionsData extends React.Component {
 
   constructor(props, context) {
     super(props, context);
@@ -20,7 +20,7 @@ class AllSubmissionsData extends React.Component {
 
   loadSubmissions() {
     $.ajax({
-      url: '/api/v1/submissions',
+      url: '/api/v1/submissions/all-student-submissions',
       method: 'GET',
     }).done((data) => {
       this.setState({ submissions: data });
@@ -41,17 +41,17 @@ class AllSubmissionsData extends React.Component {
   }
 
   render() {
-    return this.state.submissions ? <AllSubmissionsList
-      updateApproval={this.updateApproval} submissions={this.state.submissions}
+    return this.state.submissions ? <UserSubmissionsList
+      submissions={this.state.submissions}
     /> : null;
   }
 
 }
 
-AllSubmissionsData.displayName = 'AllSubmissionsData';
-AllSubmissionsData.contextTypes = {
+UserSubmissionsData.displayName = 'UserSubmissionsData';
+UserSubmissionsData.contextTypes = {
   sendNotification: React.PropTypes.func.isRequired,
 };
 
 
-export default AllSubmissionsData;
+export default UserSubmissionsData;

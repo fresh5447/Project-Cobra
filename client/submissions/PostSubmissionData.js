@@ -37,6 +37,7 @@ class PostSubmissionData extends React.Component {
     return (<PostSubmissionForm
       submitSubmissionToServer={this.submitSubmissionToServer}
       onFieldChange={(...args) => this.onFieldChange(...args)}
+      content={this.state.content}
     />);
   }
 }

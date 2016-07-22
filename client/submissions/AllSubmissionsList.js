@@ -7,13 +7,14 @@ const AllSubmissionsList = (props) => {
   ).map((item) =>
     <AllSubmissionCard key={item._id} assignment={item.checkpoint.assignment}
       updateApproval={props.updateApproval}
-      id={item._id} username={item.user.local.username}
+      id={item._id} username={item.user ? item.user.local.firstName : null}
       cpTitle={item.checkpoint.title} content={item.content}
       cpAssignment={item.checkpoint.assignment}
     />
   );
   return (
     <div>
+    <h4>Unapproved Submissions</h4>
       { unApproved }
     </div>
   );

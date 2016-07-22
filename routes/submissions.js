@@ -51,7 +51,7 @@ Router.route('/student-submissions/:cp_id')
   Router.route('/all-student-submissions')
     .get(function(req, res){
       const uID = req.user ? req.user._id : '574f5fa826a0167cd19e90b7'
-      User.findById(uID).populate('submissions').exec(function(err, subs){
+      Submission.find({ user: uID }).populate('checkpoint').exec(function(err, subs){
         if(err){
           console.log(err, 'err')
         } else {

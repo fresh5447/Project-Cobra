@@ -21,7 +21,7 @@ const AdminNav = (props) =>
         <a href="/logout" className="nav-link"> Logout </a>
       </li>
       <li className="nav-item">
-        <NavLink className="nav-link" to="/submissions">Submissions</NavLink>
+        <NavLink className="nav-link" to="/admin/submissions">Submissions</NavLink>
       </li>
     </ul>
   </div>
