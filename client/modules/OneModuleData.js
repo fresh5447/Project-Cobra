@@ -43,7 +43,7 @@ class ModulesData extends React.Component {
 
   loadModule() {
     $.ajax({
-      url: `/api/v1/modules/byId/${this.props.params.id}`,
+      url: `/api/v1/modules/student/oneModule/${this.props.params.id}`,
       method: 'GET',
     }).done((data) => {
       this.setState({ module: data });

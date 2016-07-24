@@ -40,36 +40,32 @@ if (!Array.prototype.includes) {
 const Router = express.Router();
 
 Router.route('/student/:id/checkpoints')
-.get((req, res) => {
-  Module.find()
-  .populate('categories')
-  .exec((err, resources) => {
-    if (err) {
-      res.json({ message: 'there was an error finding all resources' });
-    } else {
-      User.findById(req.user._id)
-      .populate('favorites')
-      .exec((er, user) => {
-        if (er) {
-          res.json(er);
-        } else {
-          for (var i = 0; i < resources.length; i++) {
-            const mappedFavs = user.favorites.map((item) => {
-              return item._id
-            });
-            if (mappedFavs.includes(resources[i]._id.toString())) {
-              resources[i].fav = true;
-            } else {
-              resources[i].fav = false;
-            }
-          }
-          res.json(resources);
-        }
-      });
-    }
-  });
-});
+  .get(function(req, res) {
+    // const studentId = req.user ? req.user._id : '5786b46a3a132d320dd450c0';
+    const studentId = req.user._id;
+    Module.findById(req.params.id)
+    .populate('checkpoints')
+    .exec(function(err, module){
+      if(err) {
+        res.json({ message: "error trying to find module while getting checkpoints" })
+      } else {
 
+        const newArray = [];
+
+        module.checkpoints.map((item) => {
+          console.log(item.userCompletions)
+          if (item.userCompletions.includes(studentId.toString())) {
+            newArray.push({ status: "complete", cp: item });
+          } else {
+            newArray.push({ status: "incomplete", cp: item });
+          }
+          return newArray;
+        });
+        res.json(newArray)
+
+      }
+    })
+  })
 
 // Router.route('/approve/student/:checkpoint')
 

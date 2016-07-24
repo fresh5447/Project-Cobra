@@ -55,6 +55,34 @@
   }
 }
 
+
+.resource-p {
+  margin-bottom: 3rem;
+}
+
+// TODO: Refactor these into one
+.bottom-right-icon {
+  position: absolute;
+  bottom: 5%;
+  right: 15%;
+  color: $logo-green;
+  padding: 0 5% 5% 0;
+  font-size: 1.5em;
+}
+
+.bottom-left-icon {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  padding: 0 5% 5% 0;
+  color: $logo-green;
+  font-size: 2em;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+
 .resource-footer {
   height: 15%;
   background-color: $primary-color;
@@ -78,7 +106,7 @@
 
 .res-title {
   text-align: center;
-  background-color: $dark-grey;
+  background-color: $logo-green;
   color: $primary-color;
 }
 
@@ -124,6 +152,7 @@
 
 .modules-card-body {
   @include default-card-body;
+  // margin-bottom: 3rem;
 }
 
 .student-card {

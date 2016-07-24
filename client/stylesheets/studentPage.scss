@@ -22,12 +22,17 @@
   border-bottom: solid 2px black;
 }
 
+
+@media (max-width: 1000px) {
+  .cats-container {
+    display: none;
+  }
+}
 .cats-container {
   position: relative;
-  background-color: white;
   text-align: left;
   background-color: $primary-color;
-  color: $dark-blue;
+  color: $dark-grey;
   margin-bottom: 3.75rem;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   &:hover {
@@ -35,9 +40,31 @@
   }
 }
 
+.cats-container ul li span {
+  color: $dark-grey;
+  &:hover {
+    border-bottom: 1px solid white;
+  }
+}
+
+.cats-container ul li{
+  color: $dark-grey;
+}
+
 .cats-container ul {
+  text-align: left;
   list-style: none;
   padding: 0.5rem;
+}
+
+.cats-container ul p strong {
+  color: $dark-grey;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.cats-container ul p {
+  text-align: center;
 }
 
 .cats-container h3 {
