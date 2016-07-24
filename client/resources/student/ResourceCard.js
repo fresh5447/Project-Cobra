@@ -7,15 +7,12 @@ const ResourceCard = (props) => {
 
   const cats = props.categories && props.categories.length > 0 ?
   props.categories.map((item) =>
-      <span className="label label-default cat-label">{item.name}</span>
+      <span key={item._id} className="label label-default cat-label">{item.name}</span>
     ) : null;
   return (
     <div className="card markdown-card resources-card">
       <div className="card-block res-card-block">
         <p className="card-title res-title">{ props.title }</p>
-      </div>
-      <div className="card-block res-card-block">
-        <p> {props.desc ? props.desc : null} </p>
       </div>
       <div className="resource-footer center-icon">
         <div className="col-md-3 center-icon">
@@ -33,7 +30,7 @@ const ResourceCard = (props) => {
 
         </div>
         <div className="col-md-3 center-icon">
-          { props.userRole === "student" ? <i className={ props.fav ? 'fa fa-heart my-heart' : 'fa fa-heart-o my-heart' }
+          { props.role === "student" ? <i className={ props.fav ? 'fa fa-heart my-heart' : 'fa fa-heart-o my-heart' }
             aria-hidden="true"
             onClick={ props.fav ? props.toggleFav.bind(this, props.id, 'remove') :
             props.toggleFav.bind(this, props.id, 'post') }
@@ -51,8 +48,8 @@ const ResourceCard = (props) => {
 ResourceCard.propTypes = {
   toggleFav: React.PropTypes.func.isRequired,
   setOneResource: React.PropTypes.func.isRequired,
+  deleteResource: React.PropTypes.func.isRequired,
   title: React.PropTypes.string.isRequired,
-  desc: React.PropTypes.string.isRequired,
   fav: React.PropTypes.bool.isRequired,
   internal: React.PropTypes.bool.isRequired,
   categories: React.PropTypes.array.isRequired,

@@ -60,7 +60,7 @@ class StudentData extends React.Component {
   showComponent() {
     if (this.state.resources && this.state.activeComp === 'all') {
 
-      return (<AllResources setOneResource={this.setOneResource}
+      return (<AllResources role={this.props.role} setOneResource={this.setOneResource}
         toggleFav={this.toggleFav} resources={this.state.resources}
       />);
 
@@ -96,7 +96,7 @@ class StudentData extends React.Component {
 
   render() {
     const cats = this.state.categories ? this.state.categories.map((item) =>
-      <li className={this.state.catFilter === item.name ? 'activeResLink' : null}
+      <li key={item._id} className={this.state.catFilter === item.name ? 'activeResLink' : null}
       onClick={this.setCagegoryFilter.bind(this, item.name)}>{item.name}</li>) : null;
     return (
       <div className="container student-page-container">

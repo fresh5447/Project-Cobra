@@ -18,7 +18,6 @@ class GetUser extends React.Component {
       url: '/getUser',
       method: 'GET'
     }).done((data) => {
-      console.log('USER FROM CONTEXT',data) //Correct data
       return cb(data)
     });
   }

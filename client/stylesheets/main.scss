@@ -15,6 +15,7 @@
 
 body {
   background-color: $primary-color;
+    margin-top: 5%;
 }
 
 .modules-flex {
@@ -81,6 +82,10 @@ pre {
 
 .center-text {
   text-align: center;
+}
+
+.modulesList-container {
+  margin-top: 6%;
 }
 
 

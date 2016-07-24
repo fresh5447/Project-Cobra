@@ -4,7 +4,7 @@ import NavLink from '../widgets/NavLink';
 const GuestNav = (props) =>
 
 <nav className="navbar navbar-fixed-top navbar-light bg-faded my-navbar">
-  <div class="my-nav-box">
+  <div className="my-nav-box">
     <a className="navbar-brand" href="/">CodeRange</a>
     <p> ADMIN </p>
     <ul className="nav navbar-nav">

@@ -66,7 +66,6 @@ class AdminData extends React.Component {
   loadAdminResources = () => $.get('/api/v1/resources/student',
     (data) => {
       this.setState({ adminResources: data });
-      console.log('set state for admin', this.state.adminResources)
     });
 
   deleteResource(id) {
@@ -88,7 +87,7 @@ class AdminData extends React.Component {
   showComponent() {
     if (this.state.resources && this.state.activeComp === 'all') {
 
-      return (<AllResources userRole={this.props.userRole} deleteResource={this.deleteResource}
+      return (<AllResources role={this.props.role} deleteResource={this.deleteResource}
         setOneResource={this.setOneResource}
         toggleFav={this.toggleFav} resources={this.state.resources}
       />);
@@ -97,13 +96,6 @@ class AdminData extends React.Component {
 
       return (<PostData loadStudentResources={this.loadStudentResources}
         toggleFav={this.toggleFav} toggleComp={this.toggleComp}
-      />);
-
-    } else if (this.state.resources &&
-      this.state.activeComp === 'drafts' && this.state.catFilter) {
-      return (<AllResources setOneResource={this.setOneResource} toggleFav={this.toggleFav}
-        resources={this.state.resources.filter((item) => !item.publish)}
-        catFilter={this.state.catFilter}
       />);
 
     } else if (this.state.resources &&
@@ -125,17 +117,17 @@ class AdminData extends React.Component {
 
   render() {
     const cats = this.state.categories ? this.state.categories.map((item) =>
-      <li className={this.state.catFilter === item.name ? 'activeResLink' : null}
+      <li key={item._id} className={this.state.catFilter === item.name ? 'activeResLink' : null}
       onClick={this.setCagegoryFilter.bind(this, item.name)}>{item.name}</li>) : null;
     return (
       <div className="container student-page-container">
         <div className="row resources-nav">
           <ul className="">
-            <li className={this.state.activeComp === 'all' ? 'activeResLink' : null}
+            <li key={33} className={this.state.activeComp === 'all' ? 'activeResLink' : null}
             onClick={this.toggleComp.bind(this,'all')}>All</li>
-            <li className={this.state.activeComp === 'drafts' ? 'activeResLink' : null}
-            onClick={this.toggleComp.bind(this,'drafts')}>Drafts</li>
-            <li className={this.state.activeComp === 'post' ? 'activeResLink' : null}
+            {/*<li key={34} className={this.state.activeComp === 'drafts' ? 'activeResLink' : null}
+            onClick={this.toggleComp.bind(this,'drafts')}>Drafts</li>*/}
+            <li key={35} className={this.state.activeComp === 'post' ? 'activeResLink' : null}
             onClick={this.toggleComp.bind(this,'post')}>Post</li>
           </ul>
         </div>

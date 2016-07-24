@@ -4,12 +4,10 @@ import ResourceCard from './ResourceCard';
 const AllResources = (props) => {
   const resources = props.resources
   .map((item) => {
-    console.log(item.internal)
     return (<ResourceCard
       deleteResource={props.deleteResource}
       key={item._id}
       title={item.title}
-      desc={item.desc}
       link={item.link}
       categories={item.categories}
       id={item._id}
@@ -17,10 +15,8 @@ const AllResources = (props) => {
       fav={item.fav}
       internal={item.internal}
       publish={item.publish}
-      userRole={props.userRole}
       setOneResource={props.setOneResource}
       role={props.role}
-      deleteResource={props.deleteResource}
     />);
   });
 
@@ -34,12 +30,13 @@ const AllResources = (props) => {
 
 };
 
-AllResources.displayName = AllResources;
+AllResources.displayName = 'AmIAllResources';
 
 AllResources.propTypes = {
-  deleteResource: React.PropTypes.func.isRequired,
+  setOneResource: React.PropTypes.func.isRequired,
   toggleFav: React.PropTypes.func.isRequired,
-  resources: React.PropTypes.array.isRequired
+  resources: React.PropTypes.array.isRequired,
+  role: React.PropTypes.string.isRequired,
 };
 
 export default AllResources;
