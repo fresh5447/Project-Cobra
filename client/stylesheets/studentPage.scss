@@ -21,3 +21,28 @@
 .activeResLink {
   border-bottom: solid 2px black;
 }
+
+.cats-container {
+  position: relative;
+  background-color: white;
+  text-align: left;
+  background-color: $primary-color;
+  color: $dark-blue;
+  margin-bottom: 3.75rem;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  &:hover {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+}
+
+.cats-container ul {
+  list-style: none;
+  padding: 0.5rem;
+}
+
+.cats-container h3 {
+  padding: 0.5rem;
+  background-color: $primary-color;
+  color: $dark-grey;
+  text-align: center;
+}

@@ -111,9 +111,9 @@ class StudentData extends React.Component {
           </ul>
         </div>
         <div className="col-xs-2">
-          <div>
-            <h6>Categories</h6>
+          <div className="cats-container">
             <ul>
+            <i className="fa fa-filter"></i>
               { cats }
             </ul>
           </div>

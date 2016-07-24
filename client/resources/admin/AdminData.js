@@ -140,7 +140,7 @@ class AdminData extends React.Component {
           </ul>
         </div>
         <div className="col-xs-2">
-          <div>
+          <div className="cats-container">
             <h6>Categories</h6>
             <ul>
               { cats }
