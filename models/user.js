@@ -19,7 +19,10 @@ var userSchema = mongoose.Schema({
     resetPasswordExpires: Date
   },
   completedCheckpoints: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Checkpoint' }],
-  favorites: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Resource' }]
+  favorites: [{
+    type: mongoose.Schema.Types.ObjectId, ref: 'Resource'
+  }]
+
 });
 
 // methods ======================

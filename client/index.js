@@ -28,6 +28,8 @@ import FavoriteResources from './resources/FavoriteResources';
 import CategoryResources from './resources/CategoryResources';
 import PostResourceData from './resources/PostResourceData';
 
+import ResourcesPage from './resources/ResourcesPage';
+
 require('./stylesheets/main.scss');
 
 render((
@@ -61,6 +63,10 @@ render((
       </Route>
 
       <Redirect from="/resources" to="/resources/all" />
+
+      {/*NEW REFACTOR*/}
+
+      <Route path="/new/resources" component={ResourcesPage} />
 
 
       <Route path="/submissions" component={AllSubmissionsData} />

@@ -17,9 +17,7 @@ export default React.createClass({
           <Notifier>
             <Feedback>
                 <NavBar>
-                  <div className="container">
                     {this.props.children ? this.props.children : <WelcomePage/> }
-                  </div>
                 </NavBar>
             </Feedback>
           </Notifier>

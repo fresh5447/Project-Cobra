@@ -10,12 +10,11 @@
 @import './categories.scss';
 @import './profile.scss';
 @import './feedback.scss';
+@import './studentPage.scss';
 
 
 body {
   background-color: $primary-color;
-  margin-top: 7%;
-  margin-bottom: 7%;
 }
 
 .modules-flex {
