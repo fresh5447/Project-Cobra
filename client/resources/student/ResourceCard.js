@@ -3,7 +3,6 @@ import NavLink from '../../widgets/NavLink';
 
 
 const ResourceCard = (props) => {
-  console.log()
 
 
   const cats = props.categories && props.categories.length > 0 ?
@@ -20,6 +19,9 @@ const ResourceCard = (props) => {
       </div>
       <div className="resource-footer center-icon">
         <div className="col-md-3 center-icon">
+          <i onClick={props.role === 'admin' ? props.deleteResource.bind(this, props.id) : null }
+            className={props.role === 'admin' ? 'fa  fa-minus-circle' : null}
+          > </i>
         </div>
         <div className="col-md-3 center-icon">
           <i className={ props.internal ? 'fa fa-file-text' :
@@ -31,12 +33,13 @@ const ResourceCard = (props) => {
 
         </div>
         <div className="col-md-3 center-icon">
-          <i className={ props.fav ? 'fa fa-heart my-heart' : 'fa fa-heart-o my-heart' }
+          { props.userRole === "student" ? <i className={ props.fav ? 'fa fa-heart my-heart' : 'fa fa-heart-o my-heart' }
             aria-hidden="true"
             onClick={ props.fav ? props.toggleFav.bind(this, props.id, 'remove') :
             props.toggleFav.bind(this, props.id, 'post') }
-          ></i>
+          ></i> : null }
         </div>
+        { props.publish ? null : <p> Draft </p> }
       </div>
       <div className="resource-cats">
         { cats }

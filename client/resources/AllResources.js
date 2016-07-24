@@ -4,7 +4,6 @@ import ResourceCard from './ResourceCard';
 const AllResources = (props) => {
   const resources = props.resources
   .map((item) => {
-    window.t = item.categories;
     return (<ResourceCard
       deleteResource={props.deleteResource}
       key={item._id}

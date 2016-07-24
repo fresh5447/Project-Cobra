@@ -16,7 +16,11 @@ const AllResources = (props) => {
       toggleFav={props.toggleFav}
       fav={item.fav}
       internal={item.internal}
+      publish={item.publish}
+      userRole={props.userRole}
       setOneResource={props.setOneResource}
+      role={props.role}
+      deleteResource={props.deleteResource}
     />);
   });
 
