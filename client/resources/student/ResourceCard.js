@@ -19,7 +19,7 @@ const ResourceCard = (props) => {
           {/*<i onClick={props.deleteResource.bind(this, props.id)} className="fa fa-minus-circle my-circle" aria-hidden="true"></i>*/}
         </div>
         <div className="col-md-3 center-icon">
-          {/*<a href={props.link} target="_blank"><i href={props.link} target="_blank" className="fa fa-external-link my-external-link" aria-hidden="true"></i></a>*/}
+          <a href={props.link} target="_blank"><i className={ props.internal == false ? "fa fa-search-plus" : "fa fa-external-link my-external-link" } aria-hidden="true"></i></a>
         </div>
         <div className="col-md-3 center-icon">
           <i className={ props.fav ? 'fa fa-heart my-heart' : 'fa fa-heart-o my-heart' }

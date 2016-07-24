@@ -1,8 +1,9 @@
 import React from 'react';
 import ResourceCard from './ResourceCard';
 
-const AllResources = (props) => {
+const Favorites = (props) => {
   const resources = props.resources
+  .filter((thing) => thing.fav)
   .map((item) => {
     console.log(item.internal)
     return (<ResourceCard
@@ -29,12 +30,12 @@ const AllResources = (props) => {
 
 };
 
-AllResources.displayName = AllResources;
+Favorites.displayName = Favorites;
 
-AllResources.propTypes = {
+Favorites.propTypes = {
   deleteResource: React.PropTypes.func.isRequired,
   toggleFav: React.PropTypes.func.isRequired,
   resources: React.PropTypes.array.isRequired
 };
 
-export default AllResources;
+export default Favorites;

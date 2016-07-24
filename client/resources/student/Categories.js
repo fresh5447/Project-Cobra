@@ -1,8 +1,20 @@
 import React from 'react';
 import ResourceCard from './ResourceCard';
 
-const AllResources = (props) => {
-  const resources = props.resources
+function filterViaCategory(arr, category) {
+  return arr.filter((obj) => {
+    for (var i = 0, length = obj.categories.length; i < length; i++) {
+      if (obj.categories[i].name === category) {
+        return true;
+      }
+    }
+    return false;
+  });
+}
+
+
+const Categories = (props) => {
+  const resources = filterViaCategory(props.resources, props.catFilter)
   .map((item) => {
     console.log(item.internal)
     return (<ResourceCard
@@ -29,12 +41,13 @@ const AllResources = (props) => {
 
 };
 
-AllResources.displayName = AllResources;
+Categories.displayName = Categories;
 
-AllResources.propTypes = {
+Categories.propTypes = {
   deleteResource: React.PropTypes.func.isRequired,
+  catFilter: React.PropTypes.func.isRequired,
   toggleFav: React.PropTypes.func.isRequired,
   resources: React.PropTypes.array.isRequired
 };
 
-export default AllResources;
+export default Categories;
