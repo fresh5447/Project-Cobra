@@ -77,9 +77,6 @@ Array.prototype.remove = function() {
     return this;
 };
 
-var ary = ['three', 'seven', 'eleven'];
-
-ary.remove('seven');
 
 Router.route('/student/favorite/:id/:action')
   .put((req, res) => {
@@ -114,6 +111,8 @@ Router.route('/student/favorite/:id/:action')
     })
   })
 
+
+
 Router.route('/')
   .get((req, res) => {
     Resource.find()
@@ -127,24 +126,16 @@ Router.route('/')
     });
   })
   .post((req, res) => {
-    // console.log(req.body.categories)
-    // const cats = req.body.categories.map((item) =>
-    //   item
-    // );
-    // console.log(cats);
     const resource = new Resource({
       title: req.body.title,
-      desc: req.body.desc,
+      content: req.body.content,
       link: req.body.link,
-      categories: req.body.categories
+      categories: req.body.categories,
+      internal: req.body.internal,
+      publish: req.body.publish
     });
-    // for (var i = 0; i < art.length; i++) {
-    //   console.log(art[i]);
-    // }
 
-    // console.log(req.body.categories.forEach((item) => console.log(item)));
-    // resource.categories.push(req.body.categories);
-    console.log(resource);
+    console.log('CREATING RESOURCE', resource);
     resource.save((err, source) => {
       if (err) {
         res.json({ message: 'there was an error saving your resource' });

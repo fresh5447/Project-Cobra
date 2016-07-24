@@ -17,15 +17,27 @@ const PostCheckpointForm = (props) => {
             />
           </fieldset>
           <fieldset className="form-group">
-            <label>description</label>
-            <input onChange={ (event) => props.onFieldChange('desc', event.target.value)}
-              type="text" className="form-control" id="" placeholder="..."
-            />
+            <label>content</label>
+            <textarea onChange={ (event) => props.onFieldChange('content', event.target.value)}
+              className="form-control" value={props.content} rows="3"
+            ></textarea>
           </fieldset>
           <fieldset className="form-group">
             <label>link</label>
             <input onChange={ (event) => props.onFieldChange('link', event.target.value)}
               type="text" className="form-control" id="" placeholder="..."
+            />
+          </fieldset>
+          <fieldset className="form-group">
+            <label>internal</label>
+            <input onChange={ (event) => props.onFieldChange('internal', event.target.value)}
+              type="checkbox" className="form-control" id="" placeholder="..."
+            />
+          </fieldset>
+          <fieldset className="form-group">
+            <label>publish</label>
+            <input onChange={ (event) => props.onFieldChange('publish', event.target.value)}
+              type="checkbox" className="form-control" id="" placeholder="..."
             />
           </fieldset>
           <fieldset className="form-group">

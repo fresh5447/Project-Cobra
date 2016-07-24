@@ -17,6 +17,7 @@ const Favorites = (props) => {
       toggleFav={props.toggleFav}
       fav={item.fav}
       internal={item.internal}
+      setOneResource={props.setOneResource}
     />);
   });
 

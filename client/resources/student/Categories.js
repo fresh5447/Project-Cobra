@@ -27,6 +27,7 @@ const Categories = (props) => {
       id={item._id}
       toggleFav={props.toggleFav}
       fav={item.fav}
+      setOneResource={props.setOneResource}
       internal={item.internal}
     />);
   });

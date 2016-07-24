@@ -11,9 +11,11 @@ class PostResourceData extends React.Component {
 
     this.state = {
       title: null,
+      content: null,
       link: null,
-      desc: null,
       categories: null,
+      internal: null,
+      publish: null,
       resCats: []
     };
 
@@ -42,21 +44,26 @@ class PostResourceData extends React.Component {
   }
 
   handleSubmit(e) {
+    const int = true ? this.state.internal === "on" : false;
+    const pub = true ? this.state.publish === "on" : false;
     e.preventDefault();
     const data = {
       title: this.state.title,
-      desc: this.state.desc,
+      content: this.state.content,
       link: this.state.link,
+      internal: int,
+      publish: pub,
       categories: this.state.resCats
     };
+    console.log('data', data);
     $.ajax({
       url: '/api/v1/resources',
       method: 'POST',
       data
     }).done((d) => {
       this.context.sendNotification("Resource Created");
-      this.props.loadResources();
-      this.props.toggleResources('all');
+      this.props.loadStudentResources();
+      this.props.toggleComp('all');
     });
   }
 
