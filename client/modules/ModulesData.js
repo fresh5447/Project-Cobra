@@ -16,7 +16,7 @@ class ModulesData extends React.Component {
 
   loadModules() {
     $.ajax({
-      url: '/api/v1/modules',
+      url: '/api/v1/modules/student',
       method: 'GET',
     }).done((data) => {
       this.setState({ modules: data });

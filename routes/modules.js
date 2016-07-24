@@ -2,8 +2,83 @@
 
 const express = require('express');
 const Module = require('../models/module');
+const User = require('../models/user');
+
+if (!Array.prototype.includes) {
+  Array.prototype.includes = function(searchElement /*, fromIndex*/ ) {
+    'use strict';
+    var O = Object(this);
+    var len = parseInt(O.length, 10) || 0;
+    if (len === 0) {
+      return false;
+    }
+    var n = parseInt(arguments[1], 10) || 0;
+    var k;
+    if (n >= 0) {
+      k = n;
+    } else {
+      k = len + n;
+      if (k < 0) {k = 0;}
+    }
+    var currentElement;
+    while (k < len) {
+      currentElement = O[k];
+      if (searchElement == currentElement ||
+         (searchElement != searchElement && currentElement !== currentElement)) { // NaN !== NaN
+        return true;
+      }
+      k++;
+    }
+    return false;
+  };
+}
 
 const Router = express.Router();
+
+
+// This majestic route is able to tell if a module is complete, as well as if checkpoints are complete.
+// The trick is that it does not persist it in the database. Naugthy? You tell me..
+Router.route('/student')
+  .get((req, res) => {
+    Module.find()
+    .populate('categories')
+    .populate('checkpoints')
+    .exec((err, modules) => {
+      if (err) {
+        res.json({ message: 'there was an error finding all modules' });
+      } else {
+        User.findById(req.user._id)
+        .populate('completedModules')
+        .exec((er, user) => {
+          if (er) {
+            res.json(er);
+          } else {
+            for (var i = 0; i < modules.length; i++) {
+
+              for (var j = 0; j < modules[i].checkpoints.length; j++) {
+                if (modules[i].checkpoints[j].userCompletions.includes(req.user._id.toString())) {
+                  modules[i].checkpoints[j].complete = true;
+                } else {
+                  modules[i].checkpoints[j].complete = false;
+                }
+              }
+
+              const mappedCompletedMods = user.completedModules.map((item) => {
+                return item._id
+              });
+
+              if (mappedCompletedMods.includes(modules[i]._id.toString())) {
+                modules[i].complete = true;
+              } else {
+                modules[i].complete = false;
+              }
+            }
+            res.json(modules);
+          }
+        });
+      }
+    });
+  });
 
 Router.route('/')
   .get(function(req, res){

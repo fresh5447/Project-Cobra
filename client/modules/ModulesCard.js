@@ -10,6 +10,7 @@ const ModuleCard = (props) => {
       </div>
       <div className="card-block modules-card-body">
         <p> {props.desc} </p>
+        <p> complete: {props.complete.toString() } </p>
 
         <button type="button" className="btn btn-primary card-btn">
           <NavLink className="card-link" to={'/modules/' + props.id }> go </NavLink>

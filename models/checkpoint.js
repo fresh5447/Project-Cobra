@@ -14,6 +14,7 @@ const CheckpointSchema = new Schema({
   assignment: String,
   module: { type: mongoose.Schema.Types.ObjectId, ref: 'Module' },
   userCompletions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  complete: Boolean,
   order: Number
 });
 
