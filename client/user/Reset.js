@@ -36,8 +36,8 @@ class Reset extends React.Component {
 
   render() {
     return (
-      <div className="">
-        <div className="container">
+      <div className="container">
+        <div className="user-screen-container">
           <h1>Reset Password</h1>
             <form onSubmit={this.submitUserToServer}>
               <fieldset className="form-group">

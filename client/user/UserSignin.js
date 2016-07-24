@@ -38,8 +38,8 @@ class UserSignin extends React.Component {
   render() {
     // hack: used br for line break. bu bueno. You have such bad habits douglas.
     return (
-      <div className="">
-        <div className="container">
+      <div className="container">
+        <div className="user-screen-container">
           <h1>Login</h1>
             <form onSubmit={this.submitUserToServer}>
               <fieldset className="form-group">

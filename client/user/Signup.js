@@ -45,8 +45,8 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <div className="">
-        <div className="container">
+      <div className="container">
+        <div className="user-screen-container">
           <h1>Signup</h1>
           <p>create a new account</p>
             <form onSubmit={this.submitUserToServer}>
