@@ -80,6 +80,46 @@ Router.route('/student')
     });
   });
 
+  Router.route('/student/oneModule/:id')
+  .get((req, res) => {
+    Module.findById(req.params.id)
+    .populate('categories')
+    .populate('checkpoints')
+    .exec((err, modules) => {
+      if (err) {
+        res.json({ message: 'there was an error finding all modules' });
+      } else {
+        User.findById(req.user._id)
+        .populate('completedModules')
+        .exec((er, user) => {
+          if (er) {
+            res.json(er);
+          } else {
+              for (var j = 0; j < modules.checkpoints.length; j++) {
+                if (modules.checkpoints[j].userCompletions.includes(req.user._id.toString())) {
+                  modules.checkpoints[j].complete = true;
+                } else {
+                  modules.checkpoints[j].complete = false;
+                }
+              }
+
+              const mappedCompletedMods = user.completedModules.map((item) => {
+                return item._id
+              });
+
+              if (mappedCompletedMods.includes(modules._id.toString())) {
+                modules.complete = true;
+              } else {
+                modules.complete = false;
+              }
+
+            res.json(modules);
+          }
+        });
+      }
+    });
+  });
+
 Router.route('/')
   .get(function(req, res){
     Module.find()
