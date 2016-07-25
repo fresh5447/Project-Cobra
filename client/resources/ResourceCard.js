@@ -28,12 +28,7 @@ const ResourceCard = (props) => {
       <div className="resource-cats">
         { cats }
       </div>
-      <div>
-        <i onClick={props.deleteResource.bind(this, props.id)} className="fa fa-minus-circle my-circle" aria-hidden="true"></i>
-        <a href={props.link} target="_blank"><i className="fa fa-external-link my-external-link" aria-hidden="true"></i></a>
-        <i onClick={props.makeFave.bind(this, props.id)} className="fa fa-heart-o my-heart" aria-hidden="true"></i>
-
-      </div>
+      
     </div>
   );
 };
