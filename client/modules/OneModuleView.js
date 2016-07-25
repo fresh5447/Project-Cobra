@@ -21,9 +21,9 @@ const Module = (props) => {
           </div>*/}
           <div className="row">
           <i className="" type="button">
-            <NavLink className="fa fa-arrow-right bottom-left-icon" to={"/modules/" + props.mId + "/checkpoints/" + item.cp._id}> </NavLink>
+            <NavLink className="fa fa-arrow-right bottom-right-icon" to={"/modules/" + props.mId + "/checkpoints/" + item.cp._id}> </NavLink>
           </i>
-            {!item.cp.complete ? <i className='fa  fa-check-square-o bottom-right-icon'> </i> : null}          </div>
+            {item.cp.complete ? <i className='fa  fa-check-square-o bottom-left-icon'> </i> : null}          </div>
         </div>
       </div>);
   }) : <div>No CPS</div>;
