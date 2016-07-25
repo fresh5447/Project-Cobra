@@ -13,9 +13,9 @@ const ModuleCard = (props) => {
       </div>
       <div className="row">
       <i className="" type="button">
-        <NavLink className="fa  fa-arrow-right bottom-left-icon" to={'/modules/' + props.id }> </NavLink>
+        <NavLink className="fa  fa-arrow-right bottom-right-icon" to={'/modules/' + props.id }> </NavLink>
       </i>
-      {props.complete ? <i className='fa  fa-check-square-o bottom-right-icon'> </i> : null}
+      {props.complete ? <i className='fa  fa-check-square-o bottom-left-icon'> </i> : null}
       </div>
     </div>
   );
