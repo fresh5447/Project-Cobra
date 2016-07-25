@@ -3,36 +3,55 @@ import StatusButton from './StatusButton';
 import NavLink from '../widgets/NavLink';
 
 const Module = (props) => {
+  const cats = props.checkpoints && props.checkpoints.length > 0 ?
+    props.checkpoints.map((item) => {
+    return <li className="list-group-item"><NavLink className="" to={"/modules/" + props.mId + "/checkpoints/" + item.cp._id}>{ item.cp.title}</NavLink></li>
+  }) : <div>No CPS</div>;
   const cps = props.checkpoints && props.checkpoints.length > 0 ?
     props.checkpoints.map((item) => {
     return (
-      <div className="card markdown-card modules-card">
-        <div className="card-block main-card-block modules-card-header">
-          <h4 className="card-title">{ item.cp.title} </h4>
-          <span className="fa fa-check-circle-o pull-right"></span>
-          <NavLink className="" to={"/modules/" + props.mId + "/checkpoints/" + item.cp._id}><i className="fa fa-eye view pull-left" aria-hidden="true"></i></NavLink>
-          <div className="requestCompletion center">
-            <StatusButton makeNewRequest={props.makeNewRequest} status={item.status} cpId={item.cp._id} />
+      <div className="card markdown-card resources-card">
+        <div className="card-block res-card-block">
+          <p className="card-title res-title">{ item.cp.title} </p>
+          <div className="card-block modules-card-body">
+            <p className="resource-p"> {item.cp.desc} </p>
           </div>
+          {/*<div className="requestCompletion center">
+            <StatusButton makeNewRequest={props.makeNewRequest} status={item.status} cpId={item.cp._id} />
+          </div>*/}
+          <div className="row">
+          <i className="" type="button">
+            <NavLink className="fa fa-arrow-right bottom-left-icon" to={"/modules/" + props.mId + "/checkpoints/" + item.cp._id}> </NavLink>
+          </i>
+            {!item.cp.complete ? <i className='fa  fa-check-square-o bottom-right-icon'> </i> : null}          </div>
         </div>
       </div>);
   }) : <div>No CPS</div>;
   return (
-    <div>
-      <div className="card markdown-card all-modules-card">
-        <div className="card-block modules-card-body">
-          <h4 className="card-title">{ props.module.title} </h4>
-        </div>
-        <div className="card-block modules-card-body">
-          <p>{ props.module.desc}</p>
-          <p>30/40 checkpoints complete </p>
-          <p className="">1.5 hours</p>
-
-        </div>
+    <div className="container">
+    <div className="row">
+      <div className="center-it">
+        <h4><strong> {props.module.title} </strong> </h4>
       </div>
-      <div className="checkpoints-flex">
+
+    </div>
+
+    <div className="">
+
+      <div className="container tags-container">
+        <ul className="list-group tags-group">
+          <li><NavLink to={"/modules/"}><i className="fa fa-arrow-left" ></i></NavLink></li>
+          <li><i className="fa fa-check-square-o"> 0/10 </i></li>
+          { cats }
+        </ul>
+      </div>
+    </div>
+    <div className="container col-xs-12 col-xs-offset-1 ">
+      <div className="modules-flex">
         {cps}
       </div>
+    </div>
+
 
 
         <NavLink className="" to={'/post/checkpoint/' + props.module._id}>

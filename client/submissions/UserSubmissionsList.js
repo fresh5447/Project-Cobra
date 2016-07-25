@@ -10,8 +10,8 @@ const UserSubmissionsList = (props) => {
     />
   );
   return (
-    <div>
-    <h4>All My Submissions</h4>
+    <div className="container submissions-container">
+    <h4>My Submissions</h4>
       { all }
     </div>
   );

@@ -2,11 +2,10 @@ import React from 'react';
 
 const ViewProfile = (props) =>
 <div>
-    <div className="container">
+    <div className="container user-container">
 
         <ul className="profile-links">
-        <h5>User Info
-        </h5>
+          <h5>User Info</h5>
         <button
           onClick={props.changeActiveComp.bind(this, 'edit')}
           className="btn btn-primary submit-btn"

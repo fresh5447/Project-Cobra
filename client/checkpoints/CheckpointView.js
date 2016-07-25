@@ -32,7 +32,10 @@ const CheckpointView = (props) =>
   </div>
   <div>
   </div>
-  <SubmissionData user={props.user} cpId={props.checkpoint._id}/>
+  <div className="container">
+    <SubmissionData user={props.user} cpId={props.checkpoint._id}/>
+  </div>
+
 </div>;
 
 CheckpointView.displayName = CheckpointView;

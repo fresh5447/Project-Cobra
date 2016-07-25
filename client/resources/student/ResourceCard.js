@@ -21,7 +21,7 @@ const ResourceCard = (props) => {
           > </i>
         </div>
         <div className="col-md-3 center-icon">
-          <i className={ props.internal ? 'fa fa-file-text' :
+          <i className={ props.internal ? 'fa fa-arrow-right' :
           null } onClick={props.setOneResource.bind(this, props.id)} aria-hidden="true">
           </i>
             <a href={props.link} target="_blank"><i className={ props.internal === false ? "fa fa-external-link" : null }>

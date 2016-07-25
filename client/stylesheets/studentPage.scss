@@ -2,6 +2,10 @@
   margin-top: 5%;
 }
 
+.user-container {
+  margin-top: 8%;
+}
+
 .resources-nav {
   text-align: center;
 }
@@ -15,11 +19,45 @@
   display: inline;
   padding-right: 20px;
   font-size: 26px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $dark-blue;
+    color: white;
+  }
 
 }
 
 .activeResLink {
-  border-bottom: solid 2px black;
+  background-color: $dark-blue;
+  color: white;
+}
+
+.submissions-container{
+  margin-top: 8%;
+}
+
+.activeResLink {
+  background-color: $dark-blue;
+  color: white;
+}
+
+.resources-nav ul li.activeResLink {
+
+  background-color: #EFEEE8;
+  color: $dark-blue;
+  border-bottom: solid 1px $dark-blue;
+}
+
+.resources-nav ul li {
+  cursor: pointer;
+  &:hover {
+    background-color: #EFEEE8;
+    color: $dark-blue;
+    border-bottom: solid 1px $dark-blue;
+  }
+
+
 }
 
 
@@ -29,7 +67,9 @@
   }
 }
 .cats-container {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   text-align: left;
   background-color: $primary-color;
   color: $dark-grey;
@@ -42,6 +82,7 @@
 
 .cats-container ul li span {
   color: $dark-grey;
+  margin-bottom: 10px;
   &:hover {
     border-bottom: 1px solid white;
   }
@@ -49,6 +90,12 @@
 
 .cats-container ul li{
   color: $dark-grey;
+  border-bottom: 1px solid black;
+}
+
+.cats-container ul li a{
+  color: $dark-grey;
+  line-height: 200%;
 }
 
 .cats-container ul {

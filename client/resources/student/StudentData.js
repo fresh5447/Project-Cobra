@@ -96,7 +96,7 @@ class StudentData extends React.Component {
 
   render() {
     const cats = this.state.categories ? this.state.categories.map((item) =>
-      <li key={item._id} className={this.state.catFilter === item.name ? 'activeResLink' : null}
+      <li key={item._id} className={this.state.catFilter === item.name ? 'activeResLink list-group-item' : 'list-group-item'}
       onClick={this.setCagegoryFilter.bind(this, item.name)}>{item.name}</li>) : null;
     return (
       <div className="container student-page-container">
@@ -110,13 +110,10 @@ class StudentData extends React.Component {
             onClick={this.toggleComp.bind(this,'post')}>Post</li>
           </ul>
         </div>
-        <div className="col-xs-2">
-          <div className="cats-container">
-            <ul>
-            <i className="fa fa-filter"></i>
+        <div className="container tags-container">
+            <ul className="list-group tags-group">
               { cats }
             </ul>
-          </div>
         </div>
         <div className="col-xs-10">
           { this.showComponent() }

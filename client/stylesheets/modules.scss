@@ -5,3 +5,26 @@
 .modules-card-header {
   @include default-card-header;
 }
+
+.center-it {
+  text-align: center;
+  margin-top: 8%;
+}
+
+.center-it a {
+  color: black;
+  font-size: 2em;
+  &:hover{
+    border-bottom: 1px solid black;
+  }
+}
+
+.center-it h4 strong{
+  font-size: 3rem;
+}
+
+// .center-it p {
+//   position: absolute;
+//   top: 0;
+//   left: 10%;
+// }
