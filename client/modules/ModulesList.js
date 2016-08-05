@@ -20,21 +20,14 @@ const ModulesList = (props) => {
     <div className="container">
       <div className="row">
       <div className="center-it">
-        <h4><strong> modules</strong> </h4>
+        <h5><strong> fullstack web development </strong> </h5>
+        {coms}/{props.modules.length} <em>modules complete</em>
       </div>
 
       </div>
 
 
-
-        <div className="container tags-container">
-          <ul className="list-group tags-group">
-            <li><i className="fa fa-check-square-o"> {coms}/{props.modules.length} </i></li>
-              { cats }
-          </ul>
-        </div>
-
-      <div className="container col-xs-12 col-xs-offset-1 modules-flex">
+      <div className="container modules-flex">
         { mods }
       </div>
 

@@ -110,13 +110,23 @@ class StudentData extends React.Component {
             onClick={this.toggleComp.bind(this,'post')}>Post</li>
           </ul>
         </div>
-        <div className="container tags-container">
-            <ul className="list-group tags-group">
-              { cats }
-            </ul>
-        </div>
-        <div className="col-xs-10">
-          { this.showComponent() }
+        <div className="row">
+          <div className="col-xs-3">
+            <div className="card one-module-card">
+              <div className="card-block res-card-block">
+                <h6 className="card-title res-title">categories</h6>
+              </div>
+              <div className="card-block modules-card-body">
+              <ul className="list-group tags-group">
+                { cats }
+              </ul>
+              </div>
+            </div>
+
+          </div>
+          <div className="col-xs-9">
+            { this.showComponent() }
+          </div>
         </div>
       </div>
     );

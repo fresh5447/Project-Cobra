@@ -6,9 +6,10 @@ import SubmissionData from '../submissions/SubmissionData';
 const CheckpointView = (props) =>
 <div>
   <div className="container">
-    <div className="card markdown-card">
+    <div className="card markdown-card cp-card">
       <div className="card-block main-card-block checkpoint-cardblock">
-        <h2 className="card-title">{props.checkpoint.title} <NavLink to={"/edit/checkpoints/" + props.checkpoint._id }>EDIT</NavLink></h2>
+        <h2 className="card-title">{props.checkpoint.title} </h2>
+        {/*<NavLink to={"/edit/checkpoints/" + props.checkpoint._id }>EDIT</NavLink>*/}
 
       </div>
       <div className="card-block">
@@ -29,12 +30,13 @@ const CheckpointView = (props) =>
         </div>
       </div>
     </div>
+    {/*<div className="">
+      <SubmissionData user={props.user} cpId={props.checkpoint._id}/>
+    </div>*/}
   </div>
   <div>
   </div>
-  <div className="container">
-    <SubmissionData user={props.user} cpId={props.checkpoint._id}/>
-  </div>
+
 
 </div>;
 

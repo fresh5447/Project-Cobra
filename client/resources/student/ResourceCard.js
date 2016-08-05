@@ -1,6 +1,6 @@
 import React from 'react';
 import NavLink from '../../widgets/NavLink';
-
+import ReactMarkdown from 'react-markdown';
 
 const ResourceCard = (props) => {
 
@@ -14,7 +14,7 @@ const ResourceCard = (props) => {
       <div className="card-block res-card-block">
         <p className="card-title res-title">{ props.title }</p>
       </div>
-      <div className="resource-footer center-icon">
+      <div className="row">
         <div className="col-md-3 center-icon">
           <i onClick={props.role === 'admin' ? props.deleteResource.bind(this, props.id) : null }
             className={props.role === 'admin' ? 'fa  fa-minus-circle' : null}
@@ -35,6 +35,9 @@ const ResourceCard = (props) => {
             onClick={ props.fav ? props.toggleFav.bind(this, props.id, 'remove') :
             props.toggleFav.bind(this, props.id, 'post') }
           ></i> : null }
+        </div>
+        <div className="col-md-3 center-icon">
+            { props.video ? <i className="fa fa-video-camera" aria-hidden="true"></i> : null}
         </div>
         { props.publish ? null : <p> Draft </p> }
       </div>

@@ -6,6 +6,10 @@
   @include default-card-header;
 }
 
+.one-module-card {
+  margin-left: 10%;
+}
+
 .center-it {
   text-align: center;
   margin-top: 8%;
@@ -17,6 +21,15 @@
   &:hover{
     border-bottom: 1px solid black;
   }
+}
+
+.new-cp {
+  background-color: $logo-green;
+  color: white !important;
+}
+
+.module-row {
+  margin-top: 3%;
 }
 
 .center-it h4 strong{

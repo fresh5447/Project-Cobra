@@ -9,19 +9,19 @@ const StudentNav = (props) =>
     <p> Student </p>
     <ul className="nav navbar-nav">
       <li className="nav-item">
-        <NavLink className="nav-link" to="/modules" onlyActiveOnIndex>Modules</NavLink>
+        <NavLink className="nav-link" to="/modules" onlyActiveOnIndex>course</NavLink>
       </li>
       <li className="nav-item">
-        <NavLink className="nav-link" to="/new/resources">Resources</NavLink>
+        <NavLink className="nav-link" to="/new/resources">resources</NavLink>
       </li>
       <li className="nav-item">
-        <NavLink className="nav-link" to="/submissions">Submissions</NavLink>
+        <NavLink className="nav-link" to="/submissions">submissions</NavLink>
       </li>
       <li className="nav-item">
-        <NavLink className="nav-link" to="/profile">Profile</NavLink>
+        <NavLink className="nav-link" to="/profile">profile</NavLink>
       </li>
       <li className="nav-item">
-        <a href="/logout" className="nav-link"> Logout </a>
+        <a href="/logout" className="nav-link">logout</a>
       </li>
     </ul>
   </div>

@@ -22,11 +22,20 @@ const PostCheckpointForm = (props) => {
               className="form-control" value={props.content} rows="3"
             ></textarea>
           </fieldset>
+          <div className="card card-block inner-checkpoint-cardblock">
+            <ReactMarkdown source={props.content} />
+          </div>
           <fieldset className="form-group">
             <label>link</label>
             <input onChange={ (event) => props.onFieldChange('link', event.target.value)}
               type="text" className="form-control" id="" placeholder="..."
             />
+          </fieldset>
+          <fieldset className="form-group">
+            <label>video</label>
+            <textarea onChange={ (event) => props.onFieldChange('video', event.target.value)}
+              className="form-control" rows="5"
+            ></textarea>
           </fieldset>
           <fieldset className="form-group">
             <label>internal</label>

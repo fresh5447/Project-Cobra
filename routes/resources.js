@@ -128,6 +128,7 @@ Router.route('/')
   .post((req, res) => {
     const resource = new Resource({
       title: req.body.title,
+      video: req.body.video,
       content: req.body.content,
       link: req.body.link,
       categories: req.body.categories,

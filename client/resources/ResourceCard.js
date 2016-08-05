@@ -28,7 +28,7 @@ const ResourceCard = (props) => {
       <div className="resource-cats">
         { cats }
       </div>
-      
+
     </div>
   );
 };

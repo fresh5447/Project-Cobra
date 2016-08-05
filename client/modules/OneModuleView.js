@@ -5,7 +5,7 @@ import NavLink from '../widgets/NavLink';
 const Module = (props) => {
   const cats = props.checkpoints && props.checkpoints.length > 0 ?
     props.checkpoints.map((item) => {
-    return <li className="list-group-item"><NavLink className="" to={"/modules/" + props.mId + "/checkpoints/" + item.cp._id}>{ item.cp.title}</NavLink></li>
+    return <li className="list-group-item"><NavLink className="nav-link" to={"/modules/" + props.mId + "/checkpoints/" + item.cp._id}>{ item.cp.title}</NavLink></li>
   }) : <div>No CPS</div>;
   const cps = props.checkpoints && props.checkpoints.length > 0 ?
     props.checkpoints.map((item) => {
@@ -28,38 +28,35 @@ const Module = (props) => {
       </div>);
   }) : <div>No CPS</div>;
   return (
-    <div className="container">
-    <div className="row">
-      <div className="center-it">
-        <h4><strong> {props.module.title} </strong> </h4>
-      </div>
-
-    </div>
-
     <div className="">
-
-      <div className="container tags-container">
-        <ul className="list-group tags-group">
-          <li><NavLink to={"/modules/"}><i className="fa fa-arrow-left" ></i></NavLink></li>
-          <li><i className="fa fa-check-square-o"> 0/10 </i></li>
-          { cats }
-        </ul>
+      <div className="row">
+        <div className="">
+          <NavLink to={"/modules/"}><i className="fa fa-arrow-left" ><small> modules</small></i></NavLink> <br/>
+        </div>
       </div>
-    </div>
-    <div className="container col-xs-12 col-xs-offset-1 ">
-      <div className="modules-flex">
-        {cps}
+      <div className="row module-row">
+          <div className="col-xs-3">
+            <div className="card one-module-card">
+              <div className="card-block res-card-block">
+                  <h6 className="card-title res-title">{props.module.title}</h6>
+              </div>
+
+              <div className="card-block modules-card-body">
+                <ul className="list-group tags-group">
+                  { cats }
+                  <li className="list-group-item new-cp"><NavLink className="" to={'/post/checkpoint/' + props.module._id}>
+                  New Checkpoint
+                  </NavLink></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="col-xs-9">
+            { props.children }
+          </div>
+
+        </div>
       </div>
-    </div>
-
-
-
-        <NavLink className="" to={'/post/checkpoint/' + props.module._id}>
-          <button className="btn btn-primary submit-btn new-cp-btn">New Checkpoint</button>
-        </NavLink>
-
-
-    </div>
   );
 };
 

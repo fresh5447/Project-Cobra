@@ -17,6 +17,7 @@ const AllResources = (props) => {
       publish={item.publish}
       setOneResource={props.setOneResource}
       role={props.role}
+      video={item.video}
     />);
   });
 

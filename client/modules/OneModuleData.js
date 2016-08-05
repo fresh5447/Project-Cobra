@@ -1,5 +1,5 @@
 import React from 'react';
-import Module from './OneModuleView';
+import OneModuleView from './OneModuleView';
 
 class ModulesData extends React.Component {
   constructor(props, context) {
@@ -51,7 +51,13 @@ class ModulesData extends React.Component {
   }
 
   render() {
-    return this.state.module ? <Module makeNewRequest={this.makeNewRequest} checkpoints={this.state.checkpoints} module={this.state.module} mId={this.props.params.id} /> : null;
+    const c = this.state.module ? <OneModuleView makeNewRequest={this.makeNewRequest} checkpoints={this.state.checkpoints} module={this.state.module} mId={this.props.params.id}> { this.props.children } </OneModuleView> : null;
+
+    return (
+      <div className="row">
+        {c}
+      </div>
+    )
   }
 }
 

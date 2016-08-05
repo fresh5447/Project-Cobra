@@ -43,6 +43,11 @@
 }
 
 
+.cp-card {
+  padding-right: 4%;
+  margin-right: 4%;
+}
+
 // ---- Resources  ------
 .resources-card {
   @include small-card;

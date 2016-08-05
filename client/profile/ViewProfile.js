@@ -5,15 +5,13 @@ const ViewProfile = (props) =>
     <div className="container user-container">
 
         <ul className="profile-links">
-          <h5>User Info</h5>
+          <h5>{props.user.local.firstName + " " + props.user.local.lastName} </h5>
         <button
           onClick={props.changeActiveComp.bind(this, 'edit')}
           className="btn btn-primary submit-btn"
         >
         Edit<
         /button>
-          <li><span className="profile-field"> first </span> <span className="profile-field-value"> {props.user.local.firstName || "edit profile to complete.."}</span></li>
-          <li><span className="profile-field"> last </span> <span className="profile-field-value">{props.user.local.lastName || "edit profile to complete.."}</span></li>
           <li><span className="profile-field"> email </span><span className="profile-field-value"> {props.user.local.email || "edit profile to complete.."}</span></li>
           <li><span className="profile-field"> linkedIn Url </span><span className="profile-field-value"> {props.user.local.linkedIn || "edit profile to complete.."}</span></li>
           <li><span className="profile-field"> twitter handle </span> <span className="profile-field-value">{props.user.local.twitterHandle || "edit profile to complete.."}</span></li>

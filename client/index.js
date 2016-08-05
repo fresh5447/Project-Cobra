@@ -4,6 +4,7 @@ import { Router, Route, browserHistory, IndexRoute, Redirect } from 'react-route
 
 import App from './App';
 import ModulesData from './modules/ModulesData';
+import dummy from './modules/dummy';
 import OneModuleData from './modules/OneModuleData';
 import PostModuleData from './modules/PostModuleData';
 import OneCheckpointData from './checkpoints/OneCheckpointData';
@@ -36,9 +37,13 @@ render((
   <Router history={browserHistory}>
     { /* Student Stuff*/ }
     <Route path="/" component={App}>
+
       <Route path="/modules" component={ModulesData} />
-      <Route path="/modules/:id" component={OneModuleData} />
-      <Route path="/modules/:id/checkpoints/:cp_id" component={OneCheckpointData} />
+
+      <Route path="/modules/:id" component={OneModuleData}>
+        <Route path="/modules/:id/checkpoints/:cp_id" component={OneCheckpointData} />
+      </Route>
+
       <Route path="/edit/checkpoints/:cp_id" component={EditCheckpointData} />
       <Route path="/post/module" component={PostModuleData} />
       <Route path="/post/checkpoint/:mod_id" component={PostCheckpointData} />

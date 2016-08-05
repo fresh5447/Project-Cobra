@@ -12,6 +12,7 @@ class PostResourceData extends React.Component {
     this.state = {
       title: null,
       content: null,
+      video: null,
       link: null,
       categories: null,
       internal: null,
@@ -50,6 +51,7 @@ class PostResourceData extends React.Component {
     const data = {
       title: this.state.title,
       content: this.state.content,
+      video: this.state.video,
       link: this.state.link,
       internal: int,
       publish: pub,
@@ -74,6 +76,7 @@ class PostResourceData extends React.Component {
     categories={this.state.categories}
     addToCats={this.addToCats}
     resCats={this.state.resCats}
+    content={this.state.content}
     />;
   }
 

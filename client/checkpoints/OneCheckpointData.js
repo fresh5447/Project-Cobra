@@ -5,8 +5,6 @@ class OneCheckpointData extends React.Component {
   constructor(props, context) {
     super(props, context);
 
-    // this.context.getUser = this.context.getUser.bind(this); --Desperation attempt
-
     this.state = {
       checkpoint: null,
       user: null
@@ -21,6 +19,7 @@ class OneCheckpointData extends React.Component {
   }
 
   loadCheckpoint() {
+    console.log('loading checkpioint');
     $.ajax({
       url: `/api/v1/modules/three/cp/${this.props.params.cp_id}`,
       method: 'GET',
