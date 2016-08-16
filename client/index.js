@@ -8,6 +8,7 @@ import dummy from './modules/dummy';
 import OneModuleData from './modules/OneModuleData';
 import PostModuleData from './modules/PostModuleData';
 import OneCheckpointData from './checkpoints/OneCheckpointData';
+import OneCheckpointContainer from './checkpoints/OneCheckpointContainer';
 import UserSignup from './user/Signup';
 import UserSignin from './user/UserSignin';
 import UserForgot from './user/Forgot';
@@ -40,7 +41,11 @@ render((
 
       <Route path="/modules" component={ModulesData} />
 
-      <Route path="/modules/:id" component={OneModuleData}>
+      {/*<Route path="/modules/:id" component={OneModuleData}>
+        <Route path="/modules/:id/checkpoints/:cp_id" component={OneCheckpointData} />
+      </Route>*/}
+
+      <Route path="/modules/:id" component={OneCheckpointContainer}>
         <Route path="/modules/:id/checkpoints/:cp_id" component={OneCheckpointData} />
       </Route>
 

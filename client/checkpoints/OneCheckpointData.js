@@ -18,13 +18,11 @@ class OneCheckpointData extends React.Component {
   }
 
   loadCheckpoint() {
-    console.log('loading checkpioint');
     $.ajax({
       url: `/api/v1/modules/three/cp/${this.props.params.cp_id}`,
       method: 'GET',
     }).done((data) => {
       this.setState({ checkpoint: data });
-      alert('loading checkpoint in 1CP DATA');
     });
   }
 
