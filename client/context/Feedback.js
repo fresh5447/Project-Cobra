@@ -56,7 +56,7 @@ class Feedback extends React.Component {
     return (
       <div>
         { this.props.children }
-        <div className='fb-contaienr'>
+        <div className='fb-container'>
           <button type="button" className="btn btn-primary btn-lg submit-btn feedback-btn" data-toggle="modal" data-target="#myModal">
             Submit Feedback
           </button>

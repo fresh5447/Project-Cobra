@@ -11,6 +11,7 @@
 @import './profile.scss';
 @import './feedback.scss';
 @import './studentPage.scss';
+@import './forms.scss';
 
 
 body {
@@ -241,4 +242,8 @@ body {
   position: absolute;;
   bottom: 0;
   right: 10%;
+}
+
+.cp-nav-container {
+  margin-top: 3%;
 }

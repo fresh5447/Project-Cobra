@@ -53,7 +53,6 @@ Router.route('/student/:id/checkpoints')
         const newArray = [];
 
         module.checkpoints.map((item) => {
-          console.log(item.userCompletions)
           if (item.userCompletions.includes(studentId.toString())) {
             newArray.push({ status: "complete", cp: item });
           } else {
@@ -66,6 +65,40 @@ Router.route('/student/:id/checkpoints')
       }
     })
   })
+
+  Router.route('/toggleCheckpoint/:id/:action')
+    .put((req, res) => {
+      console.log(req.params.action == 'add');
+      Checkpoint.findById(req.params.id, (err, cp) => {
+        if(err) {
+          res.json({ message: "couldnt find cp" })
+        } else {
+          if (req.params.action == 'add'){
+            cp.userCompletions.push(req.user._id);
+            cp.save((e, u) => {
+              if(e) {
+                console.log("CANT SAVE USER", e);
+                res.json({mesage: "error adding fav"})
+              } else {
+                console.log("SUCCESSS ADDING USER TO USER COMPLETIONS", u);
+                res.json(u);
+              }
+            });
+          } else {
+            cp.userCompletions.remove(req.user._id);
+            cp.save((e, u) => {
+              if(e) {
+                console.log("CANT SAVE CHECKPOINT", e);
+                res.json({mesage: "error completing cp"})
+              } else {
+                console.log("SUCCESS REMOVING USER FROM USR COMPLETIONS", u);
+                res.json(u);
+              }
+            });
+          }
+        }
+      })
+    })
 
 // Router.route('/approve/student/:checkpoint')
 

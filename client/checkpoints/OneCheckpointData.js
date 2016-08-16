@@ -27,6 +27,7 @@ class OneCheckpointData extends React.Component {
   }
 
   render() {
+    console.log("CHECKPOINT", this.state.checkpoint)
     return this.state.checkpoint ? <CheckpointView user={this.state.user} checkpoint={this.state.checkpoint} /> : null;
   }
 }
