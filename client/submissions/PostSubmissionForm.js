@@ -15,7 +15,7 @@ const PostSubmissionForm = (props) =>
           <h4 className="card-title">Markdown Preview</h4>
         </div>
         <div className="card-block">
-          <ReactMarkdown source={ props.content } />
+          <ReactMarkdown source={ props.content || "# none yet"} />
         </div>
       </div>
       <button type="submit" className="btn btn-primary my-primary-btn">Save</button>

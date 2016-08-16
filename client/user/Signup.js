@@ -1,5 +1,6 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
+import NavLink from '../widgets/NavLink';
 
 class Signup extends React.Component {
   constructor(props, context) {
@@ -45,29 +46,32 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="user-screen-container">
-          <h1>Signup</h1>
-          <p>create a new account</p>
+      <div className="user-screen-container">
+        <div className="container">
+          <div className="row">
+            <h3>CodeRange</h3>
+            <button type="submit" className="btn btn-primary  register-btn pull-right"><NavLink className="nav-link" to="/login">login</NavLink></button>
+          </div>
+          <div className="col-xs-6 col-xs-offset-3">
+            <h1>student registration</h1>
+            <p>pre-approved students only</p>
             <form onSubmit={this.submitUserToServer}>
               <fieldset className="form-group">
-                <label>First Name</label>
                 <input onChange={this.handleFirstNameChange} type="text" className="form-control" placeholder="john"/>
               </fieldset>
               <fieldset className="form-group">
-                <label>Last Name</label>
                 <input onChange={this.handleLastNameChange} type="text" className="form-control" placeholder="doe"/>
               </fieldset>
               <fieldset className="form-group">
-                <label>Email address</label>
                 <input onChange={this.handleEmailChange} type="email" className="form-control" placeholder="john@doe.com"/>
               </fieldset>
               <fieldset className="form-group">
-                <label>Password</label>
                 <input onChange={this.handlePasswordChange} type="password" className="form-control" id="" placeholder="password"/>
               </fieldset>
-              <button type="submit" className="btn btn-primary  submit-btn">Submit</button>
+              <button type="submit" className="btn btn-primary btn-lg btn-block register-btn">Submit</button>
             </form>
+          </div>
+
         </div>
       </div>
 

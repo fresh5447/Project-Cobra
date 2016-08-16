@@ -122,5 +122,20 @@
 }
 
 .user-screen-container {
-  padding: 10% 24%;
+  background-image: linear-gradient(-164deg, #84C7E4 43%, #4D96C4 98%);
+  border-radius: 3px;
+  height: 1000px;
+}
+
+.user-screen-container h3, h1, p {
+  color: white;
+  padding: 15px 30px;
+}
+
+.user-screen-container h1, p {
+  text-align: center;
+}
+
+.user-form-container {
+  margin: 0 auto;
 }

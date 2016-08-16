@@ -4,7 +4,7 @@ import NavBar from './widgets/NavBar';
 import Notifier from './context/Notifier';
 import GetUser from './context/GetUser';
 import Feedback from './context/Feedback';
-import WelcomePage from './widgets/WelcomePage'
+import Signup from './user/Signup';
 
 
 
@@ -17,7 +17,7 @@ export default React.createClass({
           <Notifier>
             <Feedback>
                 <NavBar>
-                    {this.props.children ? this.props.children : <WelcomePage/> }
+                    {this.props.children ? this.props.children : <Signup/> }
                 </NavBar>
             </Feedback>
           </Notifier>

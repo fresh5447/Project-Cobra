@@ -27,10 +27,10 @@ class NavBar extends React.Component {
       } else if (this.state.user.local.role === 'student') {
         return <StudentNav />
       } else {
-         return <GuestNav />
+        return null;
       }
     } else {
-      return <GuestNav />;
+      return null;
     }
   }
 

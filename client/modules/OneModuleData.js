@@ -38,6 +38,7 @@ class ModulesData extends React.Component {
       method: 'GET',
     }).done((data) => {
       this.setState({ checkpoints: data });
+      alert('about to load that shit.')
     });
   }
 
@@ -55,7 +56,7 @@ class ModulesData extends React.Component {
 
     return (
       <div className="row">
-        {c}
+        { c }
       </div>
     )
   }

@@ -54,7 +54,7 @@ render((
       <Route path="/admin/submissions" component={AllSubmissionsData} />
       <Route path="/submissions" component={UserSubmissionsData} />
 
-      <Route path="/profile" component={ProfileData}>
+      <Route path="/dashboard" component={ProfileData}>
         {/*<Route path="resources" component={ProfileResourcesData} />
         <Route path="submissions" component={ProfileSubmissionsData} />
         <Route path="account" component={ProfileAccountData} />*/}

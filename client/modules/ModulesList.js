@@ -17,21 +17,19 @@ const ModulesList = (props) => {
   });
 
   return (
-    <div className="container">
-      <div className="row">
-      <div className="center-it">
-        <h5><strong> fullstack web development </strong> </h5>
-        {coms}/{props.modules.length} <em>modules complete</em>
+    <div>
+      <div className="page-header">
+          <h5><strong> fullstack web development </strong> </h5>
+          <h6>{coms}/{props.modules.length} <em>modules complete</em></h6>
       </div>
+      <div className="container mods-container">
+
+        <div className="container modules-flex">
+          { mods }
+        </div>
+
 
       </div>
-
-
-      <div className="container modules-flex">
-        { mods }
-      </div>
-
-
     </div>
   );
 

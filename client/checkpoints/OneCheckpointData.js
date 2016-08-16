@@ -15,7 +15,6 @@ class OneCheckpointData extends React.Component {
   componentWillMount() {
     this.loadCheckpoint();
     this.context.getUser((data) => this.setState({ user: data }));
-    console.log("CHECKPOINT USER", this.state.user); //undefined
   }
 
   loadCheckpoint() {
@@ -25,6 +24,7 @@ class OneCheckpointData extends React.Component {
       method: 'GET',
     }).done((data) => {
       this.setState({ checkpoint: data });
+      alert('loading checkpoint in 1CP DATA');
     });
   }
 

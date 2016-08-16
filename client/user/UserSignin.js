@@ -38,22 +38,30 @@ class UserSignin extends React.Component {
   render() {
     // hack: used br for line break. bu bueno. You have such bad habits douglas.
     return (
-      <div className="container">
-        <div className="user-screen-container">
-          <h1>Login</h1>
+      <div className="user-screen-container">
+        <div className="container">
+          <div className="row">
+            <h3>CodeRange</h3>
+            <button type="submit" className="btn btn-primary  register-btn pull-right"><NavLink className="nav-link" to="/signup">register</NavLink></button>
+
+          </div>
+          <div className="col-xs-6 col-xs-offset-3">
+            <h1>student login</h1>
             <form onSubmit={this.submitUserToServer}>
               <fieldset className="form-group">
-                <label>Email address</label>
-                <input onChange={this.handleEmailChange} type="email" className="form-control" placeholder="Enter email"/>              </fieldset>
+                <input onChange={this.handleEmailChange} type="email" className="form-control" placeholder="email"/>
+              </fieldset>
               <fieldset className="form-group">
-                <label>Password</label>
                 <input onChange={this.handlePasswordChange} type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
               </fieldset>
-              <NavLink className="nav-link" to="/forgot"><p>forgot password?</p></NavLink><br/>
-              <button type="submit" className="btn btn-primary  submit-btn">Submit</button>
+              <button type="submit" className="btn btn-primary btn-lg btn-block register-btn">Submit</button>
+              <NavLink className="nav-link" to="/forgot"><p>forgot password?</p></NavLink>
             </form>
+          </div>
+
         </div>
       </div>
+
     );
   }
 }
