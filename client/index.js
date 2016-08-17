@@ -5,7 +5,6 @@ import { Router, Route, browserHistory, IndexRoute, Redirect } from 'react-route
 import App from './App';
 import ModulesData from './modules/ModulesData';
 import dummy from './modules/dummy';
-import OneModuleData from './modules/OneModuleData';
 import PostModuleData from './modules/PostModuleData';
 import OneCheckpointData from './checkpoints/OneCheckpointData';
 import OneCheckpointContainer from './checkpoints/OneCheckpointContainer';
@@ -34,16 +33,39 @@ import ResourcesPage from './resources/ResourcesPage';
 
 require('./stylesheets/main.scss');
 
+
+// WARNING: INSANE SECURITY POLICY FOLLOWS
+function getUser() {
+  $.ajax({
+    url: '/getUser',
+    method: 'GET'
+  }).done(data => {
+    if(data.user == "no user"){
+      console.log('permission denied');
+      alert('you must be logged in to access this page.')
+      return false
+    } else {
+      console.log('permission granted');
+      return true
+    }
+  });
+}
+
+function requireAuth(nextState, replace) {
+  if (!getUser()) {
+    replace({
+      pathname: '/login',
+      state: { nextPathname: nextState.location.pathname }
+    });
+  }
+}
+
 render((
   <Router history={browserHistory}>
     { /* Student Stuff*/ }
     <Route path="/" component={App}>
 
       <Route path="/modules" component={ModulesData} />
-
-      {/*<Route path="/modules/:id" component={OneModuleData}>
-        <Route path="/modules/:id/checkpoints/:cp_id" component={OneCheckpointData} />
-      </Route>*/}
 
       <Route path="/modules/:id" component={OneCheckpointContainer}>
         <Route path="/modules/:id/checkpoints/:cp_id" component={OneCheckpointData} />
@@ -72,7 +94,6 @@ render((
         <Route path="categories/:category_name" component={CategoryResources} />
       </Route>
 
-      <Redirect from="/resources" to="/resources/all" />
 
       {/*NEW REFACTOR*/}
 

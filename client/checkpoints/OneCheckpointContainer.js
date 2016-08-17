@@ -1,5 +1,6 @@
 import React from 'react';
 import CheckpointNav from './CheckpointNav';
+import { browserHistory } from 'react-router';
 
 class OneCheckpointContainer extends React.Component {
   constructor(props, context) {
@@ -16,10 +17,18 @@ class OneCheckpointContainer extends React.Component {
 
   }
 
-  componentWillMount() {
-    this.loadCheckpoints();
-    this.context.getUser((data) => this.setState({ user: data }));
+  componentWillMount(nextState, replace) {
+    this.context.getUser((data) => {
+      this.setState({ user: data });
+      if (data.user === 'no user') {
+        alert('you must be signed in to view this');
+        return browserHistory.push('/login');
+      } else {
+        return this.loadCheckpoints();
+      }
+    });
   }
+
 
   toggleCheckpointCompletion(id, action) {
     console.log(id, action);

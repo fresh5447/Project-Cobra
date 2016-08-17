@@ -8,12 +8,12 @@ import Signup from './user/Signup';
 
 
 
-export default React.createClass({
+class App extends React.Component {
   render() {
     const h = <div> Hello </div>;
     return (
       <div>
-      <GetUser>
+        <GetUser>
           <Notifier>
             <Feedback>
                 <NavBar>
@@ -25,4 +25,8 @@ export default React.createClass({
       </div>
     );
   }
-});
+}
+
+App.displayName = 'App';
+
+module.exports = App;

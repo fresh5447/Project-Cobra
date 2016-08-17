@@ -17,6 +17,13 @@ class OneCheckpointData extends React.Component {
     this.context.getUser((data) => this.setState({ user: data }));
   }
 
+  componentWillReceiveProps() {
+
+      this.loadCheckpoint();
+
+
+}
+
   loadCheckpoint() {
     $.ajax({
       url: `/api/v1/modules/three/cp/${this.props.params.cp_id}`,

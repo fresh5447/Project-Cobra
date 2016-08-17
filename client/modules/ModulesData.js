@@ -1,18 +1,30 @@
 import React from 'react';
 import ModulesList from './ModulesList';
+import { browserHistory } from 'react-router';
 
 class ModulesData extends React.Component {
-  constructor(props, context){
+  constructor(props, context) {
     super(props, context);
 
     this.state = {
-      modules: null
+      modules: null,
+      user: null
     };
+    this.loadModules = this.loadModules.bind(this);
   }
 
-  componentWillMount() {
-    this.loadModules();
+
+  componentWillMount(nextState, replace) {
+    this.context.getUser((data) => {
+      if (data.user === 'no user') {
+        alert('you must be signed in to view this');
+        return browserHistory.push('/login');
+      } else {
+        return this.loadModules();
+      }
+    });
   }
+
 
   loadModules() {
     $.ajax({
@@ -30,5 +42,9 @@ class ModulesData extends React.Component {
 }
 
 ModulesData.displayName = 'ModulesData';
+
+ModulesData.contextTypes = {
+  getUser: React.PropTypes.func.isRequired
+};
 
 export default ModulesData;

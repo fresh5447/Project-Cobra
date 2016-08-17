@@ -6,7 +6,6 @@ const AdminNav = (props) =>
 <nav className="navbar navbar-fixed-top navbar-light bg-faded my-navbar">
   <div className="my-nav-box">
     <a className="navbar-brand" href="/">CodeRange</a>
-    <p> ADMIN </p>
     <ul className="nav navbar-nav">
       <li className="nav-item">
         <NavLink className="nav-link" to="/modules" onlyActiveOnIndex>Modules</NavLink>
