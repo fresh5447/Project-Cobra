@@ -12,7 +12,8 @@ const ModuleSchema = new Schema({
   hours: Number,
   checkpoints: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Checkpoint' }],
   order: Number,
-  complete: Boolean
+  complete: { type: Boolean, default: false },
+  live: Boolean,
 });
 
 ModuleSchema.plugin(autoIncrement.plugin, { model: 'Module', field: 'order' });

@@ -2,7 +2,7 @@ import React from 'react';
 
 const EditProfileView = (props) =>
 <div>
-    <div className="container">
+    <div className="container edit-profile-container">
       <form onSubmit={props.handleSubmit}>
         <h4> Edit Profile </h4>
         <fieldset className="form-group">

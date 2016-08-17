@@ -32,6 +32,7 @@ class ModulesData extends React.Component {
       method: 'GET',
     }).done((data) => {
       this.setState({ modules: data });
+      console.log(this.state.modules)
     });
   }
 
