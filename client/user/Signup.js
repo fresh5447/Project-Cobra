@@ -50,7 +50,7 @@ class Signup extends React.Component {
         <div className="container">
           <div className="row">
             <h3>CodeRange</h3>
-            <button type="submit" className="btn btn-primary  register-btn pull-right"><NavLink className="nav-link" to="/login">login</NavLink></button>
+              <NavLink className="btn btn-primary  register-btn pull-right" to="/login">login</NavLink>
           </div>
           <div className="col-xs-6 col-xs-offset-3">
             <h1>student registration</h1>

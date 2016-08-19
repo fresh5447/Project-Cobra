@@ -68,7 +68,6 @@ class OneCheckpointContainer extends React.Component {
     return (
       <div>
         <div className="page-header">
-          <h5>Hello</h5>
           <h6 className="">{this.howManyComplete()}/{this.state.total} checkponts complete </h6>
         </div>
         <div className="row">
@@ -76,7 +75,7 @@ class OneCheckpointContainer extends React.Component {
             <CheckpointNav toggleCompletion={this.toggleCheckpointCompletion} mid={this.props.params.id} checkpoints={this.state.checkpoints} />
           </div>
           <div className="col-xs-9">
-            { this.props.children || <div>No Children Yet</div>}
+            { this.props.children || <div className="container"><h3>Please select a checkpoint to continue</h3></div>}
           </div>
         </div>
 

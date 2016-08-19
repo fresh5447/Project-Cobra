@@ -99,8 +99,8 @@ class StudentData extends React.Component {
       <li key={item._id} className={this.state.catFilter === item.name ? 'activeResLink list-group-item' : 'list-group-item'}
       onClick={this.setCagegoryFilter.bind(this, item.name)}>{item.name}</li>) : null;
     return (
-      <div className="container student-page-container">
-        <div className="row resources-nav">
+      <div>
+        <div className="page-header">HELLO
           <ul className="">
             <li className={this.state.activeComp === 'all' ? 'activeResLink' : null}
             onClick={this.toggleComp.bind(this,'all')}>All</li>
@@ -110,22 +110,24 @@ class StudentData extends React.Component {
             onClick={this.toggleComp.bind(this,'post')}>Post</li>
           </ul>
         </div>
-        <div className="row">
-          <div className="col-xs-3">
-            <div className="card one-module-card">
-              <div className="card-block res-card-block">
-                <h6 className="card-title res-title">categories</h6>
+        <div className="container student-page-container">
+          <div className="row">
+            <div className="col-xs-3">
+              <div className="card one-module-card">
+                <div className="card-block res-card-block">
+                  <h6 className="card-title res-title">categories</h6>
+                </div>
+                <div className="card-block modules-card-body">
+                <ul className="list-group tags-group">
+                  { cats }
+                </ul>
+                </div>
               </div>
-              <div className="card-block modules-card-body">
-              <ul className="list-group tags-group">
-                { cats }
-              </ul>
-              </div>
-            </div>
 
-          </div>
-          <div className="col-xs-9">
-            { this.showComponent() }
+            </div>
+            <div className="col-xs-9">
+              { this.showComponent() }
+            </div>
           </div>
         </div>
       </div>

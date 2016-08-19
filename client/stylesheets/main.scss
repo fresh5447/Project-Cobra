@@ -244,10 +244,50 @@ body {
   right: 10%;
 }
 
+.page-header ul {
+  padding: 30px 30px;
+  font-size: 18px;
+  text-align: center;
+  position: absolute;;
+  bottom: 0;
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.page-header ul li {
+  display: inline-block;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .cp-nav-container {
   margin-top: 3%;
 }
 
 .edit-profile-container {
   margin-top: 10%;
+}
+
+.comp-circle {
+  font-size: 1.75rem;
+  margin-right: .3em;
+  float: left;
+}
+
+.done {
+  color: green;
+}
+
+.not {
+  color: red;
+}
+
+.tags-group li {
+  &:hover {
+    cursor: pointer;
+  }
 }
