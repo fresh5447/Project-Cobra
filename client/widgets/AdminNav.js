@@ -8,9 +8,12 @@ const AdminNav = (props) =>
     <a className="navbar-brand" href="/">CodeRange</a>
     <ul className="nav navbar-nav">
       <li className="nav-item">
-        <NavLink className="nav-link" to="/modules" onlyActiveOnIndex>Modules</NavLink>
+        <NavLink className="nav-link" to="/admin/courses">courses</NavLink>
       </li>
       <li className="nav-item">
+        <NavLink className="nav-link" to="/admin/modules">modules</NavLink>
+      </li>
+      {/*<li className="nav-item">
         <NavLink className="nav-link" to="/admin/dashboard">Dashboard</NavLink>
       </li>
       <li className="nav-item">
@@ -18,7 +21,7 @@ const AdminNav = (props) =>
       </li>
       <li className="nav-item">
         <NavLink className="nav-link" to="/new/resources">Resources</NavLink>
-      </li>
+      </li>*/}
       <li className="nav-item">
         <a href="/logout" className="nav-link"> Logout </a>
       </li>

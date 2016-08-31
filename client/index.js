@@ -5,7 +5,7 @@ import { Router, Route, browserHistory, IndexRoute, Redirect } from 'react-route
 import App from './App';
 import ModulesData from './modules/ModulesData';
 import dummy from './modules/dummy';
-import PostModuleData from './modules/PostModuleData';
+import PostModData from './modules/PostModuleData';
 import OneCheckpointData from './checkpoints/OneCheckpointData';
 import OneCheckpointContainer from './checkpoints/OneCheckpointContainer';
 import UserSignup from './user/Signup';
@@ -33,9 +33,24 @@ import ResourcesPage from './resources/ResourcesPage';
 
 import AdminDashContainer from './adminDash/AdminDashContainer';
 import OneCourseContainer from './adminDash/OneCourseContainer';
-import PostCourseData from './adminDash/PostCourseData';
+
 import OneModuleContainer from './adminDash/OneModuleContainer';
 
+
+// GOOD ADMIN STUFF
+import CoursesContainer from './admin/courses/CoursesContainer';
+import CourseData from './admin/courses/CourseData';
+import EditCourseData from './admin/courses/EditCourseData';
+import PostCourseData from './admin/courses/PostCourseData';
+
+import ModulesContainer from './admin/modules/ModulesContainer';
+import ModuleData from './admin/modules/ModuleData';
+import EditModuleData from './admin/modules/EditModuleData';
+import PostModuleData from './admin/modules/PostModuleData';
+
+
+
+// new admin
 
 require('./stylesheets/main.scss');
 
@@ -54,7 +69,7 @@ render((
       </Route>
 
       <Route path="/edit/checkpoints/:cp_id" component={EditCheckpointData} />
-      <Route path="/post/module" component={PostModuleData} />
+      <Route path="/post/module" component={PostModData} />
       <Route path="/post/checkpoint/:mod_id" component={PostCheckpointData} />
 
       <Route path="/students" component={StudentData} />
@@ -81,6 +96,18 @@ render((
           <Route path="module/:modId" component={OneModuleContainer} />
         </Route>
         <Route path="post" component={PostCourseData} />
+      </Route>
+
+      <Route path="/admin/courses" component={CoursesContainer}>
+        <Route path="view/:courseId" component={CourseData} />
+        <Route path="edit/:courseId" component={EditCourseData} />
+        <Route path="post" component={PostCourseData} />
+      </Route>
+
+      <Route path="/admin/modules" component={ModulesContainer}>
+        <Route path="view/:moduleId" component={ModuleData} />
+        <Route path="edit/:moduleId" component={EditModuleData} />
+        <Route path="post" component={PostModuleData} />
       </Route>
 
 
