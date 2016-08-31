@@ -31,34 +31,16 @@ import PostResourceData from './resources/PostResourceData';
 
 import ResourcesPage from './resources/ResourcesPage';
 
+import AdminDashContainer from './adminDash/AdminDashContainer';
+import OneCourseContainer from './adminDash/OneCourseContainer';
+import PostCourseData from './adminDash/PostCourseData';
+import OneModuleContainer from './adminDash/OneModuleContainer';
+
+
 require('./stylesheets/main.scss');
 
 
-// WARNING: INSANE SECURITY POLICY FOLLOWS
-function getUser() {
-  $.ajax({
-    url: '/getUser',
-    method: 'GET'
-  }).done(data => {
-    if(data.user == "no user"){
-      console.log('permission denied');
-      alert('you must be logged in to access this page.')
-      return false
-    } else {
-      console.log('permission granted');
-      return true
-    }
-  });
-}
 
-function requireAuth(nextState, replace) {
-  if (!getUser()) {
-    replace({
-      pathname: '/login',
-      state: { nextPathname: nextState.location.pathname }
-    });
-  }
-}
 
 render((
   <Router history={browserHistory}>
@@ -92,6 +74,13 @@ render((
         <Route path="all" component={AllResources} />
         <Route path="favorites" component={FavoriteResources} />
         <Route path="categories/:category_name" component={CategoryResources} />
+      </Route>
+
+      <Route path="/admin/dashboard" component={AdminDashContainer}>
+        <Route path="view/:id" component={OneCourseContainer}>
+          <Route path="module/:modId" component={OneModuleContainer} />
+        </Route>
+        <Route path="post" component={PostCourseData} />
       </Route>
 
 

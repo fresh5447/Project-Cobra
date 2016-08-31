@@ -28,7 +28,8 @@ class PostModuleData extends React.Component {
     const data = {
       title: this.state.title,
       desc: this.state.desc,
-      hours: this.state.hours
+      hours: this.state.hours,
+      course: this.props.course
     };
     $.ajax({
       url: '/api/v1/modules',
@@ -37,7 +38,7 @@ class PostModuleData extends React.Component {
     }).done((d) => {
       console.log('data', d)
       this.context.sendNotification('Module created.');
-      const path = '/modules';
+      const path = '/admin/dashboard';
       browserHistory.push(path);
     });
   }

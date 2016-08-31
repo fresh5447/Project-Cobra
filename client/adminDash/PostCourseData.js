@@ -1,18 +1,18 @@
 import React from 'react';
-import PostCheckpointForm from './PostCheckpointForm';
+import PostCourseForm from './PostCourseForm';
 import { browserHistory } from 'react-router';
 
-class PostCheckpointData extends React.Component {
+class PostCourseData extends React.Component {
   constructor(props) {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
+      startDate: null,
+      completionDate: null,
       title: null,
-      content: null,
-      desc: null,
-      assignment: null
+      desc: null
     };
 
   }
@@ -28,35 +28,33 @@ class PostCheckpointData extends React.Component {
     const data = {
       title: this.state.title,
       desc: this.state.desc,
-      content: this.state.content,
-      assignment: this.state.assignment,
+      startDate: this.state.startDate,
+      completionDate: this.state.completionDate,
+      desc: this.state.desc,
     };
     $.ajax({
-      url: `/api/v1/modules/one/${this.props.params.mod_id}/checkpoints`,
+      url: `/api/v1/courses`,
       method: 'POST',
       data
     }).done((d) => {
-      this.context.sendNotification("Checkpoint Created");
+      this.context.sendNotification("Course Created");
       const path = `/admin/dashboard`
       browserHistory.push(path);
     });
   }
 
   render() {
-    return <PostCheckpointForm
+    return <PostCourseForm
     onFieldChange={(...args) => this.onFieldChange(...args)}
     handleSubmit={this.handleSubmit}
-    title={this.state.title}
-    content={this.state.content}
-    assignment={this.state.assignment}
     />;
   }
 
 }
 
-PostCheckpointData.displayName = PostCheckpointData;
-PostCheckpointData.contextTypes = {
+PostCourseData.displayName = PostCourseData;
+PostCourseData.contextTypes = {
   sendNotification: React.PropTypes.func.isRequired
 };
 
-export default PostCheckpointData;
+export default PostCourseData;

@@ -4,10 +4,11 @@ const path           = require('path'),
   app                 = express(),
   ModulesRouter       = require('./routes/modules'),
   SubmissionRouter    = require('./routes/submissions'),
-  RequestRouter    = require('./routes/requests'),
+  RequestRouter       = require('./routes/requests'),
+  CourseRouter        = require('./routes/courses'),
   CatRouter           = require('./routes/categories'),
   CheckpointsRouter   = require('./routes/checkpoints'),
-  FeedbackRouter   = require('./routes/feedback'),
+  FeedbackRouter      = require('./routes/feedback'),
   ResourcesRouter     = require('./routes/resources'),
   passport            = require('passport'),
   session             = require('express-session'),
@@ -99,6 +100,7 @@ app.use('/img', express.static('img'));
 
 app.use('/api/v1/modules', ModulesRouter);
 app.use('/api/v1/resources', ResourcesRouter);
+app.use('/api/v1/courses', CourseRouter);
 app.use('/api/v1/modules', CheckpointsRouter);
 app.use('/api/v1/submissions', SubmissionRouter);
 app.use('/api/v1/cats', CatRouter);

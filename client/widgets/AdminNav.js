@@ -11,6 +11,9 @@ const AdminNav = (props) =>
         <NavLink className="nav-link" to="/modules" onlyActiveOnIndex>Modules</NavLink>
       </li>
       <li className="nav-item">
+        <NavLink className="nav-link" to="/admin/dashboard">Dashboard</NavLink>
+      </li>
+      <li className="nav-item">
         <NavLink className="nav-link" to="/students">Students</NavLink>
       </li>
       <li className="nav-item">

@@ -14,6 +14,7 @@ const ModuleSchema = new Schema({
   order: Number,
   complete: { type: Boolean, default: false },
   live: Boolean,
+  course: { type: mongoose.Schema.Types.ObjectId, ref: 'Course' }
 });
 
 ModuleSchema.plugin(autoIncrement.plugin, { model: 'Module', field: 'order' });

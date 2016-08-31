@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 const PostModuleForm = (props) =>
   <div className="container">
     <form onSubmit={props.handleSubmit}>
-      <h4> Create New Module </h4>
+      <h4> Add Module </h4>
       <fieldset className="form-group">
         <label>title</label>
         <input onChange={ (event) => props.onFieldChange('title', event.target.value)}

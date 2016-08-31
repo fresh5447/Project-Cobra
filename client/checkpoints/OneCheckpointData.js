@@ -18,11 +18,8 @@ class OneCheckpointData extends React.Component {
   }
 
   componentWillReceiveProps() {
-
-      this.loadCheckpoint();
-
-
-}
+    this.loadCheckpoint();
+  }
 
   loadCheckpoint() {
     $.ajax({

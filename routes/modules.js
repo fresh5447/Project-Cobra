@@ -2,6 +2,7 @@
 
 const express = require('express');
 const Module = require('../models/module');
+const Course = require('../models/course');
 const User = require('../models/user');
 
 if (!Array.prototype.includes) {
@@ -143,20 +144,30 @@ Router.route('/')
     })
   })
   .post(function(req, res){
-    let module = new Module({
+    var module = new Module({
       title: req.body.title,
-      desc:  req.body.desc,
+      desc: req.body.desc,
       hours: req.body.hours
     });
     module.save(function(err, module){
       if(err){
-        res.json({ message: 'there was an error saving your module' });
+        res.json(err)
       } else {
-        console.log('POSTING: ', module)
-        res.json(module);
+        Course.findById(req.body.course, function(err, course){
+          if(err){
+            res.json({message: 'something is wrong!'})
+          } else {
+            course.modules.push(module._id);
+
+            course.save();
+
+            res.json({message: 'pushed module!'})
+          }
+        })
       }
     })
-  });
+  })
+
 
 Router.route('/byName/:name')
   .get(function(req, res){

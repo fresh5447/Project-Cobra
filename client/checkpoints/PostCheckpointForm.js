@@ -45,10 +45,10 @@ const PostCheckpointForm = (props) =>
             Live preview of how the Markdown text will display
           </h6>
         </div>
-        <div className="card-block">
+        <div className="card-block markdown-preview-text">
               <h5 className="card-title">{props.title ? props.title : 'No title yet...'}</h5>
-              <ReactMarkdown source={props.content ? props.content : 'No content yet...'} />
-              <ReactMarkdown source={props.assignment ? props.assignment : 'No assignment yet...'} />
+              <ReactMarkdown className="color-me-black" source={props.content ? props.content : 'No content yet...'} />
+              <ReactMarkdown className="color-me-black" source={props.assignment ? props.assignment : 'No assignment yet...'} />
         </div>
       </div>
     </div>
