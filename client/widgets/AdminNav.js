@@ -7,6 +7,9 @@ const AdminNav = (props) =>
   <div className="my-nav-box">
     <a className="navbar-brand" href="/">CodeRange</a>
     <ul className="nav navbar-nav">
+    <li className="nav-item">
+      <NavLink className="nav-link" to="/admin/publish">courses</NavLink>
+    </li>
       <li className="nav-item">
         <NavLink className="nav-link" to="/admin/courses">courses</NavLink>
       </li>

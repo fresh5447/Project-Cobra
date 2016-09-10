@@ -22,7 +22,9 @@ Router.route('/')
       completionDate: req.body.completionDate,
       title: req.body.title,
       desc: req.body.desc,
-      intensity: req.body.intensity
+      kind: req.body.kind,
+      location: req.body.location,
+      live: req.body.live
     });
     course.save((err, r) => {
       if (err) {
@@ -55,7 +57,9 @@ Router.route('/:id')
         course.completionDate = req.body.completionDate ? req.body.completionDate : course.completionDate;
         course.title = req.body.title ? req.body.title : course.title;
         course.desc = req.body.desc ? req.body.desc : course.desc;
-        course.intensity = req.body.intensity ? req.body.intensity : course.intensity;
+        course.kind = req.body.kind ? req.body.kind : course.kind;
+        course.location = req.body.location ? req.body.location : course.location;
+        course.live = req.body.live ? req.body.live : course.live;
         course.students = req.body.students ? req.body.students : course.students;
         course.modules = req.body.modules ? req.body.modules : course.modules;
 

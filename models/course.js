@@ -3,11 +3,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const CourseSchema = new Schema({
-  startDate: String,
-  completionDate: String,
+  startDate: Date,
+  completionDate: Date,
   title: String,
-  intensity: String,
+  kind: String,
   desc: String,
+  location: String,
   students: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   modules: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Module' }]
 });

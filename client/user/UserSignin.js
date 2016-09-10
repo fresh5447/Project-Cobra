@@ -30,7 +30,7 @@ class UserSignin extends React.Component {
       method: 'POST'
     }).success((data) => {
       this.context.sendNotification(data.message);
-      window.location = '/modules';
+
     })
       .error((data) => this.context.sendNotification(data.responseText));
   }
