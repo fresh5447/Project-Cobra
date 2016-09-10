@@ -10,18 +10,22 @@ class OneCourseCountainer extends React.Component {
     };
   }
 
+  componentWillMount() {
+    this.loadCourse(this.props.params.id);
+  }
+
   componentWillReceiveProps() {
-    this.loadCourse();
+    this.loadCourse(this.props.params.id);
   }
 
   componentWillUnmount() {
-    this.setState({ course: null })
+    this.loadCourse(this.props.params.id);
   }
 
 
-  loadCourse() {
+  loadCourse(id) {
     $.ajax({
-      url: '/api/v1/courses/' + this.props.params.id,
+      url: '/api/v1/courses/' + id,
       method: 'GET',
     }).done((data) => {
       this.setState({ course: data });

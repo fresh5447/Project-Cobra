@@ -1,7 +1,7 @@
 import React from 'react';
-import CoursesContainer from './CoursesContainer';
+import CourseCard from '../components/CourseCard';
 
-class AdminDashContainer extends React.Component {
+class CoursesContainer extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -19,10 +19,6 @@ class AdminDashContainer extends React.Component {
     this.loadCourses();
   }
 
-  componentWillUnmount() {
-    this.loadCourses();
-  }
-
 
   loadCourses() {
     $.ajax({
@@ -35,25 +31,19 @@ class AdminDashContainer extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div>
       <div className="page-header">
         <h6 className="">Admin Dashboard</h6>
       </div>
-        <div className="row">
-          <div className="col-xs-4">
-          {
-            this.state.courses ? <CoursesContainer courses={this.state.courses} /> : null
-          }
-          </div>
-          <div className="col-xs-8">
-          {
-            this.props.children || <h2> select course </h2>
-          }
-          </div>
-        </div>
+      <div className="container">
+        {
+          this.state.courses ? this.state.courses.map((item) => <CourseCard course={item} /> ) : null
+        }
+
+      </div>
       </div>
     )
   }
 }
 
-export default AdminDashContainer;
+export default CoursesContainer;

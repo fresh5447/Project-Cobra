@@ -11,8 +11,8 @@ const PublishContainer = (props) =>
         <div className="row">
           <div className="col-xs-offset-3 col-xs-6">
             <ul>
-              <li><NavLink to="/admin/publish/resource">resource</NavLink></li>
-              <li><NavLink to="/admin/publish/course">course</NavLink></li>
+              <li><NavLink to="/admin/publish/resource">post resource</NavLink></li>
+              <li><NavLink to="/admin/publish/course">post course</NavLink></li>
             </ul>
           </div>
         </div>

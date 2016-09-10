@@ -10,16 +10,21 @@ class OneModuleContainer extends React.Component {
     };
   }
 
-  componentWillReceiveProps() {
-    this.loadModule();
-  }
-  componentWillUnmount() {
-    this.setState({ module: null })
+  componentWillMount() {
+    this.loadModule(this.props.params.modId);
   }
 
-  loadModule() {
+  componentWillReceiveProps() {
+    this.loadModule(this.props.params.modId);
+  }
+
+  componentWillUnmount() {
+    this.loadModule(this.props.params.modId);
+  }
+
+  loadModule(id) {
     $.ajax({
-      url: '/api/v1/modules/byId/' + this.props.params.modId,
+      url: '/api/v1/modules/byId/' + id,
       method: 'GET',
     }).done((data) => {
       this.setState({ module: data });

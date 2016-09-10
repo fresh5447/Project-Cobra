@@ -30,6 +30,12 @@ class UserSignin extends React.Component {
       method: 'POST'
     }).success((data) => {
       this.context.sendNotification(data.message);
+      console.log(data);
+      if(data.user.local.role == "student") {
+        window.location = '/dashboard';
+      } else {
+        window.location = '/admin/publisher';
+      }
 
     })
       .error((data) => this.context.sendNotification(data.responseText));
