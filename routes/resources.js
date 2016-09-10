@@ -132,8 +132,8 @@ Router.route('/')
       content: req.body.content,
       link: req.body.link,
       categories: req.body.categories,
-      internal: req.body.internal,
-      publish: req.body.publish
+      live: req.body.live,
+      kind: req.body.kind,
     });
 
     console.log('CREATING RESOURCE', resource);

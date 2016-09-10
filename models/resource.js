@@ -7,11 +7,11 @@ const ResourceSchema = new Schema({
   content: String,
   link: String,
   categories: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Category' }],
-  internal: Boolean,
   video: String,
   userFavorites: Number,
-  publish: Boolean,
-  fav: Boolean
+  live: Boolean,
+  fav: Boolean,
+  kind: String
 });
 
 module.exports = mongoose.model('Resource', ResourceSchema);
