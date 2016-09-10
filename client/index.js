@@ -31,10 +31,10 @@ import PostResourceData from './resources/PostResourceData';
 
 import ResourcesPage from './resources/ResourcesPage';
 
-import AdminDashContainer from './adminDash/AdminDashContainer';
-import OneCourseContainer from './adminDash/OneCourseContainer';
+import AdminDashContainer from './adminCourses/AdminDashContainer';
+import ActiveCourseContainer from './adminCourses/ActiveCourseContainer';
 
-import OneModuleContainer from './adminDash/OneModuleContainer';
+import OneModuleContainer from './adminCourses/OneModuleContainer';
 
 
 // GOOD ADMIN STUFF
@@ -92,9 +92,9 @@ render((
       </Route>
 
       <Route path="/admin/dashboard" component={AdminDashContainer}>
-        <Route path="view/:id" component={OneCourseContainer}>
-          <Route path="module/:modId" component={OneModuleContainer} />
-        </Route>
+        <Route path="view/:id" component={ActiveCourseContainer}/>
+        {/*<Route path="view/:id/module/:modId" component={OneModuleContainer} />*/}
+
         <Route path="post" component={PostCourseData} />
       </Route>
 

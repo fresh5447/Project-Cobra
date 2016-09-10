@@ -36,7 +36,7 @@ class OneModuleContainer extends React.Component {
       <div>
         <div className="container">
         <div className="card">
-          <div className="card-block">
+          {/*<div className="card-block">
             <h4 className="card-title">{this.state.module && this.state.module.title ? this.state.module.title : "loading title"}</h4>
             <h6 className="card-text">{this.state.module && this.state.module.desc ? this.state.module.desc : "loading desc"}</h6>
             <h6 className="card-text">{this.state.module && this.state.module.desc ? this.state.module.hours : "loading hours"}</h6>
@@ -47,9 +47,8 @@ class OneModuleContainer extends React.Component {
               return <li className="list-group-item">{item.title}</li>
             }) : <li className="list-group-item">No Checkpoints Yet</li>
           }
-          </ul>
+          </ul>*/}
           <div className="card-block">
-            <NavLink to={"/post/checkpoint/" + this.props.params.modId}>New Checkpoint</NavLink>
           </div>
         </div>
 

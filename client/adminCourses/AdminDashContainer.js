@@ -1,5 +1,5 @@
 import React from 'react';
-import CoursesContainer from './CoursesContainer';
+import CoursesNavContainer from './CoursesNavContainer';
 
 class AdminDashContainer extends React.Component {
   constructor(props, context) {
@@ -8,6 +8,7 @@ class AdminDashContainer extends React.Component {
     this.state = {
       courses: null
     };
+
     this.loadCourses = this.loadCourses.bind(this);
   }
 
@@ -42,7 +43,7 @@ class AdminDashContainer extends React.Component {
         <div className="row">
           <div className="col-xs-4">
           {
-            this.state.courses ? <CoursesContainer courses={this.state.courses} /> : null
+            this.state.courses ? <CoursesNavContainer courses={this.state.courses} /> : null
           }
           </div>
           <div className="col-xs-8">

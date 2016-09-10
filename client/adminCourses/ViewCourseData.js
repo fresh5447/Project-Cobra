@@ -1,8 +1,6 @@
 import React from 'react';
-import PostModuleData from '../modules/PostModuleData';
-import NavLink from '../widgets/NavLink';
 
-class OneCourseCountainer extends React.Component {
+class ViewCourseData extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -11,15 +9,7 @@ class OneCourseCountainer extends React.Component {
   }
 
   componentWillMount() {
-    this.loadCourse(this.props.params.id);
-  }
-
-  componentWillReceiveProps() {
-    this.loadCourse(this.props.params.id);
-  }
-
-  componentWillUnmount() {
-    this.loadCourse(this.props.params.id);
+    this.loadCourse(this.props.courseId);
   }
 
 
@@ -68,5 +58,5 @@ class OneCourseCountainer extends React.Component {
   }
 
 }
-OneCourseCountainer.displayName = OneCourseCountainer;
-export default OneCourseCountainer;
+ViewCourseData.displayName = ViewCourseData;
+export default ViewCourseData;

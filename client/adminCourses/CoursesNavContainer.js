@@ -1,7 +1,7 @@
 import React from 'react';
 import NavLink from '../widgets/NavLink';
 
-const CoursesContainer = (props) => {
+const CoursesNavContainer = (props) => {
 
   const courses = props.courses.map((c) => {
     return <li key={c._id} className="list-group-item"><NavLink to={'/admin/dashboard/view/' + c._id}> {c.title} </NavLink> <i className="fa fa-minus-circle" onClick={() => alert('do you want to delete?')}></i></li>
@@ -21,8 +21,8 @@ const CoursesContainer = (props) => {
 
 };
 
-CoursesContainer.propTypes = {
+CoursesNavContainer.propTypes = {
   courses: React.PropTypes.array.isRequired
 };
 
-export default CoursesContainer;
+export default CoursesNavContainer;
