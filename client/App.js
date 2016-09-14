@@ -1,11 +1,9 @@
 import React from 'react';
-import NavLink from './widgets/NavLink';
 import NavBar from './widgets/NavBar';
 import Notifier from './context/Notifier';
 import GetUser from './context/GetUser';
 import Feedback from './context/Feedback';
 import Signup from './user/Signup';
-
 
 
 class App extends React.Component {
