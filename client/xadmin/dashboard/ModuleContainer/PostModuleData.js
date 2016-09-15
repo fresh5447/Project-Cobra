@@ -40,7 +40,7 @@ class PostModuleData extends React.Component {
     }).done((d) => {
       console.log('data', d)
       this.context.sendNotification('Module created.');
-      const path = '/a/dashboard/course/' + this.props.params.course_id;
+      const path = '/admin/dashboard/course/' + this.props.params.course_id;
       browserHistory.push(path);
     });
   }

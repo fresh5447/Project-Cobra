@@ -34,7 +34,7 @@ class UserSignin extends React.Component {
       if(data.user.local.role == "student") {
         window.location = '/dashboard';
       } else {
-        window.location = '/admin/publisher';
+        window.location = '/admin/dashboard/courses';
       }
 
     })

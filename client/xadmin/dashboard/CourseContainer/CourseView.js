@@ -10,7 +10,7 @@ const CourseView = (props) =>
     <p className="card-text">{ props.course.kind }</p>
     <p className="card-text">{ props.course.desc }</p>
     <p className="card-text">{ props.course.location }</p>
-    <NavLink to={"/a/dashboard/course/" + props.course._id}> VIEW </NavLink>
+    <NavLink to={"/admin/dashboard/course/" + props.course._id}> VIEW </NavLink>
     <button className="btn btn-primary" onClick={props.switchComp.bind(this, 'edit')}>edit</button>
   </div>
 </div>

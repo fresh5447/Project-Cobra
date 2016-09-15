@@ -9,7 +9,7 @@ const CheckpointView = (props) =>
       <div className="card-block lg-card-block">
         <h4 className="card-title">title: {props.checkpoint.title}</h4>
         <h4>live: {props.checkpoint.publish.toString()}</h4>
-        <button className="btn btn-primary" onClick={props.switchComp.bind(this, 'edit')}>FUCK IT</button>
+        <button className="btn btn-primary" onClick={props.switchComp.bind(this, 'edit')}>edit</button>
 
       </div>
       <div className="card-block">
