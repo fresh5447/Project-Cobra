@@ -23,7 +23,17 @@ import ResourcesPage from '../resources/ResourcesPage';
 import AdminDashContainer from '../adminDash/AdminDashContainer';
 import OneCourseContainer from '../adminDash/OneCourseContainer';
 import OneModuleContainer from '../adminDash/OneModuleContainer';
-import PostCourseData from '../admin/courses/PostCourseData';
+
+
+
+import CourseContainer from '../xadmin/dashboard/CourseContainer/CourseData';
+import ActiveCourseContainer from '../xadmin/dashboard/CourseContainer/ActiveCourseContainer';
+import PostCourseData from '../xadmin/dashboard/CourseContainer/PostCourseData';
+
+import ModulesDashContainer from '../xadmin/dashboard/ModuleContainer/ModulesDashContainer';
+import ActiveModuleData from '../xadmin/dashboard/ModuleContainer/ActiveModuleData';
+import PostModuleData from '../xadmin/dashboard/ModuleContainer/PostModuleData';
+import EditModuleData from '../xadmin/dashboard/ModuleContainer/EditModuleData';
 
 var routes = (
   <Router history={browserHistory}>
@@ -50,13 +60,35 @@ var routes = (
 
       <Route path="/admin/submissions" component={AllSubmissionsData} />
 
+
+      {/*COURSES*/}
+      <Route path="/a/dashboard/courses" component={CourseContainer}>
+        <Route path=":course_id" component={ActiveCourseContainer} />
+      </Route>
+
+      <Route path="/a/post_course" component={PostCourseData} />
+
+
+
+
+      {/*MODULES*/}
+      <Route path="/a/dashboard/course/:course_id" component={ModulesDashContainer}>
+        <Route path="view/:module_id" component={ActiveModuleData} />
+        <Route path="post" component={PostModuleData} />
+        <Route path="edit/:module_id" component={EditModuleData} />
+      </Route>
+
+      {/*<Route path="/a/post_course" component={PostCourseData} />*/}
+
+
+
+
       <Route path="/admin/dashboard" component={AdminDashContainer}>
 
         <Route path="view/:id" component={OneCourseContainer}>
           <Route path="module/:modId" component={OneModuleContainer} />
         </Route>
 
-        <Route path="post_course" component={PostCourseData} />
 
       </Route>
       { /*END ADMIN*/ }

@@ -144,24 +144,33 @@ Router.route('/')
     })
   })
   .post(function(req, res){
-    var module = new Module({
+    var mod = new Module({
       title: req.body.title,
       desc: req.body.desc,
-      hours: req.body.hours
+      hours: req.body.hours,
+      course: req.body.course,
+      live: req.body.live ? req.body.live : false
     });
-    module.save(function(err, module){
-      if(err){
+    console.log(mod, req.body.course);
+    mod.save(function(err, m) {
+      if(err) {
         res.json(err)
       } else {
         Course.findById(req.body.course, function(err, course){
           if(err){
             res.json({message: 'something is wrong!'})
           } else {
-            course.modules.push(module._id);
-
-            course.save();
-
-            res.json({message: 'pushed module!'})
+            course.modules.push(m._id);
+            console.log('found course', course._id)
+            console.log('heres the model id i am pushing',m._id);
+            console.log('here is the course', course)
+            course.save((e,s) => {
+              if(e){
+                res.json(e)
+              } else {
+                res.json(m)
+              }
+            });
           }
         })
       }

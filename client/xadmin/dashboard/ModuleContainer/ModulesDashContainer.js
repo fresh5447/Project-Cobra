@@ -1,0 +1,58 @@
+import React from 'react';
+import MiniNav from './MiniNav';
+import NavLink from '../../.././widgets/NavLink';
+
+class ModulesDashContainer extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      modules: null
+    };
+  }
+
+  componentWillMount() {
+    this.loadModules(this.props.params.course_id);
+  }
+
+  componentWillReceiveProps() {
+    this.loadModules(this.props.params.course_id);
+  }
+
+  componentWillUnmount() {
+    this.loadModules(this.props.params.course_id);
+  }
+
+  loadModules(id) {
+    $.ajax({
+      url: '/api/v1/courses/' + id,
+      method: 'GET',
+    }).done((data) => {
+      this.setState({ modules: data.modules });
+    });
+  }
+  render() {
+    return (
+      <div className="container">
+      <div className="page-header">
+        <h6 className="">Modules Dashboard</h6>
+      </div>
+        <div className="row">
+          <div className="col-xs-4">
+          {
+            this.state.modules ? <MiniNav courseId={this.props.params.course_id} modules={this.state.modules} /> : null
+          }
+          </div>
+          <div className="col-xs-8">
+          {
+            this.props.children || <h2> select module to begin </h2>
+          }
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+}
+
+
+export default ModulesDashContainer;

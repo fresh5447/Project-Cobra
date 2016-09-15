@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from './widgets/NavBar';
+import NavBar from './navigation/NavBar';
 import Notifier from './context/Notifier';
 import GetUser from './context/GetUser';
 import Feedback from './context/Feedback';
