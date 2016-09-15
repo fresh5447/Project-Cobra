@@ -35,6 +35,12 @@ import ActiveModuleData from '../xadmin/dashboard/ModuleContainer/ActiveModuleDa
 import PostModuleData from '../xadmin/dashboard/ModuleContainer/PostModuleData';
 import EditModuleData from '../xadmin/dashboard/ModuleContainer/EditModuleData';
 
+
+import CheckpointsDashContainer from '../xadmin/dashboard/CheckpointContainer/CheckpointsDashContainer';
+import ActiveCheckpointData from '../xadmin/dashboard/CheckpointContainer/ActiveCheckpointData';
+import PostCheckpointData from '../xadmin/dashboard/CheckpointContainer/PostCheckpointData';
+import EditCheckpointData from '../xadmin/dashboard/CheckpointContainer/EditCheckpointData';
+
 var routes = (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
@@ -78,8 +84,13 @@ var routes = (
         <Route path="edit/:module_id" component={EditModuleData} />
       </Route>
 
-      {/*<Route path="/a/post_course" component={PostCourseData} />*/}
 
+      {/*CHECKPOINTS*/}
+      <Route path="/a/dashboard/module/:module_id" component={CheckpointsDashContainer}>
+        <Route path="view/:checkpoint_id" component={ActiveCheckpointData} />
+        <Route path="post" component={PostCheckpointData} />
+        <Route path="edit/:checkpoint_id" component={EditCheckpointData} />
+      </Route>
 
 
 

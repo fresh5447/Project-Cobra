@@ -113,7 +113,7 @@ Router.route('/one/:id/checkpoints')
       publish:    req.body.publish,
       number:     req.body.number,
       assignment: req.body.assignment,
-      module:    req.params.id
+      module:     req.params.id
     });
     cp.save(function(err, checkpoint){
       if(err) {
@@ -145,6 +145,7 @@ Router.route('/one/:id/checkpoints')
 
 Router.route('/one/:id/checkpoints/:cp_id')
   .get(function(req, res) {
+    console.log("LOOKING FOR CP", req.params.id, req.params.cp_id)
     Checkpoint.findById(req.params.cp_id, function(err, checkpoint){
       if(err) {
         res.json({ message: "error trying to find checkpoint while getting checkpoints" })
