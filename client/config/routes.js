@@ -17,6 +17,7 @@ import StudentData from '../students/StudentsData.js';
 import AllSubmissionsData from '../submissions/AllSubmissionsData.js';
 import UserSubmissionsData from '../submissions/UserSubmissionsData.js';
 import ProfileData from '../profile/ProfileAccountData';
+import StudentResourcesPage from '../resources/ResourcesPage';
 
 // ADMIN
 import ResourcesPage from '../xadmin/resources/ResourcesContainer';
@@ -32,13 +33,14 @@ import CheckpointsDashContainer
 import ActiveCheckpointData from '../xadmin/dashboard/CheckpointContainer/ActiveCheckpointData';
 import PostCheckpointData from '../xadmin/dashboard/CheckpointContainer/PostCheckpointData';
 import EditCheckpointData from '../xadmin/dashboard/CheckpointContainer/EditCheckpointData';
+import StudentContainer from '../xadmin/students/StudentsContainer';
+
 
 var routes = (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
 
-
-      { /* BEGIN STUDENT */ }
+    { /* BEGIN STUDENT */ }
       <Route path="/modules" component={ModulesData} />
 
       <Route path="/modules/:id" component={OneCheckpointContainer}>
@@ -48,16 +50,17 @@ var routes = (
       <Route path="/submissions" component={UserSubmissionsData} />
 
       <Route path="/dashboard" component={ProfileData} />
-      { /* END STUDENT */ }
+      <Route path="/resources" component={StudentResourcesPage} />
+    { /* END STUDENT */ }
 
 
-      { /*BEGIN ADMIN*/ }
+    { /*BEGIN ADMIN*/ }
 
       {/*RESOURCES*/}
       <Route path="/admin/resources" component={ResourcesPage} />
 
       {/*STUDENTS*/}
-      <Route path="/admin/students" component={StudentData} />
+      <Route path="/admin/students" component={StudentContainer} />
       <Route path="/admin/submissions" component={AllSubmissionsData} />
 
 
@@ -86,7 +89,7 @@ var routes = (
         <Route path="edit/:checkpoint_id" component={EditCheckpointData} />
       </Route>
 
-      { /*END ADMIN*/ }
+    { /*END ADMIN*/ }
 
 
 

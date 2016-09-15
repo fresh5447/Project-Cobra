@@ -23,6 +23,7 @@ class ResourcesPage extends React.Component {
       return <AdminData role={ this.state.user.local.role} />;
     } else if (this.state.user && this.state.user.local &&
       this.state.user.local.role === 'student') {
+        console.log("ITS A STUDENT");
       return <StudentData role={ this.state.user.local.role} toggleFav={this.toggleFav} />;
     } else {
       return null;

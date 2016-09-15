@@ -68,9 +68,11 @@ module.exports = function(app, passport) {
     }
   });
 
-  app.get('/getUser', function(req, res){
+  app.get('/getUser',function(req, res){
     if(req.user){
-      User.findById(req.user._id, function(err, user){
+      User.findById(req.user._id)
+      .populate('courses')
+      .exec((err, user) => {
         if(err){
           console.log(err)
         } else {
@@ -81,6 +83,40 @@ module.exports = function(app, passport) {
       res.json({user: "no user"})
     }
   });
+
+  app.get('/editStudent/:student_id', function(req, res){
+      User.findById(req.params.student_id)
+      .populate('courses')
+      .exec((err, user) => {
+        if(err){
+          console.log(err)
+        } else {
+          res.json(user)
+        }
+      })
+  })
+
+  app.put('/editStudent/:student_id', function(req, res){
+      User.findById(req.params.student_id, function(err, user){
+        if(err){
+          console.log(err)
+        } else {
+          console.log("HELLLO", req.body.courses);
+          req.body.courses ? user.courses.push(req.body.courses) : user.courses;
+
+          user.save((er) => {
+            if(er) {
+              res.json(er);
+            } else {
+              res.json(user);
+            }
+          })
+
+        }
+      })
+  })
+
+
 
   app.get('/getUsers', function(req, res){
     User.find(function(err, users){

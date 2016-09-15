@@ -11,7 +11,7 @@ const StudentNav = (props) =>
           <NavLink className="nav-link" to="/modules" onlyActiveOnIndex>course</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/new/resources">resources</NavLink>
+          <NavLink className="nav-link" to="/resources">resources</NavLink>
         </li>
         {/*<li className="nav-item">
           <NavLink className="nav-link" to="/submissions">submissions</NavLink>

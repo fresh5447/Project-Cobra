@@ -16,7 +16,8 @@ class ProfileAccountData extends React.Component {
       githubHandle: null,
       twitter: null,
       bio: null,
-      skype: null
+      skype: null,
+      courses: null
     };
     this.changeActiveComp = this.changeActiveComp.bind(this);
     this.onFieldChange = this.onFieldChange.bind(this);

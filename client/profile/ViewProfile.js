@@ -19,8 +19,7 @@ const ViewProfile = (props) =>
         onClick={props.changeActiveComp.bind(this, 'edit')}
         className="btn btn-primary submit-btn"
       >
-      Edit<
-      /button>
+      Edit</button>
         <li><span className="profile-field-value"> email </span><span className="profile-field"> {props.user.local.email || "edit profile to complete.."}</span></li>
         <li><span className="profile-field-value"> linkedIn Url </span><span className="profile-field"> {props.user.local.linkedIn || "edit profile to complete.."}</span></li>
         <li><span className="profile-field-value"> twitter handle </span> <span className="profile-field">{props.user.local.twitterHandle || "edit profile to complete.."}</span></li>
@@ -36,7 +35,7 @@ const ViewProfile = (props) =>
       </div>
       <ul className="list-group list-group-flush">
         <li className="list-group-item">
-          <NavLink className="" to={'/modules/'}> Fullstack Web Development</NavLink>
+        { props.user.courses.length > 0 ? props.user.courses.map((item) =><li><NavLink className="" to={'/modules/'}> {item.title}</NavLink></li>) : null }
         </li>
       </ul>
     </div>

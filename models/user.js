@@ -20,6 +20,7 @@ var userSchema = mongoose.Schema({
   },
   completedCheckpoints: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Checkpoint' }],
   completedModules: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Module' }],
+  courses: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Course' }],
 
   favorites: [{
     type: mongoose.Schema.Types.ObjectId, ref: 'Resource'
