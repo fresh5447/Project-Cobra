@@ -8,7 +8,8 @@ class ModulesData extends React.Component {
 
     this.state = {
       modules: null,
-      user: null
+      user: null,
+      course: null
     };
     this.loadModules = this.loadModules.bind(this);
   }
@@ -28,16 +29,16 @@ class ModulesData extends React.Component {
 
   loadModules() {
     $.ajax({
-      url: '/api/v1/modules/student',
+      url: '/api/v1/courses/' + this.props.params.course_id,
       method: 'GET',
     }).done((data) => {
-      this.setState({ modules: data });
+      this.setState({ modules: data.modules, course: data.title });
       console.log(this.state.modules)
     });
   }
 
   render() {
-    return this.state.modules ? <ModulesList modules={this.state.modules} /> : null;
+    return this.state.modules ? <ModulesList course={this.state.course} modules={this.state.modules} /> : null;
   }
 
 }

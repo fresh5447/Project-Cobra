@@ -35,7 +35,7 @@ const ViewProfile = (props) =>
       </div>
       <ul className="list-group list-group-flush">
         <li className="list-group-item">
-        { props.user.courses.length > 0 ? props.user.courses.map((item) =><li><NavLink className="" to={'/modules/'}> {item.title}</NavLink></li>) : null }
+        { props.user.courses.length > 0 ? props.user.courses.map((item) =><li><NavLink className="" to={'/course/' + item._id}> {item.title}</NavLink></li>) : null }
         </li>
       </ul>
     </div>

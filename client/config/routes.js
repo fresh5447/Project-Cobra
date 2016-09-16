@@ -42,7 +42,9 @@ var routes = (
     <Route path="/" component={App}>
 
     { /* BEGIN STUDENT */ }
-      <Route path="/modules" component={ModulesData} />
+
+      {/*<Route path="/course/:course_id" component={OneCheckpointContainer} />*/}
+      <Route path="/course/:course_id" component={ModulesData} />
 
       <Route path="/modules/:id" component={OneCheckpointContainer}>
         <Route path="/modules/:id/checkpoints/:cp_id" component={OneCheckpointData} />

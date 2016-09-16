@@ -19,7 +19,7 @@ const ModulesList = (props) => {
   return (
     <div>
       <div className="page-header">
-          <h5 className="col-xs-6"><strong> fullstack web development </strong> </h5>
+          <h5 className="col-xs-6"><strong> {props.course} </strong> </h5>
           <h6 className="col-xs-4">{coms}/{props.modules.length} <em>modules complete</em></h6>
       </div>
       <div className="container mods-container">
