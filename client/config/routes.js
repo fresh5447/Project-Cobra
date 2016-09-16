@@ -20,7 +20,7 @@ import ProfileData from '../profile/ProfileAccountData';
 import StudentResourcesPage from '../resources/ResourcesPage';
 
 // ADMIN
-import ResourcesPage from '../xadmin/resources/ResourcesContainer';
+import ResourcesContainer from '../xadmin/resources/ResourcesContainer';
 import CourseContainer from '../xadmin/dashboard/CourseContainer/CourseData';
 import ActiveCourseContainer from '../xadmin/dashboard/CourseContainer/ActiveCourseContainer';
 import PostCourseData from '../xadmin/dashboard/CourseContainer/PostCourseData';
@@ -58,7 +58,7 @@ var routes = (
     { /*BEGIN ADMIN*/ }
 
       {/*RESOURCES*/}
-      <Route path="/admin/resources" component={ResourcesPage} />
+      <Route path="/admin/resources" component={ResourcesContainer} />
 
       {/*STUDENTS*/}
       <Route path="/admin/students" component={StudentContainer} />

@@ -1,6 +1,7 @@
 import React from 'react';
 import AllStudentsTable from './AllStudentsTable';
 import NavLink from '../../widgets/NavLink';
+import { browserHistory } from 'react-router';
 
 class StudentsContainer extends React.Component {
   constructor(props, context) {
@@ -10,17 +11,21 @@ class StudentsContainer extends React.Component {
     };
   }
 
-  componentWillMount() {
-    this.loadStudents();
+  componentWillMount(nextState, replace) {
+    this.context.getUser((data) => {
+      if (data.user === 'no user') {
+        alert('you must be an admin to view this');
+        return browserHistory.push('/login');
+      } else {
+        return this.loadStudents();
+      }
+    });
   }
 
   componentWillReceiveProps() {
     this.loadStudents();
   }
 
-  componentWillUnmount() {
-    this.loadStudents();
-  }
 
   loadStudents() {
     $.ajax({
@@ -44,5 +49,8 @@ class StudentsContainer extends React.Component {
 
 }
 
-
+StudentsContainer.displayName = 'StudentsContainer';
+StudentsContainer.contextTypes = {
+  getUser: React.PropTypes.func.isRequired
+};
 export default StudentsContainer;

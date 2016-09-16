@@ -2,6 +2,7 @@ import React from 'react';
 import CourseView from './CourseView';
 import EditCourseData from './EditCourseData';
 import NavLink from '../../.././widgets/NavLink';
+import {browserHistory} from 'react-router';
 
 
 
@@ -15,8 +16,16 @@ class ActiveCourseContainer extends React.Component {
     this.switchComp = this.switchComp.bind(this);
   }
 
-  componentWillMount() {
-    this.loadCourse(this.props.params.course_id);
+
+  componentWillMount(nextState, replace) {
+    this.context.getUser((data) => {
+      if (data.user === 'no user') {
+        alert('you must be an admin to view this');
+        return browserHistory.push('/login');
+      } else {
+        return this.loadCourse(this.props.params.course_id);
+      }
+    });
   }
 
   componentWillReceiveProps() {
@@ -61,4 +70,7 @@ class ActiveCourseContainer extends React.Component {
 
 }
 ActiveCourseContainer.displayName = ActiveCourseContainer;
+ActiveCourseContainer.contextTypes = {
+  getUser: React.PropTypes.func.isRequired
+};
 export default ActiveCourseContainer;

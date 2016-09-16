@@ -1,5 +1,6 @@
 import React from 'react';
 import MiniNav from './MiniNav';
+import {browserHistory} from 'react-router';
 
 class CourseData extends React.Component {
   constructor(props, context) {
@@ -11,8 +12,15 @@ class CourseData extends React.Component {
     this.loadCourses = this.loadCourses.bind(this);
   }
 
-  componentWillMount() {
-    this.loadCourses();
+  componentWillMount(nextState, replace) {
+    this.context.getUser((data) => {
+      if (data.user === 'no user') {
+        alert('you must be an admin to view this');
+        return browserHistory.push('/login');
+      } else {
+        return this.loadCourses();;
+      }
+    });
   }
 
   componentWillReceiveProps() {
@@ -51,4 +59,9 @@ class CourseData extends React.Component {
   }
 }
 
+CourseData.displayName = 'CourseData';
+
+CourseData.contextTypes = {
+  getUser: React.PropTypes.func.isRequired
+};
 export default CourseData;

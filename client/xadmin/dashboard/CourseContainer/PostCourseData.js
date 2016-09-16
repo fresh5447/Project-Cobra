@@ -19,6 +19,15 @@ class PostCourseData extends React.Component {
 
   }
 
+  componentWillMount(nextState, replace) {
+    this.context.getUser((data) => {
+      if (data.user === 'no user') {
+        alert('you must be an admin to view this');
+        return browserHistory.push('/login');
+      }
+    });
+  }
+
   onFieldChange(fieldName, fieldValue) {
     const newState = {};
     newState[fieldName] = fieldValue;
@@ -57,7 +66,8 @@ class PostCourseData extends React.Component {
 
 PostCourseData.displayName = PostCourseData;
 PostCourseData.contextTypes = {
-  sendNotification: React.PropTypes.func.isRequired
+  sendNotification: React.PropTypes.func.isRequired,
+  getUser: React.PropTypes.func.isRequired
 };
 
 export default PostCourseData;

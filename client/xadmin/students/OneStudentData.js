@@ -12,10 +12,21 @@ class OneStudentData extends React.Component {
     };
     this.changeActiveComp = this.changeActiveComp.bind(this);
   }
-  componentWillMount() {
-    this.loadUser();
+
+  componentWillMount(nextState, replace) {
+
     this.setState({ activeComp: 'show' })
+    this.context.getUser((data) => {
+      if (data.user === 'no user') {
+        alert('you must be an admin to view this');
+        return browserHistory.push('/login');
+      } else {
+        return this.loadUser();
+      }
+    });
   }
+
+
 
 
   loadUser() {

@@ -1,6 +1,8 @@
 import React from 'react';
 import MiniNav from './MiniNav';
 import NavLink from '../../.././widgets/NavLink';
+import { browserHistory } from 'react-router';
+
 
 class ModulesDashContainer extends React.Component {
   constructor(props, context) {
@@ -10,8 +12,15 @@ class ModulesDashContainer extends React.Component {
     };
   }
 
-  componentWillMount() {
-    this.loadModules(this.props.params.course_id);
+  componentWillMount(nextState, replace) {
+    this.context.getUser((data) => {
+      if (data.user === 'no user') {
+        alert('you must be an admin to view this');
+        return browserHistory.push('/login');
+      } else {
+        return this.loadModules(this.props.params.course_id);
+      }
+    });
   }
 
   componentWillReceiveProps() {
@@ -53,6 +62,12 @@ class ModulesDashContainer extends React.Component {
   }
 
 }
+
+ModulesDashContainer.displayName = 'ModulesDashContainer';
+
+ModulesDashContainer.contextTypes = {
+  getUser: React.PropTypes.func.isRequired
+};
 
 
 export default ModulesDashContainer;

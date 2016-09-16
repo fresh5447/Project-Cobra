@@ -1,5 +1,6 @@
 import React from 'react';
 import ResourcesData from './ResourcesData.js';
+import { browserHistory } from 'react-router';
 
 class ResourcesContainer extends React.Component {
   constructor(props, context) {
@@ -9,6 +10,17 @@ class ResourcesContainer extends React.Component {
       studentResources: null,
       user: null
     };
+  }
+
+  componentWillMount(nextState, replace) {
+    this.context.getUser((data) => {
+      if (data.user === 'no user') {
+        alert('you must be an admin to view this');
+        return browserHistory.push('/login');
+      } else {
+        return this.loadUser();
+      }
+    });
   }
 
   componentDidMount() {
