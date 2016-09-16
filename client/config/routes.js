@@ -11,9 +11,9 @@ import UserReset from '../user/Reset';
 
 // STUDENT
 import ProfileData from '../xstudent/dashboard/profile/ProfileAccountData';
+import ModulesData from '../xstudent/modules/ModulesData';
 
 
-import ModulesData from '../modules/ModulesData';
 import OneCheckpointData from '../checkpoints/OneCheckpointData';
 import OneCheckpointContainer from '../checkpoints/OneCheckpointContainer';
 import StudentData from '../students/StudentsData.js';
@@ -45,8 +45,6 @@ var routes = (
     <Route path="/" component={App}>
 
     { /* BEGIN STUDENT */ }
-
-      {/*<Route path="/course/:course_id" component={OneCheckpointContainer} />*/}
       <Route path="/course/:course_id" component={ModulesData} />
 
       <Route path="/modules/:id" component={OneCheckpointContainer}>

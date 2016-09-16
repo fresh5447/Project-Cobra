@@ -1,6 +1,6 @@
 import React from 'react';
 // import CheckPoints from './CheckPoints';
-import NavLink from '../widgets/NavLink';
+import NavLink from '../../widgets/NavLink';
 
 const ModuleCard = (props) => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import ModulesCard from './ModulesCard';
-import NavLink from '../widgets/NavLink';
+import NavLink from '../../widgets/NavLink';
 
 const ModulesList = (props) => {
   window.m = props.modules;
