@@ -34,9 +34,9 @@ const ViewProfile = (props) =>
         <h4 className="card-title">enrolled courses</h4>
       </div>
       <ul className="list-group list-group-flush">
-        <li className="list-group-item">
-        { props.user.courses.length > 0 ? props.user.courses.map((item) =><li><NavLink className="" to={'/course/' + item._id}> {item.title}</NavLink></li>) : null }
-        </li>
+
+        { props.user.courses.length > 0 ? props.user.courses.map((item) =><li className="list-group-item"><NavLink className="" to={'/course/' + item._id}> {item.title} <i className="fa fa-arrow-right"></i></NavLink>        </li>) : null }
+
       </ul>
     </div>
 
