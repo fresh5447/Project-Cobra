@@ -104,9 +104,9 @@ class ResourcesData extends React.Component {
         <div className="row resources-nav">
           <ul className="">
             <li key={33} className={this.state.activeComp === 'all' ? 'activeResLink' : null}
-            onClick={this.toggleComp.bind(this,'all')}>All</li>
+            onClick={this.toggleComp.bind(this,'all')}>all</li>
             <li key={35} className={this.state.activeComp === 'post' ? 'activeResLink' : null}
-            onClick={this.toggleComp.bind(this,'post')}>Post</li>
+            onClick={this.toggleComp.bind(this,'post')}>new</li>
           </ul>
         </div>
         <div className="col-xs-10">

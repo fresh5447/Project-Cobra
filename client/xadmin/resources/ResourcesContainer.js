@@ -27,8 +27,17 @@ class ResourcesContainer extends React.Component {
 
   render() {
     return (
-      <div>
-        { this.renderComponent() }
+      <div className="container">
+      <div className="page-header">
+        <h6 className="">Resources</h6>
+      </div>
+        <div className="row">
+          <div className="col-xs-12">
+          {
+          this.renderComponent()
+          }
+          </div>
+        </div>
       </div>
     );
   }
