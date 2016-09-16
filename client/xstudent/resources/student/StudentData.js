@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 import AllResources from './AllResources';
 import Favorites from './Favorites';
 import Categories from './Categories';
@@ -19,10 +20,19 @@ class StudentData extends React.Component {
     this.setOneResource = this.setOneResource.bind(this);
   }
 
-  componentDidMount() {
-    this.loadStudentResources();
-    this.loadCategories();
+
+  componentWillMount(nextState, replace) {
+    this.context.getUser((data) => {
+      if (data.user === 'no user') {
+        alert('you must be signed in to view this');
+        return browserHistory.push('/login');
+      } else {
+        this.loadStudentResources();
+        this.loadCategories();
+      }
+    });
   }
+
   setCagegoryFilter(name) {
     this.setState({ catFilter: name, activeComp: 'categories' });
   }
@@ -133,8 +143,8 @@ class StudentData extends React.Component {
 
 StudentData.displayName = StudentData;
 
-// StudentData.propTypes = {
-//   resources: React.PropTypes.array.isRequired
-// };
-
+StudentData.contextTypes = {
+  getUser: React.PropTypes.func.isRequired,
+  sendNotification: React.PropTypes.func.isRequired,
+};
 export default StudentData;
