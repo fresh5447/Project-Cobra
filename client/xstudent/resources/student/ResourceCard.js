@@ -21,13 +21,12 @@ const ResourceCard = (props) => {
           > </i>
         </div>
         <div className="col-md-3 center-icon">
-          <i className={ props.internal ? 'fa fa-arrow-right' :
+          <i className={ props.kind === "internal" ? 'fa fa-arrow-right' :
           null } onClick={props.setOneResource.bind(this, props.id)} aria-hidden="true">
           </i>
-            <a href={props.link} target="_blank"><i className={ props.internal === false ? "fa fa-external-link" : null }>
-          </i>
-          </a>
-
+          {
+            props.kind === "external" ? <a href={props.link} target="_blank"><i className="fa fa-external-link"></i></a> : null
+          }
         </div>
         <div className="col-md-3 center-icon">
           { props.role === "student" ? <i className={ props.fav ? 'fa fa-heart my-heart' : 'fa fa-heart-o my-heart' }
@@ -36,10 +35,6 @@ const ResourceCard = (props) => {
             props.toggleFav.bind(this, props.id, 'post') }
           ></i> : null }
         </div>
-        <div className="col-md-3 center-icon">
-            { props.video ? <i className="fa fa-video-camera" aria-hidden="true"></i> : null}
-        </div>
-        { props.publish ? null : <p> Draft </p> }
       </div>
       <div className="resource-cats">
         { cats }

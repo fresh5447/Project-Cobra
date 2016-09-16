@@ -13,7 +13,7 @@ const AllResources = (props) => {
       toggleFav={props.toggleFav}
       fav={item.fav}
       setOneResource={props.setOneResource}
-      role={props.role}
+      role={"student"}
       kind={item.kind}
     />);
   });
