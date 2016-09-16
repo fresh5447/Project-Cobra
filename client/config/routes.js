@@ -10,13 +10,16 @@ import UserForgot from '../user/Forgot';
 import UserReset from '../user/Reset';
 
 // STUDENT
+import ProfileData from '../xstudent/dashboard/profile/ProfileAccountData';
+
+
 import ModulesData from '../modules/ModulesData';
 import OneCheckpointData from '../checkpoints/OneCheckpointData';
 import OneCheckpointContainer from '../checkpoints/OneCheckpointContainer';
 import StudentData from '../students/StudentsData.js';
 import AllSubmissionsData from '../submissions/AllSubmissionsData.js';
 import UserSubmissionsData from '../submissions/UserSubmissionsData.js';
-import ProfileData from '../profile/ProfileAccountData';
+
 import StudentResourcesPage from '../resources/student/StudentData';
 
 // ADMIN

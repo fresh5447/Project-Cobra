@@ -1,5 +1,5 @@
 import React from 'react';
-import NavLink from '../widgets/NavLink';
+import NavLink from '../../.././widgets/NavLink';
 import ViewProfile from './ViewProfile';
 import EditProfileView from './EditProfileView';
 

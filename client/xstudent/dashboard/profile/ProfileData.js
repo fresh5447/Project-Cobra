@@ -1,5 +1,5 @@
 import React from 'react';
-import NavLink from '../widgets/NavLink';
+import NavLink from '../../.././widgets/NavLink';
 
 class ProfileData extends React.Component {
   render() {
