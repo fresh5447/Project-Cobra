@@ -1,7 +1,6 @@
 import React from 'react';
 import AllResources from './AllResources';
 import Favorites from './Favorites';
-import PostData from '../PostResourceData';
 import Categories from './Categories';
 import ViewResource from './ViewResource';
 
@@ -60,14 +59,13 @@ class StudentData extends React.Component {
   showComponent() {
     if (this.state.resources && this.state.activeComp === 'all') {
       console.log(this.state.resources)
-      return (<AllResources role={this.props.role} setOneResource={this.setOneResource}
+      return (<AllResources setOneResource={this.setOneResource}
         toggleFav={this.toggleFav} resources={this.state.resources}
       />);
 
     } else if (this.state.resources && this.state.activeComp === 'favorites') {
       return (<Favorites setOneResource={this.setOneResource}
-        toggleFav={this.toggleFav}
-        resources={this.state.resources}
+        toggleFav={this.toggleFav} resources={this.state.resources}
       />);
 
     } else if (this.state.resources && this.state.activeComp === 'post') {
@@ -105,8 +103,6 @@ class StudentData extends React.Component {
             onClick={this.toggleComp.bind(this,'all')}>All</li>
             <li className={this.state.activeComp === 'favorites' ? 'activeResLink' : null}
             onClick={this.toggleComp.bind(this,'favorites')}>Favorites</li>
-            <li className={this.state.activeComp === 'post' ? 'activeResLink' : null}
-            onClick={this.toggleComp.bind(this,'post')}>Post</li>
           </ul>
         </div>
         <div className="container student-page-container">

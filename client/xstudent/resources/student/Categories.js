@@ -18,17 +18,16 @@ const Categories = (props) => {
   .map((item) => {
     console.log(item.internal)
     return (<ResourceCard
-      deleteResource={props.deleteResource}
       key={item._id}
       title={item.title}
-      desc={item.desc}
       link={item.link}
       categories={item.categories}
       id={item._id}
       toggleFav={props.toggleFav}
       fav={item.fav}
       setOneResource={props.setOneResource}
-      internal={item.internal}
+      role={"student"}
+      kind={item.kind}
     />);
   });
 
