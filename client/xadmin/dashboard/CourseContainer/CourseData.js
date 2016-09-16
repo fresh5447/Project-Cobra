@@ -1,6 +1,8 @@
 import React from 'react';
 import MiniNav from './MiniNav';
 import {browserHistory} from 'react-router';
+import Loader from '../../.././widgets/Loader';
+
 
 class CourseData extends React.Component {
   constructor(props, context) {
@@ -45,7 +47,7 @@ class CourseData extends React.Component {
         <div className="row">
           <div className="col-xs-4">
           {
-            this.state.courses ? <MiniNav courses={this.state.courses} /> : null
+            this.state.courses ? <MiniNav courses={this.state.courses} /> : <Loader />
           }
           </div>
           <div className="col-xs-8">

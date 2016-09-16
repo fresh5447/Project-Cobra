@@ -1,6 +1,7 @@
 import React from 'react';
 import ResourcesData from './ResourcesData.js';
 import { browserHistory } from 'react-router';
+import Loader from '../../widgets/Loader';
 
 class ResourcesContainer extends React.Component {
   constructor(props, context) {
@@ -33,7 +34,7 @@ class ResourcesContainer extends React.Component {
     if (this.state.user && this.state.user.local && this.state.user.local.role === 'admin') {
       return <ResourcesData role={ this.state.user.local.role} />;
     } else {
-      return null;
+      return <Loader />;
     }
   }
 

@@ -4,6 +4,7 @@ import AllResources from './AllResources';
 import Favorites from './Favorites';
 import Categories from './Categories';
 import ViewResource from './ViewResource';
+import Loader from '../../.././widgets/Loader';
 
 class StudentData extends React.Component {
   constructor(props, context) {
@@ -97,7 +98,7 @@ class StudentData extends React.Component {
       />);
 
     } else {
-      return null;
+      return <Loader />;
     }
   }
 

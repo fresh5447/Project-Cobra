@@ -1,6 +1,7 @@
 import React from 'react';
 import EditCheckpointForm from './EditCheckpointForm';
 import { browserHistory } from 'react-router';
+import Loader from '../../.././widgets/Loader';
 
 class EditCheckpointData extends React.Component {
   constructor(props, context) {
@@ -65,7 +66,7 @@ class EditCheckpointData extends React.Component {
       assignment={this.state.assignment}
       onFieldChange={this.onFieldChange}
       handleSubmit={this.handleSubmit}
-      /> : null
+      /> : <Loader />
     );
   }
 

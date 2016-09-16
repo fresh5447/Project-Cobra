@@ -1,6 +1,8 @@
 import React from 'react';
 import EditModuleForm from './EditModuleForm';
 import { browserHistory } from 'react-router';
+import Loader from '../../.././widgets/Loader';
+
 
 class EditModuleData extends React.Component {
   constructor(props, context) {
@@ -62,13 +64,14 @@ class EditModuleData extends React.Component {
   }
 
   render() {
-    return (this.state.title ? <EditModuleForm
-      title={this.state.title}
-      desc={this.state.desc}
-      hours={this.state.hours}
-      onFieldChange={this.onFieldChange}
-      handleSubmit={this.handleSubmit}
-      /> : null
+    return (this.state.title ?
+      <EditModuleForm
+        title={this.state.title}
+        desc={this.state.desc}
+        hours={this.state.hours}
+        onFieldChange={this.onFieldChange}
+        handleSubmit={this.handleSubmit}
+      /> : <Loader />
     );
   }
 

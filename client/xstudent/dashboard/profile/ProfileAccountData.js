@@ -3,6 +3,7 @@ import { browserHistory } from 'react-router';
 import NavLink from '../../.././widgets/NavLink';
 import ViewProfile from './ViewProfile';
 import EditProfileView from './EditProfileView';
+import Loader from '../../.././widgets/Loader';
 
 class ProfileAccountData extends React.Component {
   constructor(props, context) {
@@ -72,7 +73,7 @@ class ProfileAccountData extends React.Component {
         handleSubmit={this.handleSubmit}
       />);
     } else {
-      return null;
+      return <Loader />;
     }
   }
 

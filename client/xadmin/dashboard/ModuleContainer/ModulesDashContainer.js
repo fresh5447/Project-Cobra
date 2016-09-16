@@ -1,6 +1,7 @@
 import React from 'react';
 import MiniNav from './MiniNav';
 import NavLink from '../../.././widgets/NavLink';
+import Loader from '../../.././widgets/Loader';
 import { browserHistory } from 'react-router';
 
 
@@ -48,7 +49,7 @@ class ModulesDashContainer extends React.Component {
         <div className="row">
           <div className="col-xs-4">
           {
-            this.state.modules ? <MiniNav courseId={this.props.params.course_id} modules={this.state.modules} /> : null
+            this.state.modules ? <MiniNav courseId={this.props.params.course_id} modules={this.state.modules} /> : <Loader />
           }
           </div>
           <div className="col-xs-8">

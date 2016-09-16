@@ -1,6 +1,7 @@
 import React from 'react';
 import MiniNav from './MiniNav';
 import NavLink from '../../.././widgets/NavLink';
+import Loader from '../../.././widgets/Loader';
 
 class CheckpointsDashContainer extends React.Component {
   constructor(props, context) {
@@ -38,7 +39,7 @@ class CheckpointsDashContainer extends React.Component {
         <div className="row">
           <div className="col-xs-4">
           {
-            this.state.checkpoints ? <MiniNav modId={this.props.params.module_id} checkpoints={this.state.checkpoints} /> : null
+            this.state.checkpoints ? <MiniNav modId={this.props.params.module_id} checkpoints={this.state.checkpoints} /> : <Loader />
           }
           </div>
           <div className="col-xs-8">

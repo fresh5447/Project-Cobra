@@ -2,6 +2,7 @@ import React from 'react';
 import ModuleView from './ModuleView';
 import EditModuleData from './EditModuleData';
 import NavLink from '../../.././widgets/NavLink';
+import Loader from '../../.././widgets/Loader';
 import { browserHistory } from 'react-router';
 
 class ActiveModuleContainer extends React.Component {
@@ -59,7 +60,7 @@ class ActiveModuleContainer extends React.Component {
     } else if (this.state.module && this.state.activeComp === 'edit') {
       return <EditModuleData modId={this.state.modId} module={this.state.module} />
     } else {
-      return null
+      return <Loader />
     }
   }
   render() {

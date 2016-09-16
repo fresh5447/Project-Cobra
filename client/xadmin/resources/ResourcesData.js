@@ -3,6 +3,7 @@ import AllResources from './AllResources';
 import PostData from './PostResourceData';
 import Categories from './Categories';
 import ViewResource from './ViewResource';
+import Loader from '../../widgets/Loader';
 
 class ResourcesData extends React.Component {
   constructor(props, context) {
@@ -91,7 +92,7 @@ class ResourcesData extends React.Component {
       />);
 
     } else {
-      return null;
+      return <Loader />;
     }
   }
 

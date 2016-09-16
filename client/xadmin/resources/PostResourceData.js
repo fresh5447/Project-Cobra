@@ -2,6 +2,7 @@ import React from 'react';
 import PostResourceForm from './PostResourceForm';
 import { browserHistory } from 'react-router';
 import ExternalResourceForm from './ExternalResourceForm';
+import Loader from '../../widgets/Loader';
 
 class PostResourceData extends React.Component {
   constructor(props) {
@@ -89,7 +90,7 @@ class PostResourceData extends React.Component {
               resCats={this.state.resCats}
             />)
     } else {
-      return null;
+      return <Loader />;
     }
   }
 

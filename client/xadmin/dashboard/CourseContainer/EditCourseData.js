@@ -1,6 +1,8 @@
 import React from 'react';
 import EditCourseForm from './EditCourseForm';
 import { browserHistory } from 'react-router';
+import Loader from '../../.././widgets/Loader';
+
 
 class EditCourseData extends React.Component {
   constructor(props, context) {
@@ -88,7 +90,7 @@ class EditCourseData extends React.Component {
       onFieldChange={this.onFieldChange}
       handleSubmit={this.handleSubmit}
       desc={this.state.desc}
-      /> : null
+      /> : <Loader />
     );
   }
 

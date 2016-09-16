@@ -1,6 +1,7 @@
 import React from 'react';
 import ModulesList from './ModulesList';
 import { browserHistory } from 'react-router';
+import Loader from '../../widgets/Loader';
 
 class ModulesData extends React.Component {
   constructor(props, context) {
@@ -38,7 +39,7 @@ class ModulesData extends React.Component {
   }
 
   render() {
-    return this.state.modules ? <ModulesList course={this.state.course} modules={this.state.modules} /> : null;
+    return this.state.modules ? <ModulesList course={this.state.course} modules={this.state.modules} /> : <Loader />;
   }
 
 }

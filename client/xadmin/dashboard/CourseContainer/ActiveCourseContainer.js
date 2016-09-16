@@ -2,7 +2,8 @@ import React from 'react';
 import CourseView from './CourseView';
 import EditCourseData from './EditCourseData';
 import NavLink from '../../.././widgets/NavLink';
-import {browserHistory} from 'react-router';
+import Loader from '../../.././widgets/Loader';
+import { browserHistory } from 'react-router';
 
 
 
@@ -55,7 +56,7 @@ class ActiveCourseContainer extends React.Component {
     } else if (this.state.course && this.state.activeComp === 'edit') {
       return <EditCourseData course={this.state.course} />
     } else {
-      return null
+      return <Loader />
     }
   }
   render() {
