@@ -1,5 +1,4 @@
 import React from 'react';
-// import CheckPoints from './CheckPoints';
 import NavLink from '../../widgets/NavLink';
 
 const ModuleCard = (props) => {

@@ -12,10 +12,10 @@ import UserReset from '../user/Reset';
 // STUDENT
 import ProfileData from '../xstudent/dashboard/profile/ProfileAccountData';
 import ModulesData from '../xstudent/modules/ModulesData';
+import OneCheckpointData from '../xstudent/checkpoints/OneCheckpointData';
+import OneCheckpointContainer from '../xstudent/checkpoints/OneCheckpointContainer';
 
 
-import OneCheckpointData from '../checkpoints/OneCheckpointData';
-import OneCheckpointContainer from '../checkpoints/OneCheckpointContainer';
 import StudentData from '../students/StudentsData.js';
 import AllSubmissionsData from '../submissions/AllSubmissionsData.js';
 import UserSubmissionsData from '../submissions/UserSubmissionsData.js';

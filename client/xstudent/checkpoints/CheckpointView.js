@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import NavLink from '../widgets/NavLink';
+import NavLink from '../../widgets/NavLink';
 import SubmissionData from '../submissions/SubmissionData';
 
 const CheckpointView = (props) =>
@@ -81,17 +81,6 @@ const CheckpointView = (props) =>
 
       </div>
 
-    </div>
-
-    <div className="card profile-card">
-      <div className="card-block lg-card-block">
-        <h4 className="card-title">Resources</h4>
-      </div>
-      <ul className="list-group list-group-flush">
-        <li className="list-group-item">Fullstack JavaScript <i className="fa fa-arrow-right"> </i></li>
-        <li className="list-group-item">Cyber Security <i className="fa fa-arrow-right"> </i></li>
-        <li className="list-group-item">Database Administration <i className="fa fa-arrow-right"> </i></li>
-      </ul>
     </div>
 
   </div>
