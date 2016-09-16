@@ -52,14 +52,14 @@ class StudentData extends React.Component {
   loadStudentResources = () => $.get('/api/v1/resources/student',
     (data) => {
       const studentResources = data.filter((item) => item.publish);
-      this.setState({ resources: studentResources });
+      this.setState({ resources: data });
     });
 
 
 
   showComponent() {
     if (this.state.resources && this.state.activeComp === 'all') {
-
+      console.log(this.state.resources)
       return (<AllResources role={this.props.role} setOneResource={this.setOneResource}
         toggleFav={this.toggleFav} resources={this.state.resources}
       />);

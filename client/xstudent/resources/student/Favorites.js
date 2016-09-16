@@ -1,23 +1,23 @@
 import React from 'react';
 import ResourceCard from './ResourceCard';
 
-const AllResources = (props) => {
+const Favorites = (props) => {
   const resources = props.resources
+  .filter((thing) => thing.fav)
   .map((item) => {
+    console.log(item.internal)
     return (<ResourceCard
       deleteResource={props.deleteResource}
       key={item._id}
       title={item.title}
+      desc={item.desc}
       link={item.link}
       categories={item.categories}
       id={item._id}
       toggleFav={props.toggleFav}
       fav={item.fav}
       internal={item.internal}
-      publish={item.publish}
       setOneResource={props.setOneResource}
-      role={props.role}
-      video={item.video}
     />);
   });
 
@@ -31,6 +31,12 @@ const AllResources = (props) => {
 
 };
 
-AllResources.displayName = 'AllResources';
+Favorites.displayName = Favorites;
 
-export default AllResources;
+Favorites.propTypes = {
+  deleteResource: React.PropTypes.func.isRequired,
+  toggleFav: React.PropTypes.func.isRequired,
+  resources: React.PropTypes.array.isRequired
+};
+
+export default Favorites;

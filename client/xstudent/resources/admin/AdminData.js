@@ -1,28 +1,31 @@
 import React from 'react';
-import AllResources from './AllResources';
-import Favorites from './Favorites';
+import AllResources from '../student/AllResources';
 import PostData from '../PostResourceData';
-import Categories from './Categories';
-import ViewResource from './ViewResource';
+import Categories from '../student/Categories';
+import ViewResource from '../student/ViewResource';
+import Drafts from './Drafts';
 
-class StudentData extends React.Component {
+class AdminData extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
       resources: null,
       activeComp: 'all',
       catFilter: null,
-      resource: null
+      resource: null,
+      adminResources: null
     };
     this.toggleFav = this.toggleFav.bind(this);
     this.toggleComp = this.toggleComp.bind(this);
     this.loadStudentResources = this.loadStudentResources.bind(this);
     this.setOneResource = this.setOneResource.bind(this);
+    this.deleteResource = this.deleteResource.bind(this);
   }
 
   componentDidMount() {
     this.loadStudentResources();
     this.loadCategories();
+    this.loadAdminResources();
   }
   setCagegoryFilter(name) {
     this.setState({ catFilter: name, activeComp: 'categories' });
@@ -51,23 +54,42 @@ class StudentData extends React.Component {
 
   loadStudentResources = () => $.get('/api/v1/resources/student',
     (data) => {
-      const studentResources = data.filter((item) => item.publish);
-      this.setState({ resources: studentResources });
+      if (this.props.role === "student"){
+        const studentResources = data.filter((item) => item.publish);
+        this.setState({ resources: studentResources });
+      } else {
+        this.setState({ resources: data });
+      }
+
     });
+
+  loadAdminResources = () => $.get('/api/v1/resources/student',
+    (data) => {
+      this.setState({ adminResources: data });
+    });
+
+  deleteResource(id) {
+    if (confirm('must you deletet')) {
+      $.ajax({
+        url: `/api/v1/resources/id/${id}`,
+        method: 'DELETE'
+      }).done((d) => {
+        console.log(d, 'deleted');
+        this.context.sendNotification('Resource Deleted');
+        this.loadStudentResources();
+      });
+    }
+
+  }
 
 
 
   showComponent() {
     if (this.state.resources && this.state.activeComp === 'all') {
 
-      return (<AllResources role={this.props.role} setOneResource={this.setOneResource}
+      return (<AllResources role={this.props.role} deleteResource={this.deleteResource}
+        setOneResource={this.setOneResource}
         toggleFav={this.toggleFav} resources={this.state.resources}
-      />);
-
-    } else if (this.state.resources && this.state.activeComp === 'favorites') {
-      return (<Favorites setOneResource={this.setOneResource}
-        toggleFav={this.toggleFav}
-        resources={this.state.resources}
       />);
 
     } else if (this.state.resources && this.state.activeComp === 'post') {
@@ -95,39 +117,30 @@ class StudentData extends React.Component {
 
   render() {
     const cats = this.state.categories ? this.state.categories.map((item) =>
-      <li key={item._id} className={this.state.catFilter === item.name ? 'activeResLink list-group-item' : 'list-group-item'}
+      <li key={item._id} className={this.state.catFilter === item.name ? 'activeResLink' : null}
       onClick={this.setCagegoryFilter.bind(this, item.name)}>{item.name}</li>) : null;
     return (
-      <div>
-        <div className="page-header">
+      <div className="container student-page-container">
+        <div className="row resources-nav">
           <ul className="">
-            <li className={this.state.activeComp === 'all' ? 'activeResLink' : null}
+            <li key={33} className={this.state.activeComp === 'all' ? 'activeResLink' : null}
             onClick={this.toggleComp.bind(this,'all')}>All</li>
-            <li className={this.state.activeComp === 'favorites' ? 'activeResLink' : null}
-            onClick={this.toggleComp.bind(this,'favorites')}>Favorites</li>
-            <li className={this.state.activeComp === 'post' ? 'activeResLink' : null}
+            {/*<li key={34} className={this.state.activeComp === 'drafts' ? 'activeResLink' : null}
+            onClick={this.toggleComp.bind(this,'drafts')}>Drafts</li>*/}
+            <li key={35} className={this.state.activeComp === 'post' ? 'activeResLink' : null}
             onClick={this.toggleComp.bind(this,'post')}>Post</li>
           </ul>
         </div>
-        <div className="container student-page-container">
-          <div className="row">
-            <div className="col-xs-3">
-              <div className="card one-module-card">
-                <div className="card-block res-card-block">
-                  <h6 className="card-title res-title">categories</h6>
-                </div>
-                <div className="card-block modules-card-body">
-                <ul className="list-group tags-group">
-                  { cats }
-                </ul>
-                </div>
-              </div>
-
-            </div>
-            <div className="col-xs-9">
-              { this.showComponent() }
-            </div>
+        <div className="col-xs-2">
+          <div className="cats-container">
+            <h6>Categories</h6>
+            <ul>
+              { cats }
+            </ul>
           </div>
+        </div>
+        <div className="col-xs-10">
+          { this.showComponent() }
         </div>
       </div>
     );
@@ -135,10 +148,14 @@ class StudentData extends React.Component {
 
 }
 
-StudentData.displayName = StudentData;
+AdminData.displayName = AdminData;
 
-// StudentData.propTypes = {
+AdminData.contextTypes = {
+  sendNotification: React.PropTypes.func.isRequired
+};
+
+// AdminData.propTypes = {
 //   resources: React.PropTypes.array.isRequired
 // };
 
-export default StudentData;
+export default AdminData;

@@ -14,13 +14,13 @@ import ProfileData from '../xstudent/dashboard/profile/ProfileAccountData';
 import ModulesData from '../xstudent/modules/ModulesData';
 import OneCheckpointData from '../xstudent/checkpoints/OneCheckpointData';
 import OneCheckpointContainer from '../xstudent/checkpoints/OneCheckpointContainer';
-
+import StudentResourcesPage from '../xstudent/resources/student/StudentData';
 
 import StudentData from '../students/StudentsData.js';
 import AllSubmissionsData from '../submissions/AllSubmissionsData.js';
 import UserSubmissionsData from '../submissions/UserSubmissionsData.js';
 
-import StudentResourcesPage from '../resources/student/StudentData';
+
 
 // ADMIN
 import ResourcesContainer from '../xadmin/resources/ResourcesContainer';

@@ -8,16 +8,13 @@ const AllResources = (props) => {
       deleteResource={props.deleteResource}
       key={item._id}
       title={item.title}
+      desc={item.desc}
       link={item.link}
       categories={item.categories}
       id={item._id}
-      toggleFav={props.toggleFav}
-      fav={item.fav}
-      internal={item.internal}
-      publish={item.publish}
+      makeFave={props.makeFave}
       setOneResource={props.setOneResource}
-      role={props.role}
-      video={item.video}
+      kind={item.kind}
     />);
   });
 
@@ -31,6 +28,5 @@ const AllResources = (props) => {
 
 };
 
-AllResources.displayName = 'AllResources';
-
+AllResources.displayName = AllResources;
 export default AllResources;
