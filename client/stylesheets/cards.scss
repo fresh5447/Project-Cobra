@@ -198,3 +198,25 @@
 .color-me-black {
   color: black !important;
 }
+
+.admin-card-title {
+  text-align: center;
+  border-bottom: solid 1px black;
+  padding-bottom: 3%;
+}
+
+.admin-card-text {
+  text-align: left;
+  padding-left: 5%;
+  font-size: 22px;
+}
+
+.sub-text {
+  font-size: 16px;
+  color: gray;
+  padding-right: 3%;
+}
+
+.gimme-margin {
+  margin: 3%;
+}
