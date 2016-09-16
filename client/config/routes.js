@@ -17,7 +17,7 @@ import StudentData from '../students/StudentsData.js';
 import AllSubmissionsData from '../submissions/AllSubmissionsData.js';
 import UserSubmissionsData from '../submissions/UserSubmissionsData.js';
 import ProfileData from '../profile/ProfileAccountData';
-import StudentResourcesPage from '../resources/ResourcesPage';
+import StudentResourcesPage from '../resources/student/StudentData';
 
 // ADMIN
 import ResourcesContainer from '../xadmin/resources/ResourcesContainer';

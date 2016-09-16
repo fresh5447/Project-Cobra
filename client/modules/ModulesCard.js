@@ -13,7 +13,7 @@ const ModuleCard = (props) => {
       </div>
       <div className="row">
       <i className="" type="button">
-      { props.live ?  <NavLink className="fa  fa-arrow-right bottom-right-icon" to={'/modules/' + props.id }> </NavLink> : <p className="restricted"> content restricted </p> }
+        <NavLink className="fa  fa-arrow-right bottom-right-icon" to={'/modules/' + props.id }> </NavLink>
       </i>
       {props.complete ? <i className='fa  fa-check-square-o bottom-left-icon'> </i> : null}
       </div>

@@ -8,9 +8,6 @@ const StudentNav = (props) =>
       <img className="navbar-brand" src="/images/navbar-logo.png" />
       <ul className="nav navbar-nav">
         <li className="nav-item">
-          <NavLink className="nav-link" to="/modules" onlyActiveOnIndex>course</NavLink>
-        </li>
-        <li className="nav-item">
           <NavLink className="nav-link" to="/resources">resources</NavLink>
         </li>
         {/*<li className="nav-item">

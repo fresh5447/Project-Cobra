@@ -14,6 +14,7 @@ class ResourcesPage extends React.Component {
 
   componentDidMount() {
     this.loadUser();
+    window.u = this.state.user;
   }
 
   loadUser = () => this.context.getUser((data) => this.setState({ user: data }))
@@ -33,7 +34,7 @@ class ResourcesPage extends React.Component {
   render() {
     return (
       <div>
-        { this.renderComponent() }
+        <StudentData role={ this.state.user.local.role} toggleFav={this.toggleFav} />;
       </div>
     );
   }

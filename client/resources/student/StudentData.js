@@ -21,6 +21,7 @@ class StudentData extends React.Component {
   }
 
   componentDidMount() {
+    console.log('did I mount?')
     this.loadStudentResources();
     this.loadCategories();
   }
@@ -98,6 +99,7 @@ class StudentData extends React.Component {
     const cats = this.state.categories ? this.state.categories.map((item) =>
       <li key={item._id} className={this.state.catFilter === item.name ? 'activeResLink list-group-item' : 'list-group-item'}
       onClick={this.setCagegoryFilter.bind(this, item.name)}>{item.name}</li>) : null;
+      console.log(cats)
     return (
       <div>
         <div className="page-header">HELLO
