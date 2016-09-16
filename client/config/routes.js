@@ -34,6 +34,7 @@ import ActiveCheckpointData from '../xadmin/dashboard/CheckpointContainer/Active
 import PostCheckpointData from '../xadmin/dashboard/CheckpointContainer/PostCheckpointData';
 import EditCheckpointData from '../xadmin/dashboard/CheckpointContainer/EditCheckpointData';
 import StudentContainer from '../xadmin/students/StudentsContainer';
+import OneStudentData from '../xadmin/students/OneStudentData';
 
 
 var routes = (
@@ -61,6 +62,7 @@ var routes = (
 
       {/*STUDENTS*/}
       <Route path="/admin/students" component={StudentContainer} />
+      <Route path="/admin/student/view/:student_id" component={OneStudentData} />
       <Route path="/admin/submissions" component={AllSubmissionsData} />
 
 

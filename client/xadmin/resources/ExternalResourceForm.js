@@ -8,8 +8,8 @@ const PostResourceForm = (props) => {
 
   return (
       <div className="container">
-        <form onSubmit={props.handleSubmit} >
-          <h4> Internal Post</h4>
+        <form onSubmit={props.handleSubmit}>
+          <h4> External Resource </h4>
           <fieldset className="form-group">
             <label>title</label>
             <input onChange={ (event) => props.onFieldChange('title', event.target.value)}
@@ -17,14 +17,11 @@ const PostResourceForm = (props) => {
             />
           </fieldset>
           <fieldset className="form-group">
-            <label>content</label>
-            <textarea onChange={ (event) => props.onFieldChange('content', event.target.value)}
-              className="form-control" value={props.content} rows="3"
-            ></textarea>
+            <label>link</label>
+            <input onChange={ (event) => props.onFieldChange('link', event.target.value)}
+              type="text" className="form-control" id="" placeholder="..."
+            />
           </fieldset>
-          <div className="card card-block inner-checkpoint-cardblock">
-            <ReactMarkdown source={props.content} />
-          </div>
           <fieldset className="form-group">
             <label>categories: click to add</label>
             <ul>

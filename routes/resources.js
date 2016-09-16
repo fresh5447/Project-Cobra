@@ -126,6 +126,7 @@ Router.route('/')
     });
   })
   .post((req, res) => {
+    console.log("ARE YOU EVEN GETTING HERE???")
     const resource = new Resource({
       title: req.body.title,
       video: req.body.video,

@@ -1,13 +1,11 @@
 import React from 'react';
+import NavLink from '../../widgets/NavLink';
 
 const AllStudentsTable = (props) => {
   const students = props.students.map((item) =>
     (
-        <tr >
-          <th>{ item.local.email }</th>
-          <td>{ item.local.username }</td>
-          <td>{ 'true' }</td>
-          <td> full-stack </td>
+        <tr>
+          <th><NavLink to={'/admin/student/view/' + item._id}>{ item.local.email }</NavLink></th>
         </tr>
       )
   );
@@ -18,9 +16,6 @@ const AllStudentsTable = (props) => {
         <thead className="thead-inverse">
           <tr>
             <th className="my-thead">email</th>
-            <th className="my-thead">username</th>
-            <th className="my-thead">course</th>
-            <th className="my-thead"> enrolled </th>
           </tr>
         </thead>
         <tbody>
@@ -31,12 +26,12 @@ const AllStudentsTable = (props) => {
       <form className="form-inline">
         <h5> Invite Student </h5>
           <div className="form-group">
-            <input type="text" className="form-control" placeholder="Jane Doe" />
+            <input type="text" className="form-control" placeholder="Jane Doe" disabled />
           </div>
           <div className="form-group">
-            <input type="email" className="form-control" placeholder="jane.doe@example.com" />
+            <input type="email" className="form-control" placeholder="jane.doe@example.com" disabled />
           </div>
-          <button type="submit" className="btn btn-primary form-primary-btn">
+          <button type="submit" className="btn btn-primary form-primary-btn" disabled>
             Send invitation
           </button>
         </form>

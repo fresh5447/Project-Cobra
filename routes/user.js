@@ -13,6 +13,7 @@ module.exports = function(app, passport) {
       console.log('sign up post', info);
       if (err) { return next(err); }
       if (!user) { return res.status(404).json(info.message);}
+      console.log(req.body.email, 'HERE IS THE EMAIL')
       req.logIn(user, function(err) {
         if (err) { return next(err); }
         return res.json({message: "Success! You are all signed up.", user: user});

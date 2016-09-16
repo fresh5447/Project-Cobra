@@ -52,7 +52,7 @@ class UserSignin extends React.Component {
 
           </div>
           <div className="col-xs-6 col-xs-offset-3">
-            <h1>student login</h1>
+            <h1>login</h1>
             <form onSubmit={this.submitUserToServer}>
               <fieldset className="form-group">
                 <input onChange={this.handleEmailChange} type="email" className="form-control" placeholder="email"/>

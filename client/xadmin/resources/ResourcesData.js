@@ -3,9 +3,8 @@ import AllResources from './AllResources';
 import PostData from './PostResourceData';
 import Categories from './Categories';
 import ViewResource from './ViewResource';
-import Drafts from './Drafts';
 
-class AdminData extends React.Component {
+class ResourcesData extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -13,19 +12,19 @@ class AdminData extends React.Component {
       activeComp: 'all',
       catFilter: null,
       resource: null,
-      adminResources: null
+      adminResources: null,
+      categories: null
     };
-    this.toggleFav = this.toggleFav.bind(this);
-    this.toggleComp = this.toggleComp.bind(this);
-    this.loadStudentResources = this.loadStudentResources.bind(this);
     this.setOneResource = this.setOneResource.bind(this);
     this.deleteResource = this.deleteResource.bind(this);
+    this.setCagegoryFilter = this.setCagegoryFilter.bind(this);
+    this.toggleComp = this.toggleComp.bind(this);
+
   }
 
   componentDidMount() {
-    this.loadStudentResources();
+    this.loadResources();
     this.loadCategories();
-    this.loadAdminResources();
   }
   setCagegoryFilter(name) {
     this.setState({ catFilter: name, activeComp: 'categories' });
@@ -45,27 +44,9 @@ class AdminData extends React.Component {
 
   toggleComp = (name) => this.setState({ activeComp: name, catFilter: null });
 
-  toggleFav = (id, action) => {
-    $.ajax({
-      url: `/api/v1/resources/student/favorite/${id}/${action}`,
-      method: 'PUT'
-    }).done((d) => this.loadStudentResources());
-  }
-
-  loadStudentResources = () => $.get('/api/v1/resources/student',
+  loadResources = () => $.get('/api/v1/resources',
     (data) => {
-      if (this.props.role === "student"){
-        const studentResources = data.filter((item) => item.publish);
-        this.setState({ resources: studentResources });
-      } else {
-        this.setState({ resources: data });
-      }
-
-    });
-
-  loadAdminResources = () => $.get('/api/v1/resources/student',
-    (data) => {
-      this.setState({ adminResources: data });
+      this.setState({ resources: data });
     });
 
   deleteResource(id) {
@@ -76,10 +57,9 @@ class AdminData extends React.Component {
       }).done((d) => {
         console.log(d, 'deleted');
         this.context.sendNotification('Resource Deleted');
-        this.loadStudentResources();
+        this.loadResources();
       });
     }
-
   }
 
 
@@ -87,27 +67,27 @@ class AdminData extends React.Component {
   showComponent() {
     if (this.state.resources && this.state.activeComp === 'all') {
 
-      return (<AllResources role={this.props.role} deleteResource={this.deleteResource}
-        setOneResource={this.setOneResource}
-        toggleFav={this.toggleFav} resources={this.state.resources}
+      return (<AllResources deleteResource={this.deleteResource}
+        setOneResource={this.setOneResource} toggleComp={this.toggleComp}
+        resources={this.state.resources}
       />);
 
     } else if (this.state.resources && this.state.activeComp === 'post') {
 
-      return (<PostData loadStudentResources={this.loadStudentResources}
-        toggleFav={this.toggleFav} toggleComp={this.toggleComp}
+      return (<PostData loadStudentResources={this.loadResources}
+        toggleComp={this.toggleComp}
       />);
 
     } else if (this.state.resources &&
       this.state.activeComp === 'categories' && this.state.catFilter) {
-      return (<Categories setOneResource={this.setOneResource} toggleFav={this.toggleFav}
+      return (<Categories setOneResource={this.setOneResource}
         resources={this.state.resources} catFilter={this.state.catFilter}
       />);
 
     } else if (this.state.resource &&
        this.state.activeComp === 'viewOne') {
       return (<ViewResource resource={this.state.resource}
-        toggleFav={this.toggleFav} catFilter={this.state.catFilter}
+        catFilter={this.state.catFilter}
       />);
 
     } else {
@@ -125,19 +105,9 @@ class AdminData extends React.Component {
           <ul className="">
             <li key={33} className={this.state.activeComp === 'all' ? 'activeResLink' : null}
             onClick={this.toggleComp.bind(this,'all')}>All</li>
-            {/*<li key={34} className={this.state.activeComp === 'drafts' ? 'activeResLink' : null}
-            onClick={this.toggleComp.bind(this,'drafts')}>Drafts</li>*/}
             <li key={35} className={this.state.activeComp === 'post' ? 'activeResLink' : null}
             onClick={this.toggleComp.bind(this,'post')}>Post</li>
           </ul>
-        </div>
-        <div className="col-xs-2">
-          <div className="cats-container">
-            <h6>Categories</h6>
-            <ul>
-              { cats }
-            </ul>
-          </div>
         </div>
         <div className="col-xs-10">
           { this.showComponent() }
@@ -148,14 +118,11 @@ class AdminData extends React.Component {
 
 }
 
-AdminData.displayName = AdminData;
+ResourcesData.displayName = ResourcesData;
 
-AdminData.contextTypes = {
+ResourcesData.contextTypes = {
   sendNotification: React.PropTypes.func.isRequired
 };
 
-// AdminData.propTypes = {
-//   resources: React.PropTypes.array.isRequired
-// };
 
-export default AdminData;
+export default ResourcesData;

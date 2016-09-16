@@ -1,6 +1,7 @@
 import React from 'react';
 import PostResourceForm from './PostResourceForm';
 import { browserHistory } from 'react-router';
+import ExternalResourceForm from './ExternalResourceForm';
 
 class PostResourceData extends React.Component {
   constructor(props) {
@@ -15,9 +16,8 @@ class PostResourceData extends React.Component {
       video: null,
       link: null,
       categories: null,
-      internal: null,
-      publish: null,
-      resCats: []
+      resCats: [],
+      typeOfResource: null,
     };
 
   }
@@ -44,20 +44,17 @@ class PostResourceData extends React.Component {
     this.context.sendNotification(`${item.name} Added`);
   }
 
-  handleSubmit(e) {
-    const int = true ? this.state.internal === "on" : false;
-    const pub = true ? this.state.publish === "on" : false;
+  handleSubmit(e, kind) {
+    console.log('ABIYT TI SIYVGBDSA', kind)
     e.preventDefault();
     const data = {
       title: this.state.title,
       content: this.state.content,
       video: this.state.video,
       link: this.state.link,
-      internal: int,
-      publish: pub,
-      categories: this.state.resCats
+      categories: this.state.resCats,
+      kind: this.state.typeOfResource
     };
-    console.log('data', data);
     $.ajax({
       url: '/api/v1/resources',
       method: 'POST',
@@ -69,15 +66,43 @@ class PostResourceData extends React.Component {
     });
   }
 
+  updateTypeOfPost(t) {
+    this.setState({ typeOfResource: t })
+  }
+
+  showProperForm() {
+    if(this.state.typeOfResource === "internal") {
+      return (<PostResourceForm
+              onFieldChange={(...args) => this.onFieldChange(...args)}
+              handleSubmit={this.handleSubmit}
+              categories={this.state.categories}
+              addToCats={this.addToCats}
+              resCats={this.state.resCats}
+              content={this.state.content}
+            />)
+    } else if (this.state.typeOfResource === "external") {
+      return (<ExternalResourceForm
+              onFieldChange={(...args) => this.onFieldChange(...args)}
+              handleSubmit={this.handleSubmit}
+              categories={this.state.categories}
+              addToCats={this.addToCats}
+              resCats={this.state.resCats}
+            />)
+    } else {
+      return null;
+    }
+  }
+
   render() {
-    return <PostResourceForm
-    onFieldChange={(...args) => this.onFieldChange(...args)}
-    handleSubmit={this.handleSubmit}
-    categories={this.state.categories}
-    addToCats={this.addToCats}
-    resCats={this.state.resCats}
-    content={this.state.content}
-    />;
+    return (
+      <div>
+      <p>What type of resource?</p>
+      <button onClick={this.updateTypeOfPost.bind(this, 'internal')}>Internal Post</button>
+      <button onClick={this.updateTypeOfPost.bind(this, 'external')}>External Link</button>
+      { this.showProperForm()}
+
+      </div>
+    )
   }
 
 }

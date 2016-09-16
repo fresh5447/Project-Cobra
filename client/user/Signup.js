@@ -53,17 +53,17 @@ class Signup extends React.Component {
               <NavLink className="btn btn-primary  register-btn pull-right" to="/login">login</NavLink>
           </div>
           <div className="col-xs-6 col-xs-offset-3">
-            <h1>student registration</h1>
-            <p>pre-approved students only</p>
+            <h1>registration</h1>
+            <p>pre-approved members only</p>
             <form onSubmit={this.submitUserToServer}>
               <fieldset className="form-group">
-                <input onChange={this.handleFirstNameChange} type="text" className="form-control" placeholder="john"/>
+                <input onChange={this.handleFirstNameChange} type="text" className="form-control" placeholder="first"/>
               </fieldset>
               <fieldset className="form-group">
-                <input onChange={this.handleLastNameChange} type="text" className="form-control" placeholder="doe"/>
+                <input onChange={this.handleLastNameChange} type="text" className="form-control" placeholder="last"/>
               </fieldset>
               <fieldset className="form-group">
-                <input onChange={this.handleEmailChange} type="email" className="form-control" placeholder="john@doe.com"/>
+                <input onChange={this.handleEmailChange} type="email" className="form-control" placeholder="email"/>
               </fieldset>
               <fieldset className="form-group">
                 <input onChange={this.handlePasswordChange} type="password" className="form-control" id="" placeholder="password"/>

@@ -18,6 +18,8 @@ const AllResources = (props) => {
       setOneResource={props.setOneResource}
       role={props.role}
       video={item.video}
+      kind={item.kind}
+      toggleComp={props.toggleComp}
     />);
   });
 
@@ -33,11 +35,5 @@ const AllResources = (props) => {
 
 AllResources.displayName = 'AmIAllResources';
 
-AllResources.propTypes = {
-  setOneResource: React.PropTypes.func.isRequired,
-  toggleFav: React.PropTypes.func.isRequired,
-  resources: React.PropTypes.array.isRequired,
-  role: React.PropTypes.string.isRequired,
-};
 
 export default AllResources;
