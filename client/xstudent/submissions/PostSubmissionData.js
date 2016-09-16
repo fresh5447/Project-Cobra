@@ -31,6 +31,7 @@ class PostSubmissionData extends React.Component {
     }).done((d) => {
       console.log(d, "Success");
       this.context.sendNotification('Submission SuBmItTed');
+      location.reload();
     });
   }
   render() {

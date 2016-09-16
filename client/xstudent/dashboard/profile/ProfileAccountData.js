@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 import NavLink from '../../.././widgets/NavLink';
 import ViewProfile from './ViewProfile';
 import EditProfileView from './EditProfileView';
@@ -23,8 +24,16 @@ class ProfileAccountData extends React.Component {
     this.onFieldChange = this.onFieldChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  componentWillMount() {
-    this.loadUser();
+
+  componentWillMount(nextState, replace) {
+    this.context.getUser((data) => {
+      if (data.user === 'no user') {
+        alert('you must be signed in to view this');
+        return browserHistory.push('/login');
+      } else {
+        return this.setState({ user: data });
+      }
+    });
   }
   onFieldChange(fieldName, fieldValue) {
     const newState = {};
@@ -49,9 +58,6 @@ class ProfileAccountData extends React.Component {
     }).done((d) => this.context.sendNotification('Profile Edit Success'));
   }
 
-  loadUser() {
-    this.context.getUser((data) => this.setState({ user: data }));
-  }
 
   changeActiveComp(name) {
     this.setState({ activeComp: name });

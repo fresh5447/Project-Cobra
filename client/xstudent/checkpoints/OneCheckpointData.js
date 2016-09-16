@@ -1,5 +1,6 @@
 import React from 'react';
 import CheckpointView from './CheckpointView';
+import { browserHistory } from 'react-router';
 
 class OneCheckpointData extends React.Component {
   constructor(props, context) {
@@ -12,9 +13,17 @@ class OneCheckpointData extends React.Component {
 
   }
 
-  componentWillMount() {
-    this.loadCheckpoint();
-    this.context.getUser((data) => this.setState({ user: data }));
+
+  componentWillMount(nextState, replace) {
+    this.context.getUser((data) => {
+      if (data.user === 'no user') {
+        alert('you must be an signed in to view this');
+        return browserHistory.push('/login');
+      } else {
+        this.setState({ user: data });
+        return this.loadCheckpoint();
+      }
+    });
   }
 
   componentWillReceiveProps() {
