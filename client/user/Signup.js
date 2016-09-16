@@ -39,7 +39,7 @@ class Signup extends React.Component {
       method: 'POST'
     }).success((data) => {
       this.context.sendNotification(data.message);
-      window.location = '/modules';
+      window.location = '/dashboard';
     })
       .error((data) => this.context.sendNotification(data.responseText));
   }

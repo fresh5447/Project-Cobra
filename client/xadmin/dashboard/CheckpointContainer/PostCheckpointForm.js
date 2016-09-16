@@ -25,32 +25,27 @@ const PostCheckpointForm = (props) =>
             className="form-control" required="true" rows="7"
           ></textarea>
         </fieldset>
+        <div className="card markdown-card">
+          <div className="card-block main-card-block">
+            <h4 className="card-title">Markdown Previewer</h4>
+            <h6 className="card-subtitle text-muted">
+              Live preview of how the Markdown text will display
+            </h6>
+          </div>
+          <div className="card-block markdown-preview-text">
+                <h5 className="card-title">{props.title ? props.title : 'No title yet...'}</h5>
+                <ReactMarkdown className="color-me-black" source={props.content ? props.content : 'No content yet...'} />
+                <ReactMarkdown className="color-me-black" source={props.assignment ? props.assignment : 'No assignment yet...'} />
+          </div>
+        </div>
         <fieldset className="form-group">
           <label>assignment</label>
           <textarea onChange={ (event) => props.onFieldChange('assignment', event.target.value)}
             required="true" className="form-control" id="exampleTextarea" rows="5"
           ></textarea>
         </fieldset>
-        <div className="checkbox">
-          <label>
-            <input type="checkbox" /> PUBLISH BROKEN
-          </label>
-        </div>
-        <button type="submit" className="btn btn-primary my-primary-btn">Save</button>
+        <button type="submit" className="btn btn-primary my-primary-btn">Post</button>
       </form>
-      <div className="card markdown-card">
-        <div className="card-block main-card-block">
-          <h4 className="card-title">Markdown Previewer</h4>
-          <h6 className="card-subtitle text-muted">
-            Live preview of how the Markdown text will display
-          </h6>
-        </div>
-        <div className="card-block markdown-preview-text">
-              <h5 className="card-title">{props.title ? props.title : 'No title yet...'}</h5>
-              <ReactMarkdown className="color-me-black" source={props.content ? props.content : 'No content yet...'} />
-              <ReactMarkdown className="color-me-black" source={props.assignment ? props.assignment : 'No assignment yet...'} />
-        </div>
-      </div>
     </div>
   </div>;
 

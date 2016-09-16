@@ -40,6 +40,8 @@ class PostCheckpointData extends React.Component {
       data
     }).done((d) => {
       this.context.sendNotification("Checkpoint Created");
+      path = `/admin/dashboard/module/${this.props.params.module_id}`
+      browserHistory.push(path);
     });
   }
 

@@ -21,7 +21,6 @@ class PostModuleData extends React.Component {
     const newState = {};
     newState[fieldName] = fieldValue;
     this.setState(newState);
-    console.log(this.props.params.course_id);
   }
 
   handleSubmit(e) {
@@ -38,7 +37,6 @@ class PostModuleData extends React.Component {
       method: 'POST',
       data
     }).done((d) => {
-      console.log('data', d)
       this.context.sendNotification('Module created.');
       const path = '/admin/dashboard/course/' + this.props.params.course_id;
       browserHistory.push(path);

@@ -1,5 +1,6 @@
 import React from 'react';
 import EditCourseForm from './EditCourseForm';
+import { browserHistory } from 'react-router';
 
 class EditCourseData extends React.Component {
   constructor(props, context) {
@@ -43,7 +44,9 @@ class EditCourseData extends React.Component {
       method: 'PUT',
       data
     }).done((d) => {
-      console.log('successfully edited course', d)
+      this.context.sendNotification("Course Edited");
+      const path = `/admin/dashboard/courses`
+      browserHistory.push(path);
     });
   }
 
@@ -91,4 +94,8 @@ class EditCourseData extends React.Component {
 
 }
 EditCourseData.displayName = EditCourseData;
+EditCourseData.contextTypes = {
+  sendNotification: React.PropTypes.func.isRequired
+};
+
 export default EditCourseData;

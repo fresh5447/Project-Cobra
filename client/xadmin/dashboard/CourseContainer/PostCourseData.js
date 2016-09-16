@@ -41,7 +41,7 @@ class PostCourseData extends React.Component {
       data
     }).done((d) => {
       this.context.sendNotification("Course Created");
-      const path = `/a/dashboard/courses`
+      const path = `/admin/dashboard/courses`
       browserHistory.push(path);
     });
   }

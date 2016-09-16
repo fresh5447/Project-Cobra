@@ -11,7 +11,7 @@ const ModuleSchema = new Schema({
   desc: String,
   hours: Number,
   checkpoints: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Checkpoint' }],
-  order: Number,
+  order: { type: Number, default: 0 },
   complete: { type: Boolean, default: false },
   live: Boolean,
   course: { type: mongoose.Schema.Types.ObjectId, ref: 'Course' }

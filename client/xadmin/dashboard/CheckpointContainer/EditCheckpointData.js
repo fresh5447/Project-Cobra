@@ -1,5 +1,6 @@
 import React from 'react';
 import EditCheckpointForm from './EditCheckpointForm';
+import { browserHistory } from 'react-router';
 
 class EditCheckpointData extends React.Component {
   constructor(props, context) {
@@ -42,7 +43,9 @@ class EditCheckpointData extends React.Component {
       method: 'PUT',
       data
     }).done((d) => {
-      console.log('successfully edited checkpoint', d);
+      this.context.sendNotification("Checkpoint Edits Saved");
+      path = `/admin/dashboard/module/${this.props.params.module_id}`
+      browserHistory.push(path);
     });
   }
 

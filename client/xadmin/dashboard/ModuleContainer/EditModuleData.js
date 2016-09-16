@@ -1,5 +1,6 @@
 import React from 'react';
 import EditModuleForm from './EditModuleForm';
+import { browserHistory } from 'react-router';
 
 class EditModuleData extends React.Component {
   constructor(props, context) {
@@ -36,7 +37,7 @@ class EditModuleData extends React.Component {
       method: 'PUT',
       data
     }).done((d) => {
-      console.log('successfully edited course', d);
+      this.context.sendNotification('Module edits saved.');
     });
   }
 
@@ -73,4 +74,7 @@ class EditModuleData extends React.Component {
 
 }
 EditModuleData.displayName = EditModuleData;
+EditModuleData.contextTypes = {
+  sendNotification: React.PropTypes.func.isRequired
+};
 export default EditModuleData;
