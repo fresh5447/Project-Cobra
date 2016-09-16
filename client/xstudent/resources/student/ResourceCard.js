@@ -43,15 +43,6 @@ const ResourceCard = (props) => {
   );
 };
 
-ResourceCard.propTypes = {
-  toggleFav: React.PropTypes.func.isRequired,
-  setOneResource: React.PropTypes.func.isRequired,
-  deleteResource: React.PropTypes.func.isRequired,
-  title: React.PropTypes.string.isRequired,
-  fav: React.PropTypes.bool.isRequired,
-  internal: React.PropTypes.bool.isRequired,
-  categories: React.PropTypes.array.isRequired,
-  id: React.PropTypes.string.isRequired
-};
+
 
 export default ResourceCard;

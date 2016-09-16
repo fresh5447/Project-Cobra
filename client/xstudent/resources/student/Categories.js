@@ -43,11 +43,5 @@ const Categories = (props) => {
 
 Categories.displayName = Categories;
 
-Categories.propTypes = {
-  deleteResource: React.PropTypes.func.isRequired,
-  catFilter: React.PropTypes.func.isRequired,
-  toggleFav: React.PropTypes.func.isRequired,
-  resources: React.PropTypes.array.isRequired
-};
 
 export default Categories;

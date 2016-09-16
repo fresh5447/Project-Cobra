@@ -16,7 +16,7 @@ class ProfileAccountData extends React.Component {
       lastName: null,
       linkedIn: null,
       githubHandle: null,
-      twitter: null,
+      twitterHandle: null,
       bio: null,
       skype: null,
       courses: null
@@ -32,7 +32,12 @@ class ProfileAccountData extends React.Component {
         alert('you must be signed in to view this');
         return browserHistory.push('/login');
       } else {
-        return this.setState({ user: data });
+        return this.setState({
+          user: data, email: data.local.email,
+          firstName: data.local.firstName, lastName: data.local.lastName,
+          linkedIn: data.local.linkedIn, githubHandle: data.local.githubHandle,
+          twitterHandle: data.local.twitterHandle, bio: data.local.bio, skype: data.local.skype
+        });
       }
     });
   }
@@ -48,7 +53,7 @@ class ProfileAccountData extends React.Component {
       lastName: this.state.lastName,
       linkedIn: this.state.linkedIn,
       githubHandle: this.state.githubHandle,
-      twitter: this.state.twitter,
+      twitterHandle: this.state.twitterHandle,
       bio: this.state.bio,
       skype: this.state.skype
     };
@@ -70,6 +75,14 @@ class ProfileAccountData extends React.Component {
     } else if (this.state.activeComp === 'edit' && this.state.user) {
       return (<EditProfileView onFieldChange={(...args) => this.onFieldChange(...args)}
         user={this.state.user}
+        email={this.state.email}
+        firstName={this.state.firstName}
+        lastName={this.state.lastName}
+        linkedIn={this.state.linkedIn}
+        githubHandle={this.state.githubHandle}
+        twitterHandle={this.state.twitterHandle}
+        bio={this.state.bio}
+        skype={this.state.skype}
         handleSubmit={this.handleSubmit}
       />);
     } else {

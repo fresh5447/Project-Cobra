@@ -6,6 +6,7 @@ const AllStudentsTable = (props) => {
     (
         <tr>
           <th><NavLink to={'/admin/student/view/' + item._id}>{ item.local.email }</NavLink></th>
+          <th>{ item.local.role }</th>
         </tr>
       )
   );
@@ -16,6 +17,7 @@ const AllStudentsTable = (props) => {
         <thead className="thead-inverse">
           <tr>
             <th className="my-thead">email</th>
+            <th className="my-thead">role</th>
           </tr>
         </thead>
         <tbody>

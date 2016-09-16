@@ -7,7 +7,6 @@ class ProfileData extends React.Component {
       <div className="container">
         <div className="row">
         <ul className="profile-links">
-          {/*<li><NavLink to="/profile/submissions"><h3>Activity</h3></NavLink></li>*/}
           <li><NavLink to="/profile/account"><h3>Account</h3></NavLink></li>
         </ul>
         </div>

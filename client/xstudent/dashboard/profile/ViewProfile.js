@@ -15,11 +15,11 @@ const ViewProfile = (props) =>
       </div>
       <ul className="profile-links">
         <h5>{props.user.local.firstName + " " + props.user.local.lastName} </h5>
-      {/*<button
+      <button
         onClick={props.changeActiveComp.bind(this, 'edit')}
         className="btn btn-primary submit-btn"
       >
-      Edit</button>*/}
+      Edit</button>
         <li><span className="profile-field-value"> email </span><span className="profile-field"> {props.user.local.email || "edit profile to complete.."}</span></li>
         <li><span className="profile-field-value"> linkedIn Url </span><span className="profile-field"> {props.user.local.linkedIn || "edit profile to complete.."}</span></li>
         <li><span className="profile-field-value"> twitter handle </span> <span className="profile-field">{props.user.local.twitterHandle || "edit profile to complete.."}</span></li>
